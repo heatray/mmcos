@@ -1,0 +1,848 @@
+6804:9:websocket;0:~8:response;673:6:reason;2:OK,11:status_code;3:200#13:timestamp_end;17:1694881802.654963^15:timestamp_start;18:1694881802.6522381^8:trailers;0:~7:content;203:<OnlineServiceStatus>
+
+  <Message display="false" localize="false">
+    Server is up!
+  </Message>
+  
+  <ServerStatus accessible="true"/>
+  <Egonet enabled="true"/>
+    
+</OnlineServiceStatus>
+,7:headers;285:27:12:Content-Type,8:text/xml,]50:13:Last-Modified,29:Fri, 30 Jun 2017 13:29:18 GMT,]25:13:Accept-Ranges,5:bytes,]30:4:ETag,19:"567e4de0a4f1d21:0",]31:6:Server,18:Microsoft-IIS/10.0,]26:12:X-Powered-By,7:ASP.NET,]40:4:Date,29:Sat, 16 Sep 2023 16:30:02 GMT,]24:14:Content-Length,3:203,]]12:http_version;8:HTTP/1.1,}7:request;517:4:path;42:/MMCOS/MMCOS-ServerStatus/ServerStatus.xml,9:authority;0:,6:scheme;5:https,6:method;3:GET,4:port;3:443#4:host;21:mmcos.codemasters.com;13:timestamp_end;18:1694881802.6279478^15:timestamp_start;18:1694881802.6250153^8:trailers;0:~7:content;0:,7:headers;223:32:4:Host,21:mmcos.codemasters.com,]58:10:User-Agent,40:UnityPlayer/5.4.5p1 (http://unity3d.com),]15:6:Accept,3:*/*,]30:15:Accept-Encoding,8:identity,]29:15:X-Unity-Version,7:5.4.5p1,]35:12:content-type,15:application/xml,]]12:http_version;8:HTTP/1.1,}6:backup;0:~17:timestamp_created;17:1694881802.625372^7:comment;0:;8:metadata;0:}6:marked;0:;9:is_replay;0:~11:intercepted;5:false!11:server_conn;4754:3:via;0:~19:timestamp_tcp_setup;18:1694881802.4534972^7:address;31:21:mmcos.codemasters.com;3:443#]19:timestamp_tls_setup;17:1694881802.509204^13:timestamp_end;18:1694881802.7119825^15:timestamp_start;18:1694881802.4203236^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES256-GCM-SHA384;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;4167:2394:-----BEGIN CERTIFICATE-----
+MIIGuzCCBaOgAwIBAgIQA2oXbx1OCTGJED+Fdu7l0jANBgkqhkiG9w0BAQsFADBN
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMScwJQYDVQQDEx5E
+aWdpQ2VydCBTSEEyIFNlY3VyZSBTZXJ2ZXIgQ0EwHhcNMjMwNzA0MDAwMDAwWhcN
+MjQwNzAzMjM1OTU5WjB1MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ0FMSUZPUk5J
+QTEVMBMGA1UEBxMMUmVkd29vZCBDaXR5MR4wHAYDVQQKExVFbGVjdHJvbmljIEFy
+dHMsIEluYy4xGjAYBgNVBAMMESouY29kZW1hc3RlcnMuY29tMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzPEO73a4C7q9YJcIrolZiW0zzhrQxCGQdgqe
+AOZgekqQ2g/EcLZL1WCD2uiDGbZ+dFZT+1v2zCFe9oPUQFCuAaeSu/2esWuHPKjm
+PyMezTl7KKmbth9ntjf4+wojOmCgowYAzSNIIYVUGbHqN1m7AcUp0Klg+wL6ONsp
+JI2SVPVD9JZlZgTc0VSvgdKCZLyVDIQ3fGxhg1hGqlD1Suctxv+1Zp+r2ohlzGd1
+JfAQ6fLcIordBs6IKfMqT3N5p4KUr13jtOdeeEf+zhVlMZRZWW3mYKv0s72+ERGj
+Zr8jW6sotbcsVOOj+CBDUD2ztzA38zUFCY+t6cbxL59zmLAEVQIDAQABo4IDbTCC
+A2kwHwYDVR0jBBgwFoAUD4BhHIIxYdUvKOeNRji0LOHG2eIwHQYDVR0OBBYEFCGc
+NLTCF5joDuMIwItBh3QSGAwEMBwGA1UdEQQVMBOCESouY29kZW1hc3RlcnMuY29t
+MA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIw
+gY0GA1UdHwSBhTCBgjA/oD2gO4Y5aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0Rp
+Z2ljZXJ0U0hBMlNlY3VyZVNlcnZlckNBLTEuY3JsMD+gPaA7hjlodHRwOi8vY3Js
+NC5kaWdpY2VydC5jb20vRGlnaWNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMS5jcmww
+PgYDVR0gBDcwNTAzBgZngQwBAgIwKTAnBggrBgEFBQcCARYbaHR0cDovL3d3dy5k
+aWdpY2VydC5jb20vQ1BTMH4GCCsGAQUFBwEBBHIwcDAkBggrBgEFBQcwAYYYaHR0
+cDovL29jc3AuZGlnaWNlcnQuY29tMEgGCCsGAQUFBzAChjxodHRwOi8vY2FjZXJ0
+cy5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMi5jcnQw
+CQYDVR0TBAIwADCCAX0GCisGAQQB1nkCBAIEggFtBIIBaQFnAHYA7s3QZNXbGs7F
+XLedtM0TojKHRny87N7DUUhZRnEftZsAAAGJIJS8fgAABAMARzBFAiA5sUBggWkb
+xYVBvqHSiFcsqbQiZK1RQiyrGGKXwfBBnQIhAK/MQolp5eTmOR3Z6vxHSoX+bkrd
+XJwFLsRI6qME4+c+AHYASLDja9qmRzQP5WoC+p0w6xxSActW3SyB2bu/qznYhHMA
+AAGJIJS85AAABAMARzBFAiEA9p5CjJZs71qhesjs6UGHwylSFnfGH7c8RPXbfW8U
+/joCIGjnQl232UyGb01+gNi1goIuKnzDlogy0Y7OcTlPC3CbAHUA2ra/az+1tiKf
+m8K7XGvocJFxbLtRhIU0vaQ9MEjX+6sAAAGJIJS88QAABAMARjBEAiAjoXK+Qhvl
+hatbz6iArlvFVoHw4aJCR6ksFr0eSuVPhgIga4BuN3+9iiUAYVajMufrOBe9IWnK
+YYmKzhFmH5xRKD0wDQYJKoZIhvcNAQELBQADggEBAAr3gMFEfvtnkzVdPjDKRRO+
+zGwTrAgePmdCF5dJ5NXh+vE0fixPoCzUgGgTe+dS75DFsqYFJmt2oNHky8NSn8C7
+7Ow7SZPDcfsGD1pnhJX3qBnOP/wWR0+GPw4ORrdEj3mp6LXZzrkOpS1GYlfaaGzb
+JhVIaaqwPngbGjGjS1/b2QWDDGTXJePAvaLR+krXjEEQtLPgLlulGGfU6Vgjqco/
+3IO/ltlkGNpbK1Am87l9AQDTrnQs8P+79MbKGRmInfACu6/hMtWktVqEEUw5zGZO
+O6I4+ye84Ejvauladg5LDx+3NjouVxY0VAzPyzXUKY2WfQGgNlVAoOhEfriIrS0=
+-----END CERTIFICATE-----
+,1761:-----BEGIN CERTIFICATE-----
+MIIE6DCCA9CgAwIBAgIQAnQuqhfKjiHHF7sf/P0MoDANBgkqhkiG9w0BAQsFADBh
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD
+QTAeFw0yMDA5MjMwMDAwMDBaFw0zMDA5MjIyMzU5NTlaME0xCzAJBgNVBAYTAlVT
+MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxJzAlBgNVBAMTHkRpZ2lDZXJ0IFNIQTIg
+U2VjdXJlIFNlcnZlciBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+ANyuWJBNwcQwFZA1W248ghX1LFy949v/cUP6ZCWA1O4Yok3wZtAKc24RmDYXZK83
+nf36QYSvx6+M/hpzTc8zl5CilodTgyu5pnVILR1WN3vaMTIa16yrBvSqXUu3R0bd
+KpPDkC55gIDvEwRqFDu1m5K+wgdlTvza/P96rtxcflUxDOg5B6TXvi/TC2rSsd9f
+/ld0Uzs1gN2ujkSYs58O09rg1/RrKatEp0tYhG2SS4HD2nOLEpdIkARFdRrdNzGX
+kujNVA075ME/OV4uuPNcfhCOhkEAjUVmR7ChZc6gqikJTvOX6+guqw9ypzAO+sf0
+/RR3w6RbKFfCs/mC/bdFWJsCAwEAAaOCAa4wggGqMB0GA1UdDgQWBBQPgGEcgjFh
+1S8o541GOLQs4cbZ4jAfBgNVHSMEGDAWgBQD3lA1VtFMu2bwo+IbG8OXsj3RVTAO
+BgNVHQ8BAf8EBAMCAYYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBIG
+A1UdEwEB/wQIMAYBAf8CAQAwdgYIKwYBBQUHAQEEajBoMCQGCCsGAQUFBzABhhho
+dHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQAYIKwYBBQUHMAKGNGh0dHA6Ly9jYWNl
+cnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RDQS5jcnQwewYDVR0f
+BHQwcjA3oDWgM4YxaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0R2xv
+YmFsUm9vdENBLmNybDA3oDWgM4YxaHR0cDovL2NybDQuZGlnaWNlcnQuY29tL0Rp
+Z2lDZXJ0R2xvYmFsUm9vdENBLmNybDAwBgNVHSAEKTAnMAcGBWeBDAEBMAgGBmeB
+DAECATAIBgZngQwBAgIwCAYGZ4EMAQIDMA0GCSqGSIb3DQEBCwUAA4IBAQB3MR8I
+l9cSm2PSEWUIpvZlubj6kgPLoX7hyA2MPrQbkb4CCF6fWXF7Ef3gwOOPWdegUqHQ
+S1TSSJZI73fpKQbLQxCgLzwWji3+HlU87MOY7hgNI+gH9bMtxKtXc1r2G1O6+x/6
+vYzTUVEgR17vf5irF0LKhVyfIjc0RXbyQ14AniKDrN+v0ebHExfppGlkTIBn6rak
+f4994VH6npdn6mkus5CkHBXIrMtPKex6XF2firjUDLuU7tC8y7WlHgjPxEEDDb0G
+w6D0yDdVSvG/5XlCNatBmO/8EznDu1vr72N8gJzISUZwa6CCUD7QBLbKJcXBBVVf
+8nwvV9GvlW+sbXlr
+-----END CERTIFICATE-----
+,]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:b23d9683-5774-43ca-a53b-5667d3f22162;8:sockname;26:14:176.124.201.58;5:59068#]8:peername;23:13:94.75.196.116;3:443#]}11:client_conn;557:10:proxy_mode;41:reverse:https://mmcos.codemasters.com@443;8:mitmcert;0:~19:timestamp_tls_setup;18:1694881802.5722857^13:timestamp_end;18:1694881802.7107205^15:timestamp_start;18:1694881802.4184818^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES128-GCM-SHA256;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;0:]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:220e925b-073e-41b4-b990-1d17dc3ccd3c;8:sockname;24:14:176.124.201.58;3:443#]8:peername;23:11:5.227.24.31;5:50708#]}5:error;0:~2:id;36:8cd5386a-7fa6-424e-80c7-0ad0c2aac1c4;4:type;4:http;7:version;2:20#}65235:9:websocket;0:~8:response;58340:6:reason;2:OK,11:status_code;3:200#13:timestamp_end;18:1694881803.5307782^15:timestamp_start;18:1694881803.5233083^8:trailers;0:~7:content;57959:<LoginDetails xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Error i:nil="true"/><GameConfigurationData><CurrentEvent><CurrentEvent><BackgroundImageURL i:nil="true"/><ButtonImageURL i:nil="true"/><DescriptionLocString i:nil="true"/><DevName i:nil="true"/><EventID>0</EventID><PlaylistID>0</PlaylistID><PrizeCode i:nil="true"/><TitleLocString i:nil="true"/></CurrentEvent><Error i:nil="true"/><NextEvent>2023-09-16T00:00:00Z</NextEvent></CurrentEvent><DivisionBands><Entries><DivisionBandEntry><BonusPoints>0</BonusPoints><DivisionID>0</DivisionID><MinPoints>0</MinPoints><PromotionPrizeCode>Boxes:1:</PromotionPrizeCode><RelegationMinPoints>0</RelegationMinPoints></DivisionBandEntry><DivisionBandEntry><BonusPoints>0</BonusPoints><DivisionID>1</DivisionID><MinPoints>500</MinPoints><PromotionPrizeCode>Boxes:1:</PromotionPrizeCode><RelegationMinPoints>0</RelegationMinPoints></DivisionBandEntry><DivisionBandEntry><BonusPoints>100</BonusPoints><DivisionID>2</DivisionID><MinPoints>1000</MinPoints><PromotionPrizeCode>Boxes:1:</PromotionPrizeCode><RelegationMinPoints>750</RelegationMinPoints></DivisionBandEntry><DivisionBandEntry><BonusPoints>250</BonusPoints><DivisionID>3</DivisionID><MinPoints>1500</MinPoints><PromotionPrizeCode>Boxes:1:</PromotionPrizeCode><RelegationMinPoints>1250</RelegationMinPoints></DivisionBandEntry><DivisionBandEntry><BonusPoints>500</BonusPoints><DivisionID>4</DivisionID><MinPoints>2000</MinPoints><PromotionPrizeCode>Boxes:1:</PromotionPrizeCode><RelegationMinPoints>1750</RelegationMinPoints></DivisionBandEntry><DivisionBandEntry><BonusPoints>750</BonusPoints><DivisionID>5</DivisionID><MinPoints>2500</MinPoints><PromotionPrizeCode>Boxes:1:</PromotionPrizeCode><RelegationMinPoints>2250</RelegationMinPoints></DivisionBandEntry><DivisionBandEntry><BonusPoints>750</BonusPoints><DivisionID>6</DivisionID><MinPoints>3000</MinPoints><PromotionPrizeCode>Unlock:0:player_title_elite</PromotionPrizeCode><RelegationMinPoints>0</RelegationMinPoints></DivisionBandEntry></Entries></DivisionBands><DivisionPrizes><Entries><DivisionPrizeEntry><DivisionID>0</DivisionID><PrizeCode>Boxes:1:</PrizeCode></DivisionPrizeEntry><DivisionPrizeEntry><DivisionID>1</DivisionID><PrizeCode>Boxes:1:</PrizeCode></DivisionPrizeEntry><DivisionPrizeEntry><DivisionID>2</DivisionID><PrizeCode>Boxes:2:</PrizeCode></DivisionPrizeEntry><DivisionPrizeEntry><DivisionID>3</DivisionID><PrizeCode>Boxes:1:</PrizeCode></DivisionPrizeEntry><DivisionPrizeEntry><DivisionID>4</DivisionID><PrizeCode>Boxes:3:</PrizeCode></DivisionPrizeEntry><DivisionPrizeEntry><DivisionID>5</DivisionID><PrizeCode>Boxes:5:</PrizeCode></DivisionPrizeEntry><DivisionPrizeEntry><DivisionID>6</DivisionID><PrizeCode>Boxes:1:</PrizeCode></DivisionPrizeEntry><DivisionPrizeEntry><DivisionID>7</DivisionID><PrizeCode>Boxes:1:</PrizeCode></DivisionPrizeEntry><DivisionPrizeEntry><DivisionID>8</DivisionID><PrizeCode>Boxes:1:</PrizeCode></DivisionPrizeEntry><DivisionPrizeEntry><DivisionID>9</DivisionID><PrizeCode>Boxes:1:</PrizeCode></DivisionPrizeEntry><DivisionPrizeEntry><DivisionID>10</DivisionID><PrizeCode>Boxes:1:</PrizeCode></DivisionPrizeEntry></Entries></DivisionPrizes><Error i:nil="true"/><Hash>-1647532852</Hash><NextActiveSeasonDate>2023-11-01T00:00:00Z</NextActiveSeasonDate><NextInactiveSeasonDate>2023-10-15T00:00:00Z</NextInactiveSeasonDate><Playlists><Error i:nil="true"/><Playlists><Playlist><GameModes xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>elimination</a:string></GameModes><Levels xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>track_grdn_a</a:string><a:string>track_grom_a</a:string><a:string>track_grom_b</a:string><a:string>track_kchn_a</a:string><a:string>track_kchn_b</a:string><a:string>track_kchn_c</a:string><a:string>track_schl_a</a:string><a:string>track_tyrm_a</a:string><a:string>track_wksp_a</a:string></Levels><Mutators><PlaylistMutator><Name>EliminationAirstrike</Name><Parameter1>0</Parameter1><Parameter2>0</Parameter2></PlaylistMutator></Mutators><Name>Ranked Play Elimination</Name><PlaylistID>12</PlaylistID><SubType>elimination</SubType><Type>ranked</Type><Vehicles xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>Ambulance</a:string><a:string>DumpTruck</a:string><a:string>FireTruck</a:string><a:string>FutureSportsCar</a:string><a:string>GIJoeHiss</a:string><a:string>GIJoeMobat</a:string><a:string>HotRod</a:string><a:string>HoverCraft</a:string><a:string>MonsterTruck</a:string><a:string>PoliceCar</a:string><a:string>SnowTracker</a:string><a:string>SpyCar</a:string></Vehicles></Playlist><Playlist><GameModes xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>ctf</a:string><a:string>bomb</a:string><a:string>territory</a:string><a:string>race</a:string><a:string>elimination</a:string></GameModes><Levels xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>arena_grdn_a</a:string><a:string>arena_grdn_b</a:string><a:string>arena_grdn_c</a:string><a:string>arena_grdn_d</a:string><a:string>arena_grom_a</a:string><a:string>arena_grom_b</a:string><a:string>arena_kchn_a</a:string><a:string>arena_schl_a</a:string><a:string>arena_schl_b</a:string><a:string>arena_tyrm_a</a:string><a:string>arena_tyrm_b</a:string><a:string>arena_wksp_a</a:string><a:string>arena_wksp_b</a:string><a:string>arena_wksp_c</a:string><a:string>arena_wksp_d</a:string><a:string>track_grdn_a</a:string><a:string>track_grom_a</a:string><a:string>track_grom_b</a:string><a:string>track_kchn_a</a:string><a:string>track_kchn_b</a:string><a:string>track_kchn_c</a:string><a:string>track_schl_a</a:string><a:string>track_tyrm_a</a:string><a:string>track_wksp_a</a:string></Levels><Mutators><PlaylistMutator><Name>XpModifier</Name><Parameter1>1.5</Parameter1><Parameter2>0</Parameter2></PlaylistMutator></Mutators><Name>Ranked Play Random</Name><PlaylistID>13</PlaylistID><SubType>random</SubType><Type>ranked</Type><Vehicles xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>Ambulance</a:string><a:string>DumpTruck</a:string><a:string>FireTruck</a:string><a:string>FutureSportsCar</a:string><a:string>GIJoeHiss</a:string><a:string>GIJoeMobat</a:string><a:string>HotRod</a:string><a:string>HoverCraft</a:string><a:string>MonsterTruck</a:string><a:string>PoliceCar</a:string><a:string>SnowTracker</a:string><a:string>SpyCar</a:string></Vehicles></Playlist><Playlist><GameModes xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>ctf</a:string><a:string>bomb</a:string><a:string>territory</a:string><a:string>race</a:string><a:string>elimination</a:string></GameModes><Levels xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>arena_grdn_a</a:string><a:string>arena_grdn_b</a:string><a:string>arena_grdn_c</a:string><a:string>arena_grdn_d</a:string><a:string>arena_grom_a</a:string><a:string>arena_grom_b</a:string><a:string>arena_kchn_a</a:string><a:string>arena_schl_a</a:string><a:string>arena_schl_b</a:string><a:string>arena_tyrm_a</a:string><a:string>arena_tyrm_b</a:string><a:string>arena_wksp_a</a:string><a:string>arena_wksp_b</a:string><a:string>arena_wksp_c</a:string><a:string>arena_wksp_d</a:string><a:string>track_grdn_a</a:string><a:string>track_grom_a</a:string><a:string>track_grom_b</a:string><a:string>track_kchn_a</a:string><a:string>track_kchn_b</a:string><a:string>track_kchn_c</a:string><a:string>track_schl_a</a:string><a:string>track_tyrm_a</a:string><a:string>track_wksp_a</a:string></Levels><Mutators><PlaylistMutator><Name>XpModifier</Name><Parameter1>1.5</Parameter1><Parameter2>0</Parameter2></PlaylistMutator></Mutators><Name>Quick Play Random</Name><PlaylistID>14</PlaylistID><SubType>random</SubType><Type>quick</Type><Vehicles xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>Ambulance</a:string><a:string>DumpTruck</a:string><a:string>FireTruck</a:string><a:string>FutureSportsCar</a:string><a:string>GIJoeHiss</a:string><a:string>GIJoeMobat</a:string><a:string>HotRod</a:string><a:string>HoverCraft</a:string><a:string>MonsterTruck</a:string><a:string>PoliceCar</a:string><a:string>SnowTracker</a:string><a:string>SpyCar</a:string></Vehicles></Playlist><Playlist><GameModes xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>race</a:string></GameModes><Levels xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>track_grdn_a</a:string><a:string>track_grom_a</a:string><a:string>track_grom_b</a:string><a:string>track_kchn_a</a:string><a:string>track_kchn_b</a:string><a:string>track_kchn_c</a:string><a:string>track_schl_a</a:string><a:string>track_tyrm_a</a:string><a:string>track_wksp_a</a:string></Levels><Mutators/><Name>Quick Play Race</Name><PlaylistID>7</PlaylistID><SubType>race</SubType><Type>quick</Type><Vehicles xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>Ambulance</a:string><a:string>DumpTruck</a:string><a:string>FireTruck</a:string><a:string>FutureSportsCar</a:string><a:string>GIJoeHiss</a:string><a:string>GIJoeMobat</a:string><a:string>HotRod</a:string><a:string>HoverCraft</a:string><a:string>MonsterTruck</a:string><a:string>PoliceCar</a:string><a:string>SnowTracker</a:string><a:string>SpyCar</a:string></Vehicles></Playlist><Playlist><GameModes xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>elimination</a:string></GameModes><Levels xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>track_grdn_a</a:string><a:string>track_grom_a</a:string><a:string>track_grom_b</a:string><a:string>track_kchn_a</a:string><a:string>track_kchn_b</a:string><a:string>track_kchn_c</a:string><a:string>track_schl_a</a:string><a:string>track_tyrm_a</a:string><a:string>track_wksp_a</a:string></Levels><Mutators><PlaylistMutator><Name>EliminationAirstrike</Name><Parameter1>0</Parameter1><Parameter2>0</Parameter2></PlaylistMutator></Mutators><Name>Quick Play Elimination</Name><PlaylistID>8</PlaylistID><SubType>elimination</SubType><Type>quick</Type><Vehicles xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>Ambulance</a:string><a:string>DumpTruck</a:string><a:string>FireTruck</a:string><a:string>FutureSportsCar</a:string><a:string>GIJoeHiss</a:string><a:string>GIJoeMobat</a:string><a:string>HotRod</a:string><a:string>HoverCraft</a:string><a:string>MonsterTruck</a:string><a:string>PoliceCar</a:string><a:string>SnowTracker</a:string><a:string>SpyCar</a:string></Vehicles></Playlist><Playlist><GameModes xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>ctf</a:string><a:string>bomb</a:string><a:string>territory</a:string></GameModes><Levels xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>arena_grdn_a</a:string><a:string>arena_grdn_b</a:string><a:string>arena_grdn_c</a:string><a:string>arena_grdn_d</a:string><a:string>arena_grom_a</a:string><a:string>arena_grom_b</a:string><a:string>arena_kchn_a</a:string><a:string>arena_schl_a</a:string><a:string>arena_schl_b</a:string><a:string>arena_tyrm_a</a:string><a:string>arena_tyrm_b</a:string><a:string>arena_wksp_a</a:string><a:string>arena_wksp_b</a:string><a:string>arena_wksp_c</a:string><a:string>arena_wksp_d</a:string></Levels><Mutators/><Name>Quick Play Battle</Name><PlaylistID>9</PlaylistID><SubType>battle</SubType><Type>quick</Type><Vehicles xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>Ambulance</a:string><a:string>DumpTruck</a:string><a:string>FireTruck</a:string><a:string>FutureSportsCar</a:string><a:string>GIJoeHiss</a:string><a:string>GIJoeMobat</a:string><a:string>HotRod</a:string><a:string>HoverCraft</a:string><a:string>MonsterTruck</a:string><a:string>PoliceCar</a:string><a:string>SnowTracker</a:string><a:string>SpyCar</a:string></Vehicles></Playlist><Playlist><GameModes xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>ctf</a:string><a:string>bomb</a:string><a:string>territory</a:string></GameModes><Levels xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>arena_grdn_a</a:string><a:string>arena_grdn_b</a:string><a:string>arena_grdn_c</a:string><a:string>arena_grdn_d</a:string><a:string>arena_grom_a</a:string><a:string>arena_grom_b</a:string><a:string>arena_kchn_a</a:string><a:string>arena_schl_a</a:string><a:string>arena_schl_b</a:string><a:string>arena_tyrm_a</a:string><a:string>arena_tyrm_b</a:string><a:string>arena_wksp_a</a:string><a:string>arena_wksp_b</a:string><a:string>arena_wksp_c</a:string><a:string>arena_wksp_d</a:string></Levels><Mutators/><Name>Ranked Play Battle</Name><PlaylistID>10</PlaylistID><SubType>battle</SubType><Type>ranked</Type><Vehicles xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>Ambulance</a:string><a:string>DumpTruck</a:string><a:string>FireTruck</a:string><a:string>FutureSportsCar</a:string><a:string>GIJoeHiss</a:string><a:string>GIJoeMobat</a:string><a:string>HotRod</a:string><a:string>HoverCraft</a:string><a:string>MonsterTruck</a:string><a:string>PoliceCar</a:string><a:string>SnowTracker</a:string><a:string>SpyCar</a:string></Vehicles></Playlist><Playlist><GameModes xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>race</a:string></GameModes><Levels xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>track_grdn_a</a:string><a:string>track_grom_a</a:string><a:string>track_grom_b</a:string><a:string>track_kchn_a</a:string><a:string>track_kchn_b</a:string><a:string>track_kchn_c</a:string><a:string>track_schl_a</a:string><a:string>track_tyrm_a</a:string><a:string>track_wksp_a</a:string></Levels><Mutators/><Name>Ranked Play Race</Name><PlaylistID>11</PlaylistID><SubType>race</SubType><Type>ranked</Type><Vehicles xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:string>Ambulance</a:string><a:string>DumpTruck</a:string><a:string>FireTruck</a:string><a:string>FutureSportsCar</a:string><a:string>GIJoeHiss</a:string><a:string>GIJoeMobat</a:string><a:string>HotRod</a:string><a:string>HoverCraft</a:string><a:string>MonsterTruck</a:string><a:string>PoliceCar</a:string><a:string>SnowTracker</a:string><a:string>SpyCar</a:string></Vehicles></Playlist></Playlists></Playlists><RankBonus><Entries><RankBonusEntry><BonusPoints>50</BonusPoints><MinRank>10</MinRank></RankBonusEntry><RankBonusEntry><BonusPoints>100</BonusPoints><MinRank>100</MinRank></RankBonusEntry><RankBonusEntry><BonusPoints>150</BonusPoints><MinRank>1000</MinRank></RankBonusEntry><RankBonusEntry><BonusPoints>0</BonusPoints><MinRank>10000</MinRank></RankBonusEntry></Entries></RankBonus><RankPrizes><Entries><RankPrizeEntry><MinRank>10</MinRank><PrizeCode>Boxes:4:</PrizeCode></RankPrizeEntry><RankPrizeEntry><MinRank>100</MinRank><PrizeCode>Boxes:1:</PrizeCode></RankPrizeEntry><RankPrizeEntry><MinRank>1000</MinRank><PrizeCode>Boxes:1:</PrizeCode></RankPrizeEntry><RankPrizeEntry><MinRank>10000</MinRank><PrizeCode>Boxes:1:</PrizeCode></RankPrizeEntry></Entries></RankPrizes><RequestedDivision>0</RequestedDivision><RequestedDivisionBands i:nil="true"/><RequestedDivisionPrizes i:nil="true"/><RequestedRank>0</RequestedRank><RequestedRankBonus i:nil="true"/><RequestedRankPrizes i:nil="true"/><ScoringConstants><Entries><ScoringConstantEntry><Name>SOLO_Pos8_OutOf9</Name><Value>-40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos9_OutOf9</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos1_OutOf10</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos2_OutOf10</Name><Value>40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos3_OutOf10</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos4_OutOf10</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos5_OutOf10</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos6_OutOf10</Name><Value>-10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos7_OutOf10</Name><Value>-20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos8_OutOf10</Name><Value>-30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos9_OutOf10</Name><Value>-40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos10_OutOf10</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos1_OutOf11</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos2_OutOf11</Name><Value>40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos3_OutOf11</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos4_OutOf11</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos5_OutOf11</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos6_OutOf11</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos7_OutOf11</Name><Value>-10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos8_OutOf11</Name><Value>-20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos9_OutOf11</Name><Value>-30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos10_OutOf11</Name><Value>-40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos11_OutOf11</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos1_OutOf12</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos2_OutOf12</Name><Value>50</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos3_OutOf12</Name><Value>40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos4_OutOf12</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos5_OutOf12</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos6_OutOf12</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos7_OutOf12</Name><Value>-10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos8_OutOf12</Name><Value>-20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos9_OutOf12</Name><Value>-30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos10_OutOf12</Name><Value>-40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos11_OutOf12</Name><Value>-50</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos12_OutOf12</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Streak</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Underdog</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Overpowered</Name><Value>-20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_StreakPosition</Name><Value>3</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_UnderdogPercentage</Name><Value>90</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_OverpoweredPercentage</Name><Value>110</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos1_OutOf2</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos2_OutOf2</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos1_OutOf3</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos2_OutOf3</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos3_OutOf3</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos1_OutOf4</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos2_OutOf4</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos3_OutOf4</Name><Value>-30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos4_OutOf4</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos1_OutOf5</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos2_OutOf5</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos3_OutOf5</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos4_OutOf5</Name><Value>-30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos5_OutOf5</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos1_OutOf6</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos2_OutOf6</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos3_OutOf6</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos4_OutOf6</Name><Value>-10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos5_OutOf6</Name><Value>-30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos6_OutOf6</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos1_OutOf7</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos2_OutOf7</Name><Value>40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos3_OutOf7</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos4_OutOf7</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos5_OutOf7</Name><Value>-20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos6_OutOf7</Name><Value>-40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos7_OutOf7</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos1_OutOf8</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos2_OutOf8</Name><Value>40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos3_OutOf8</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos4_OutOf8</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos5_OutOf8</Name><Value>-10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos6_OutOf8</Name><Value>-20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos7_OutOf8</Name><Value>-40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos8_OutOf8</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos1_OutOf9</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos2_OutOf9</Name><Value>40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos3_OutOf9</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos4_OutOf9</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos5_OutOf9</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos6_OutOf9</Name><Value>-10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos7_OutOf9</Name><Value>-20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos8_OutOf9</Name><Value>-40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos9_OutOf9</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos1_OutOf10</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos2_OutOf10</Name><Value>40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos3_OutOf10</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos4_OutOf10</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos5_OutOf10</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos6_OutOf10</Name><Value>-10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos7_OutOf10</Name><Value>-20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos8_OutOf10</Name><Value>-30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos9_OutOf10</Name><Value>-40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos10_OutOf10</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos1_OutOf11</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos2_OutOf11</Name><Value>40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos3_OutOf11</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos4_OutOf11</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos5_OutOf11</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos6_OutOf11</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos7_OutOf11</Name><Value>-10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos8_OutOf11</Name><Value>-20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos9_OutOf11</Name><Value>-30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos10_OutOf11</Name><Value>-40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos11_OutOf11</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos1_OutOf12</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos2_OutOf12</Name><Value>50</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos3_OutOf12</Name><Value>40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos4_OutOf12</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos5_OutOf12</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos6_OutOf12</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos7_OutOf12</Name><Value>-10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos8_OutOf12</Name><Value>-20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos9_OutOf12</Name><Value>-30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos10_OutOf12</Name><Value>-40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos11_OutOf12</Name><Value>-50</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Pos12_OutOf12</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Streak</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Underdog</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_SKILLPOINTS_Overpowered</Name><Value>-20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos1_OutOf2</Name><Value>1000</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos2_OutOf2</Name><Value>500</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos1_OutOf3</Name><Value>1000</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos2_OutOf3</Name><Value>750</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos3_OutOf3</Name><Value>500</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos1_OutOf4</Name><Value>1000</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos2_OutOf4</Name><Value>800</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos3_OutOf4</Name><Value>700</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos4_OutOf4</Name><Value>500</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos1_OutOf5</Name><Value>1000</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos2_OutOf5</Name><Value>800</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos3_OutOf5</Name><Value>700</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos4_OutOf5</Name><Value>600</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos5_OutOf5</Name><Value>500</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos1_OutOf6</Name><Value>1000</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos2_OutOf6</Name><Value>900</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos3_OutOf6</Name><Value>800</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos4_OutOf6</Name><Value>700</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos5_OutOf6</Name><Value>600</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos6_OutOf6</Name><Value>500</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos1_OutOf7</Name><Value>1000</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos2_OutOf7</Name><Value>900</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos3_OutOf7</Name><Value>800</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos4_OutOf7</Name><Value>750</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos5_OutOf7</Name><Value>700</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos6_OutOf7</Name><Value>600</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos7_OutOf7</Name><Value>500</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos1_OutOf8</Name><Value>1000</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos2_OutOf8</Name><Value>900</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos3_OutOf8</Name><Value>800</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos4_OutOf8</Name><Value>750</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos5_OutOf8</Name><Value>700</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos6_OutOf8</Name><Value>650</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos7_OutOf8</Name><Value>600</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos8_OutOf8</Name><Value>500</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos1_OutOf9</Name><Value>1000</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos2_OutOf9</Name><Value>900</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos3_OutOf9</Name><Value>850</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos4_OutOf9</Name><Value>800</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos5_OutOf9</Name><Value>750</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos6_OutOf9</Name><Value>700</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos7_OutOf9</Name><Value>650</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos8_OutOf9</Name><Value>600</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos9_OutOf9</Name><Value>500</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos1_OutOf10</Name><Value>1000</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos2_OutOf10</Name><Value>900</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos3_OutOf10</Name><Value>850</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos4_OutOf10</Name><Value>800</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos5_OutOf10</Name><Value>750</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos6_OutOf10</Name><Value>700</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos7_OutOf10</Name><Value>650</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos8_OutOf10</Name><Value>600</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos9_OutOf10</Name><Value>550</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos10_OutOf10</Name><Value>500</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos1_OutOf11</Name><Value>1000</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos2_OutOf11</Name><Value>950</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos3_OutOf11</Name><Value>900</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos4_OutOf11</Name><Value>850</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos5_OutOf11</Name><Value>800</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos6_OutOf11</Name><Value>753</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos7_OutOf11</Name><Value>700</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos8_OutOf11</Name><Value>650</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos9_OutOf11</Name><Value>600</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos10_OutOf11</Name><Value>550</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos11_OutOf11</Name><Value>500</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos1_OutOf12</Name><Value>1000</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos2_OutOf12</Name><Value>950</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos3_OutOf12</Name><Value>900</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos4_OutOf12</Name><Value>850</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos5_OutOf12</Name><Value>800</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos6_OutOf12</Name><Value>750</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos7_OutOf12</Name><Value>700</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos8_OutOf12</Name><Value>650</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos9_OutOf12</Name><Value>600</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos10_OutOf12</Name><Value>550</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos11_OutOf12</Name><Value>500</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_Pos12_OutOf12</Name><Value>500</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_XP_PerSecond</Name><Value>1</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_MatchmakingTimeout_Hard</Name><Value>180</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowLosingPoints_Division_0</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowLosingPoints_Division_1</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowLosingPoints_Division_2</Name><Value>1</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowLosingPoints_Division_3</Name><Value>1</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowLosingPoints_Division_4</Name><Value>1</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowLosingPoints_Division_5</Name><Value>1</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowLosingPoints_Division_6</Name><Value>1</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowLosingPoints_Division_7</Name><Value>1</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowLosingPoints_Division_8</Name><Value>1</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowLosingPoints_Division_9</Name><Value>1</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowLosingPoints_Division_10</Name><Value>1</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowStreaks_Division_0</Name><Value>1</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowStreaks_Division_1</Name><Value>1</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowStreaks_Division_2</Name><Value>1</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowStreaks_Division_3</Name><Value>1</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowStreaks_Division_4</Name><Value>1</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowStreaks_Division_5</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowStreaks_Division_6</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowStreaks_Division_7</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowStreaks_Division_8</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowStreaks_Division_9</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_AllowStreaks_Division_10</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_WinStreakCount</Name><Value>3</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_SKILLPOINTS_StreakCount</Name><Value>3</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_XP_FirstPlay</Name><Value>1000</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_Bucket_0_max</Name><Value>100</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_Bucket_1_max</Name><Value>300</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_Bucket_2_max</Name><Value>800</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_Bucket_3_max</Name><Value>1200</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_SKILLPOINTS_Bucket_0_max</Name><Value>100</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_SKILLPOINTS_Bucket_1_max</Name><Value>300</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_SKILLPOINTS_Bucket_2_max</Name><Value>800</Value></ScoringConstantEntry><ScoringConstantEntry><Name>GENERIC_SKILLPOINTS_Bucket_3_max</Name><Value>1200</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_CompletedMatch_Division_0</Name><Value>40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_CompletedMatch_Division_1</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_CompletedMatch_Division_2</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_CompletedMatch_Division_3</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_CompletedMatch_Division_4</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_CompletedMatch_Division_5</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_CompletedMatch_Division_6</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_CompletedMatch_Division_7</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_CompletedMatch_Division_8</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_CompletedMatch_Division_9</Name><Value>3</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_CompletedMatch_Division_10</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_Win</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_Loss</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_Streak</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_Underdog</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_Overpowered</Name><Value>-20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_UnderdogPercentage</Name><Value>90</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_SKILLPOINTS_Win</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_SKILLPOINTS_Loss</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_SKILLPOINTS_Streak</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_SKILLPOINTS_Underdog</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_SKILLPOINTS_Overpowered</Name><Value>-20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_XP_Win</Name><Value>1000</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_XP_Loss</Name><Value>500</Value></ScoringConstantEntry><ScoringConstantEntry><Name>TEAM_XP_PerSecond</Name><Value>1</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_CompletedMatch_Division_0</Name><Value>40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_CompletedMatch_Division_1</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_CompletedMatch_Division_2</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_CompletedMatch_Division_3</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_CompletedMatch_Division_4</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_CompletedMatch_Division_5</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_CompletedMatch_Division_6</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_CompletedMatch_Division_7</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_CompletedMatch_Division_8</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_CompletedMatch_Division_9</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_CompletedMatch_Division_10</Name><Value>15</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos1_OutOf2</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos2_OutOf2</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos1_OutOf3</Name><Value>42</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos2_OutOf3</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos3_OutOf3</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos1_OutOf4</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos2_OutOf4</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos3_OutOf4</Name><Value>-30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos4_OutOf4</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos1_OutOf5</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos2_OutOf5</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos3_OutOf5</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos4_OutOf5</Name><Value>-30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos5_OutOf5</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos1_OutOf6</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos2_OutOf6</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos3_OutOf6</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos4_OutOf6</Name><Value>-10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos5_OutOf6</Name><Value>-30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Pos6_OutOf6</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Streak</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Underdog</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_Overpowered</Name><Value>-20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_StreakPosition</Name><Value>2</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_UnderdogPercentage</Name><Value>90</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_OverpoweredPercentage</Name><Value>110</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos1_OutOf2</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos2_OutOf2</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos1_OutOf3</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos2_OutOf3</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos3_OutOf3</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos1_OutOf4</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos2_OutOf4</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos3_OutOf4</Name><Value>-30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos4_OutOf4</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos1_OutOf5</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos2_OutOf5</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos3_OutOf5</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos4_OutOf5</Name><Value>-30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos5_OutOf5</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos1_OutOf6</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos2_OutOf6</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos3_OutOf6</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos4_OutOf6</Name><Value>-10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos5_OutOf6</Name><Value>-30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Pos6_OutOf6</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Streak</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Underdog</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_SKILLPOINTS_Overpowered</Name><Value>-20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos1_OutOf2</Name><Value>1000</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos2_OutOf2</Name><Value>488</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos1_OutOf3</Name><Value>1000</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos2_OutOf3</Name><Value>750</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos3_OutOf3</Name><Value>500</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos1_OutOf4</Name><Value>1000</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos2_OutOf4</Name><Value>800</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos3_OutOf4</Name><Value>700</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos4_OutOf4</Name><Value>500</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos1_OutOf5</Name><Value>1000</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos2_OutOf5</Name><Value>800</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos3_OutOf5</Name><Value>700</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos4_OutOf5</Name><Value>600</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos5_OutOf5</Name><Value>500</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos1_OutOf6</Name><Value>1000</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos2_OutOf6</Name><Value>900</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos3_OutOf6</Name><Value>800</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos4_OutOf6</Name><Value>700</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos5_OutOf6</Name><Value>600</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_Pos6_OutOf6</Name><Value>500</Value></ScoringConstantEntry><ScoringConstantEntry><Name>ELIM_XP_PerSecond</Name><Value>1</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_CompletedMatch_Division_0</Name><Value>40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_CompletedMatch_Division_1</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_CompletedMatch_Division_2</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_CompletedMatch_Division_3</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_CompletedMatch_Division_4</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_CompletedMatch_Division_5</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_CompletedMatch_Division_6</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_CompletedMatch_Division_7</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_CompletedMatch_Division_8</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_CompletedMatch_Division_9</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_CompletedMatch_Division_10</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos1_OutOf2</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos2_OutOf2</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos1_OutOf3</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos2_OutOf3</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos3_OutOf3</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos1_OutOf4</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos2_OutOf4</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos3_OutOf4</Name><Value>-30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos4_OutOf4</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos1_OutOf5</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos2_OutOf5</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos3_OutOf5</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos4_OutOf5</Name><Value>-30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos5_OutOf5</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos1_OutOf6</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos2_OutOf6</Name><Value>30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos3_OutOf6</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos4_OutOf6</Name><Value>-10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos5_OutOf6</Name><Value>-30</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos6_OutOf6</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos1_OutOf7</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos2_OutOf7</Name><Value>40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos3_OutOf7</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos4_OutOf7</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos5_OutOf7</Name><Value>-20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos6_OutOf7</Name><Value>-40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos7_OutOf7</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos1_OutOf8</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos2_OutOf8</Name><Value>40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos3_OutOf8</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos4_OutOf8</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos5_OutOf8</Name><Value>-10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos6_OutOf8</Name><Value>-20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos7_OutOf8</Name><Value>-40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos8_OutOf8</Name><Value>-60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos1_OutOf9</Name><Value>60</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos2_OutOf9</Name><Value>40</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos3_OutOf9</Name><Value>20</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos4_OutOf9</Name><Value>10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos5_OutOf9</Name><Value>0</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos6_OutOf9</Name><Value>-10</Value></ScoringConstantEntry><ScoringConstantEntry><Name>SOLO_Pos7_OutOf9</Name><Value>-20</Value></ScoringConstantEntry></Entries></ScoringConstants><ServerValues><Entries><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin1Available_Steam</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin2Available_Steam</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin3Available_Steam</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin4Available_Steam</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin5Available_Steam</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin6Available_Steam</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin1Available_PS4_SCEE</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin2Available_PS4_SCEE</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin3Available_PS4_SCEE</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin4Available_PS4_SCEE</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin5Available_PS4_SCEE</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin6Available_PS4_SCEE</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin1Available_PS4_SCEA</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin2Available_PS4_SCEA</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin3Available_PS4_SCEA</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin4Available_PS4_SCEA</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin5Available_PS4_SCEA</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin6Available_PS4_SCEA</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin1Available_XboxOne</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin2Available_XboxOne</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin3Available_XboxOne</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin4Available_XboxOne</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin5Available_XboxOne</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>false</Const><Name>Config_DLCSkin6Available_XboxOne</Name><Value>0</Value></GameConfigEntry><GameConfigEntry><Const>true</Const><Name>Config_MatchmakingTimeout_Soft</Name><Value>70</Value></GameConfigEntry><GameConfigEntry><Const>true</Const><Name>Config_MatchmakingTimeout_Hard</Name><Value>70</Value></GameConfigEntry></Entries></ServerValues></GameConfigurationData><GameInfo><ScoreInfo><CurrentSeasonID>45</CurrentSeasonID><Division>6</Division><Error i:nil="true"/><PlayerSeasonID>45</PlayerSeasonID><Points>3540</Points><Rank>32</Rank><UntrustedLevel>33</UntrustedLevel><UntrustedPrestige>8</UntrustedPrestige></ScoreInfo><SeasonInfo><BonusPoints>0</BonusPoints><DisplayOffset>0</DisplayOffset><IsSeasonActive>true</IsSeasonActive><NewSeasonID>45</NewSeasonID><OldSeasonID>45</OldSeasonID></SeasonInfo></GameInfo><PlatformID>76561198081105540</PlatformID><ServerTime i:nil="true"/><SessionToken>AQAAAAIAAADKOgoAAAAAAOw1pngEt9tIATLqwyf7IzOwmSnBmY+d01mjfBYhXK522MAR9euYs4IIeCHpu4qjubwYGrHvAenTmsS5nGbzNN/EqeMjj4BExxBO8/2Gc+qXYqMeiIKhjd4/Sfc6Eh4QC5PWnPxyh7uDF/S7tOc8FKiY76QRDK9YowHPP35hrXOnAqLesExPLgyorLA/PoVQHVUDdsNaNMrd9/QGjAddvZjVH2XbR7mxwUFAeeVKByNriqqDbKBgA1X2EiRmSPUuHGR4OQhQFhRZgwa0IYgzHK+KzVU6UDxgRicfmWq1etOXCh0sgdujivHnBSkxBvmSacClH4/4iGhXIywUUgVlBY3j/byC3z6qETE=</SessionToken><UserFacingID>J7W76GCH8FJKA</UserFacingID><UserID>670410</UserID></LoginDetails>,7:headers;193:50:12:Content-Type,30:application/xml; charset=utf-8,]31:6:Server,18:Microsoft-IIS/10.0,]26:12:X-Powered-By,7:ASP.NET,]40:4:Date,29:Sat, 16 Sep 2023 16:30:02 GMT,]26:14:Content-Length,5:57959,]]12:http_version;8:HTTP/1.1,}7:request;1278:4:path;45:/MMCOS/MMCOS-Account/AccountService.svc/Login,9:authority;0:,6:scheme;5:https,6:method;4:POST,4:port;3:443#4:host;21:mmcos.codemasters.com;13:timestamp_end;17:1694881803.042322^15:timestamp_start;18:1694881802.9882927^8:trailers;0:~7:content;728:<Login>
+  <ProtocolVersion>1</ProtocolVersion>
+  <PlatformType>Steam</PlatformType>
+  <PlatformID>1400000005609405635555ab84de330701001001f6ca05651800000001000000020000006277ed08546a923b4726330001000000b2000000320000000400000084de3307010010012a2d0800291de3056500a8c000000000af1904652fc91f650100fdfc010000000000b02e917877be51d243ae79f80aa9f4229d5f43ddf3da08c8d6405ff19751b2d734fa7eb71b47dea51d71b2c1e1ae357fc0401dd9a525f99afcae47c351ef6175a4b15f126ab4ff9b54d4475d44ee4c439ac323286a17095625c95d487142ee1c62bf42e4d6cecc7455c75e7f83e50680df3598226fe73e400878b2f998870589^^^^true</PlatformID>
+  <DisplayName>Heatray</DisplayName>
+  <DefaultTitle>lng_player_title_default</DefaultTitle>
+  <ExtraSeason>45</ExtraSeason>
+</Login>,7:headers;251:32:4:Host,21:mmcos.codemasters.com,]58:10:User-Agent,40:UnityPlayer/5.4.5p1 (http://unity3d.com),]15:6:Accept,3:*/*,]30:15:Accept-Encoding,8:identity,]24:14:Content-Length,3:728,]29:15:X-Unity-Version,7:5.4.5p1,]35:12:content-type,15:application/xml,]]12:http_version;8:HTTP/1.1,}6:backup;0:~17:timestamp_created;18:1694881802.9890504^7:comment;0:;8:metadata;0:}6:marked;0:;9:is_replay;0:~11:intercepted;5:false!11:server_conn;4753:3:via;0:~19:timestamp_tcp_setup;18:1694881802.8519032^7:address;31:21:mmcos.codemasters.com;3:443#]19:timestamp_tls_setup;18:1694881802.8711324^13:timestamp_end;18:1694881803.7019913^15:timestamp_start;16:1694881802.81664^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES256-GCM-SHA384;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;4167:2394:-----BEGIN CERTIFICATE-----
+MIIGuzCCBaOgAwIBAgIQA2oXbx1OCTGJED+Fdu7l0jANBgkqhkiG9w0BAQsFADBN
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMScwJQYDVQQDEx5E
+aWdpQ2VydCBTSEEyIFNlY3VyZSBTZXJ2ZXIgQ0EwHhcNMjMwNzA0MDAwMDAwWhcN
+MjQwNzAzMjM1OTU5WjB1MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ0FMSUZPUk5J
+QTEVMBMGA1UEBxMMUmVkd29vZCBDaXR5MR4wHAYDVQQKExVFbGVjdHJvbmljIEFy
+dHMsIEluYy4xGjAYBgNVBAMMESouY29kZW1hc3RlcnMuY29tMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzPEO73a4C7q9YJcIrolZiW0zzhrQxCGQdgqe
+AOZgekqQ2g/EcLZL1WCD2uiDGbZ+dFZT+1v2zCFe9oPUQFCuAaeSu/2esWuHPKjm
+PyMezTl7KKmbth9ntjf4+wojOmCgowYAzSNIIYVUGbHqN1m7AcUp0Klg+wL6ONsp
+JI2SVPVD9JZlZgTc0VSvgdKCZLyVDIQ3fGxhg1hGqlD1Suctxv+1Zp+r2ohlzGd1
+JfAQ6fLcIordBs6IKfMqT3N5p4KUr13jtOdeeEf+zhVlMZRZWW3mYKv0s72+ERGj
+Zr8jW6sotbcsVOOj+CBDUD2ztzA38zUFCY+t6cbxL59zmLAEVQIDAQABo4IDbTCC
+A2kwHwYDVR0jBBgwFoAUD4BhHIIxYdUvKOeNRji0LOHG2eIwHQYDVR0OBBYEFCGc
+NLTCF5joDuMIwItBh3QSGAwEMBwGA1UdEQQVMBOCESouY29kZW1hc3RlcnMuY29t
+MA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIw
+gY0GA1UdHwSBhTCBgjA/oD2gO4Y5aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0Rp
+Z2ljZXJ0U0hBMlNlY3VyZVNlcnZlckNBLTEuY3JsMD+gPaA7hjlodHRwOi8vY3Js
+NC5kaWdpY2VydC5jb20vRGlnaWNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMS5jcmww
+PgYDVR0gBDcwNTAzBgZngQwBAgIwKTAnBggrBgEFBQcCARYbaHR0cDovL3d3dy5k
+aWdpY2VydC5jb20vQ1BTMH4GCCsGAQUFBwEBBHIwcDAkBggrBgEFBQcwAYYYaHR0
+cDovL29jc3AuZGlnaWNlcnQuY29tMEgGCCsGAQUFBzAChjxodHRwOi8vY2FjZXJ0
+cy5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMi5jcnQw
+CQYDVR0TBAIwADCCAX0GCisGAQQB1nkCBAIEggFtBIIBaQFnAHYA7s3QZNXbGs7F
+XLedtM0TojKHRny87N7DUUhZRnEftZsAAAGJIJS8fgAABAMARzBFAiA5sUBggWkb
+xYVBvqHSiFcsqbQiZK1RQiyrGGKXwfBBnQIhAK/MQolp5eTmOR3Z6vxHSoX+bkrd
+XJwFLsRI6qME4+c+AHYASLDja9qmRzQP5WoC+p0w6xxSActW3SyB2bu/qznYhHMA
+AAGJIJS85AAABAMARzBFAiEA9p5CjJZs71qhesjs6UGHwylSFnfGH7c8RPXbfW8U
+/joCIGjnQl232UyGb01+gNi1goIuKnzDlogy0Y7OcTlPC3CbAHUA2ra/az+1tiKf
+m8K7XGvocJFxbLtRhIU0vaQ9MEjX+6sAAAGJIJS88QAABAMARjBEAiAjoXK+Qhvl
+hatbz6iArlvFVoHw4aJCR6ksFr0eSuVPhgIga4BuN3+9iiUAYVajMufrOBe9IWnK
+YYmKzhFmH5xRKD0wDQYJKoZIhvcNAQELBQADggEBAAr3gMFEfvtnkzVdPjDKRRO+
+zGwTrAgePmdCF5dJ5NXh+vE0fixPoCzUgGgTe+dS75DFsqYFJmt2oNHky8NSn8C7
+7Ow7SZPDcfsGD1pnhJX3qBnOP/wWR0+GPw4ORrdEj3mp6LXZzrkOpS1GYlfaaGzb
+JhVIaaqwPngbGjGjS1/b2QWDDGTXJePAvaLR+krXjEEQtLPgLlulGGfU6Vgjqco/
+3IO/ltlkGNpbK1Am87l9AQDTrnQs8P+79MbKGRmInfACu6/hMtWktVqEEUw5zGZO
+O6I4+ye84Ejvauladg5LDx+3NjouVxY0VAzPyzXUKY2WfQGgNlVAoOhEfriIrS0=
+-----END CERTIFICATE-----
+,1761:-----BEGIN CERTIFICATE-----
+MIIE6DCCA9CgAwIBAgIQAnQuqhfKjiHHF7sf/P0MoDANBgkqhkiG9w0BAQsFADBh
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD
+QTAeFw0yMDA5MjMwMDAwMDBaFw0zMDA5MjIyMzU5NTlaME0xCzAJBgNVBAYTAlVT
+MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxJzAlBgNVBAMTHkRpZ2lDZXJ0IFNIQTIg
+U2VjdXJlIFNlcnZlciBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+ANyuWJBNwcQwFZA1W248ghX1LFy949v/cUP6ZCWA1O4Yok3wZtAKc24RmDYXZK83
+nf36QYSvx6+M/hpzTc8zl5CilodTgyu5pnVILR1WN3vaMTIa16yrBvSqXUu3R0bd
+KpPDkC55gIDvEwRqFDu1m5K+wgdlTvza/P96rtxcflUxDOg5B6TXvi/TC2rSsd9f
+/ld0Uzs1gN2ujkSYs58O09rg1/RrKatEp0tYhG2SS4HD2nOLEpdIkARFdRrdNzGX
+kujNVA075ME/OV4uuPNcfhCOhkEAjUVmR7ChZc6gqikJTvOX6+guqw9ypzAO+sf0
+/RR3w6RbKFfCs/mC/bdFWJsCAwEAAaOCAa4wggGqMB0GA1UdDgQWBBQPgGEcgjFh
+1S8o541GOLQs4cbZ4jAfBgNVHSMEGDAWgBQD3lA1VtFMu2bwo+IbG8OXsj3RVTAO
+BgNVHQ8BAf8EBAMCAYYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBIG
+A1UdEwEB/wQIMAYBAf8CAQAwdgYIKwYBBQUHAQEEajBoMCQGCCsGAQUFBzABhhho
+dHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQAYIKwYBBQUHMAKGNGh0dHA6Ly9jYWNl
+cnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RDQS5jcnQwewYDVR0f
+BHQwcjA3oDWgM4YxaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0R2xv
+YmFsUm9vdENBLmNybDA3oDWgM4YxaHR0cDovL2NybDQuZGlnaWNlcnQuY29tL0Rp
+Z2lDZXJ0R2xvYmFsUm9vdENBLmNybDAwBgNVHSAEKTAnMAcGBWeBDAEBMAgGBmeB
+DAECATAIBgZngQwBAgIwCAYGZ4EMAQIDMA0GCSqGSIb3DQEBCwUAA4IBAQB3MR8I
+l9cSm2PSEWUIpvZlubj6kgPLoX7hyA2MPrQbkb4CCF6fWXF7Ef3gwOOPWdegUqHQ
+S1TSSJZI73fpKQbLQxCgLzwWji3+HlU87MOY7hgNI+gH9bMtxKtXc1r2G1O6+x/6
+vYzTUVEgR17vf5irF0LKhVyfIjc0RXbyQ14AniKDrN+v0ebHExfppGlkTIBn6rak
+f4994VH6npdn6mkus5CkHBXIrMtPKex6XF2firjUDLuU7tC8y7WlHgjPxEEDDb0G
+w6D0yDdVSvG/5XlCNatBmO/8EznDu1vr72N8gJzISUZwa6CCUD7QBLbKJcXBBVVf
+8nwvV9GvlW+sbXlr
+-----END CERTIFICATE-----
+,]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:26ee8208-3ed7-4cd6-9f0a-8298e4ca8332;8:sockname;26:14:176.124.201.58;5:59082#]8:peername;23:13:94.75.196.116;3:443#]}11:client_conn;557:10:proxy_mode;41:reverse:https://mmcos.codemasters.com@443;8:mitmcert;0:~19:timestamp_tls_setup;18:1694881802.9325905^13:timestamp_end;18:1694881803.7005007^15:timestamp_start;18:1694881802.8148084^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES128-GCM-SHA256;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;0:]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:10ac6dbd-272c-4544-890e-947bf77da346;8:sockname;24:14:176.124.201.58;3:443#]8:peername;23:11:5.227.24.31;5:50720#]}5:error;0:~2:id;36:f51bc70a-d0c5-4dce-9c01-d9f66d55139f;4:type;4:http;7:version;2:20#}7923:9:websocket;0:~8:response;902:6:reason;2:OK,11:status_code;3:200#13:timestamp_end;18:1694882385.7739437^15:timestamp_start;17:1694882385.771254^8:trailers;0:~7:content;526:<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><AverageWaitTimeNonRanked>82.8</AverageWaitTimeNonRanked><AverageWaitTimeRanked>84.5</AverageWaitTimeRanked><Error i:nil="true"/><Groups><MatchmakingGroup><GameLobbyId>109775241628860699</GameLobbyId><GroupLobbyId>109775241626724054</GroupLobbyId><GroupSize>1</GroupSize><IsHost>true</IsHost><Team>0</Team></MatchmakingGroup></Groups><InProgressGameToJoin i:nil="true"/><RaceKey>FBAAAD8DAE34C0BF</RaceKey><SessionId>8912612</SessionId></MatchmakingResult>,7:headers;191:50:12:Content-Type,30:application/xml; charset=utf-8,]31:6:Server,18:Microsoft-IIS/10.0,]26:12:X-Powered-By,7:ASP.NET,]40:4:Date,29:Sat, 16 Sep 2023 16:39:44 GMT,]24:14:Content-Length,3:526,]]12:http_version;8:HTTP/1.1,}7:request;1405:4:path;65:/MMCOS/MMCOS-Matchmaking/MatchmakingService.svc/EnterMatchmaking2,9:authority;0:,6:scheme;5:https,6:method;4:POST,4:port;3:443#4:host;21:mmcos.codemasters.com;13:timestamp_end;17:1694882385.234984^15:timestamp_start;18:1694882385.1811676^8:trailers;0:~7:content;835:<EnterMatchmaking2>
+  <SessionToken>AQAAAAIAAADKOgoAAAAAAOw1pngEt9tIATLqwyf7IzOwmSnBmY+d01mjfBYhXK522MAR9euYs4IIeCHpu4qjubwYGrHvAenTmsS5nGbzNN/EqeMjj4BExxBO8/2Gc+qXYqMeiIKhjd4/Sfc6Eh4QC5PWnPxyh7uDF/S7tOc8FKiY76QRDK9YowHPP35hrXOnAqLesExPLgyorLA/PoVQHVUDdsNaNMrd9/QGjAddvZjVH2XbR7mxwUFAeeVKByNriqqDbKBgA1X2EiRmSPUuHGR4OQhQFhRZgwa0IYgzHK+KzVU6UDxgRicfmWq1etOXCh0sgdujivHnBSkxBvmSacClH4/4iGhXIywUUgVlBY3j/byC3z6qETE=</SessionToken>
+  <GroupLobbyId>109775241626724054</GroupLobbyId>
+  <GameLobbyId>109775241628860699</GameLobbyId>
+  <NetworkVersion>1</NetworkVersion>
+  <GameType>QuickElimination</GameType>
+  <GroupSize>1</GroupSize>
+  <SkillLevel>1343246352</SkillLevel>
+  <RuleSet>Elimination</RuleSet>
+  <Ranking>NotRanked</Ranking>
+  <IgnoreMinimumMatchRequirements>true</IgnoreMinimumMatchRequirements>
+</EnterMatchmaking2>,7:headers;251:32:4:Host,21:mmcos.codemasters.com,]58:10:User-Agent,40:UnityPlayer/5.4.5p1 (http://unity3d.com),]15:6:Accept,3:*/*,]30:15:Accept-Encoding,8:identity,]24:14:Content-Length,3:835,]29:15:X-Unity-Version,7:5.4.5p1,]35:12:content-type,15:application/xml,]]12:http_version;8:HTTP/1.1,}6:backup;0:~17:timestamp_created;18:1694882385.1815486^7:comment;0:;8:metadata;0:}6:marked;0:;9:is_replay;0:~11:intercepted;5:false!11:server_conn;4754:3:via;0:~19:timestamp_tcp_setup;17:1694882385.031127^7:address;31:21:mmcos.codemasters.com;3:443#]19:timestamp_tls_setup;18:1694882385.0658383^13:timestamp_end;18:1694882385.8334348^15:timestamp_start;18:1694882385.0144699^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES256-GCM-SHA384;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;4167:2394:-----BEGIN CERTIFICATE-----
+MIIGuzCCBaOgAwIBAgIQA2oXbx1OCTGJED+Fdu7l0jANBgkqhkiG9w0BAQsFADBN
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMScwJQYDVQQDEx5E
+aWdpQ2VydCBTSEEyIFNlY3VyZSBTZXJ2ZXIgQ0EwHhcNMjMwNzA0MDAwMDAwWhcN
+MjQwNzAzMjM1OTU5WjB1MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ0FMSUZPUk5J
+QTEVMBMGA1UEBxMMUmVkd29vZCBDaXR5MR4wHAYDVQQKExVFbGVjdHJvbmljIEFy
+dHMsIEluYy4xGjAYBgNVBAMMESouY29kZW1hc3RlcnMuY29tMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzPEO73a4C7q9YJcIrolZiW0zzhrQxCGQdgqe
+AOZgekqQ2g/EcLZL1WCD2uiDGbZ+dFZT+1v2zCFe9oPUQFCuAaeSu/2esWuHPKjm
+PyMezTl7KKmbth9ntjf4+wojOmCgowYAzSNIIYVUGbHqN1m7AcUp0Klg+wL6ONsp
+JI2SVPVD9JZlZgTc0VSvgdKCZLyVDIQ3fGxhg1hGqlD1Suctxv+1Zp+r2ohlzGd1
+JfAQ6fLcIordBs6IKfMqT3N5p4KUr13jtOdeeEf+zhVlMZRZWW3mYKv0s72+ERGj
+Zr8jW6sotbcsVOOj+CBDUD2ztzA38zUFCY+t6cbxL59zmLAEVQIDAQABo4IDbTCC
+A2kwHwYDVR0jBBgwFoAUD4BhHIIxYdUvKOeNRji0LOHG2eIwHQYDVR0OBBYEFCGc
+NLTCF5joDuMIwItBh3QSGAwEMBwGA1UdEQQVMBOCESouY29kZW1hc3RlcnMuY29t
+MA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIw
+gY0GA1UdHwSBhTCBgjA/oD2gO4Y5aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0Rp
+Z2ljZXJ0U0hBMlNlY3VyZVNlcnZlckNBLTEuY3JsMD+gPaA7hjlodHRwOi8vY3Js
+NC5kaWdpY2VydC5jb20vRGlnaWNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMS5jcmww
+PgYDVR0gBDcwNTAzBgZngQwBAgIwKTAnBggrBgEFBQcCARYbaHR0cDovL3d3dy5k
+aWdpY2VydC5jb20vQ1BTMH4GCCsGAQUFBwEBBHIwcDAkBggrBgEFBQcwAYYYaHR0
+cDovL29jc3AuZGlnaWNlcnQuY29tMEgGCCsGAQUFBzAChjxodHRwOi8vY2FjZXJ0
+cy5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMi5jcnQw
+CQYDVR0TBAIwADCCAX0GCisGAQQB1nkCBAIEggFtBIIBaQFnAHYA7s3QZNXbGs7F
+XLedtM0TojKHRny87N7DUUhZRnEftZsAAAGJIJS8fgAABAMARzBFAiA5sUBggWkb
+xYVBvqHSiFcsqbQiZK1RQiyrGGKXwfBBnQIhAK/MQolp5eTmOR3Z6vxHSoX+bkrd
+XJwFLsRI6qME4+c+AHYASLDja9qmRzQP5WoC+p0w6xxSActW3SyB2bu/qznYhHMA
+AAGJIJS85AAABAMARzBFAiEA9p5CjJZs71qhesjs6UGHwylSFnfGH7c8RPXbfW8U
+/joCIGjnQl232UyGb01+gNi1goIuKnzDlogy0Y7OcTlPC3CbAHUA2ra/az+1tiKf
+m8K7XGvocJFxbLtRhIU0vaQ9MEjX+6sAAAGJIJS88QAABAMARjBEAiAjoXK+Qhvl
+hatbz6iArlvFVoHw4aJCR6ksFr0eSuVPhgIga4BuN3+9iiUAYVajMufrOBe9IWnK
+YYmKzhFmH5xRKD0wDQYJKoZIhvcNAQELBQADggEBAAr3gMFEfvtnkzVdPjDKRRO+
+zGwTrAgePmdCF5dJ5NXh+vE0fixPoCzUgGgTe+dS75DFsqYFJmt2oNHky8NSn8C7
+7Ow7SZPDcfsGD1pnhJX3qBnOP/wWR0+GPw4ORrdEj3mp6LXZzrkOpS1GYlfaaGzb
+JhVIaaqwPngbGjGjS1/b2QWDDGTXJePAvaLR+krXjEEQtLPgLlulGGfU6Vgjqco/
+3IO/ltlkGNpbK1Am87l9AQDTrnQs8P+79MbKGRmInfACu6/hMtWktVqEEUw5zGZO
+O6I4+ye84Ejvauladg5LDx+3NjouVxY0VAzPyzXUKY2WfQGgNlVAoOhEfriIrS0=
+-----END CERTIFICATE-----
+,1761:-----BEGIN CERTIFICATE-----
+MIIE6DCCA9CgAwIBAgIQAnQuqhfKjiHHF7sf/P0MoDANBgkqhkiG9w0BAQsFADBh
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD
+QTAeFw0yMDA5MjMwMDAwMDBaFw0zMDA5MjIyMzU5NTlaME0xCzAJBgNVBAYTAlVT
+MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxJzAlBgNVBAMTHkRpZ2lDZXJ0IFNIQTIg
+U2VjdXJlIFNlcnZlciBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+ANyuWJBNwcQwFZA1W248ghX1LFy949v/cUP6ZCWA1O4Yok3wZtAKc24RmDYXZK83
+nf36QYSvx6+M/hpzTc8zl5CilodTgyu5pnVILR1WN3vaMTIa16yrBvSqXUu3R0bd
+KpPDkC55gIDvEwRqFDu1m5K+wgdlTvza/P96rtxcflUxDOg5B6TXvi/TC2rSsd9f
+/ld0Uzs1gN2ujkSYs58O09rg1/RrKatEp0tYhG2SS4HD2nOLEpdIkARFdRrdNzGX
+kujNVA075ME/OV4uuPNcfhCOhkEAjUVmR7ChZc6gqikJTvOX6+guqw9ypzAO+sf0
+/RR3w6RbKFfCs/mC/bdFWJsCAwEAAaOCAa4wggGqMB0GA1UdDgQWBBQPgGEcgjFh
+1S8o541GOLQs4cbZ4jAfBgNVHSMEGDAWgBQD3lA1VtFMu2bwo+IbG8OXsj3RVTAO
+BgNVHQ8BAf8EBAMCAYYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBIG
+A1UdEwEB/wQIMAYBAf8CAQAwdgYIKwYBBQUHAQEEajBoMCQGCCsGAQUFBzABhhho
+dHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQAYIKwYBBQUHMAKGNGh0dHA6Ly9jYWNl
+cnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RDQS5jcnQwewYDVR0f
+BHQwcjA3oDWgM4YxaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0R2xv
+YmFsUm9vdENBLmNybDA3oDWgM4YxaHR0cDovL2NybDQuZGlnaWNlcnQuY29tL0Rp
+Z2lDZXJ0R2xvYmFsUm9vdENBLmNybDAwBgNVHSAEKTAnMAcGBWeBDAEBMAgGBmeB
+DAECATAIBgZngQwBAgIwCAYGZ4EMAQIDMA0GCSqGSIb3DQEBCwUAA4IBAQB3MR8I
+l9cSm2PSEWUIpvZlubj6kgPLoX7hyA2MPrQbkb4CCF6fWXF7Ef3gwOOPWdegUqHQ
+S1TSSJZI73fpKQbLQxCgLzwWji3+HlU87MOY7hgNI+gH9bMtxKtXc1r2G1O6+x/6
+vYzTUVEgR17vf5irF0LKhVyfIjc0RXbyQ14AniKDrN+v0ebHExfppGlkTIBn6rak
+f4994VH6npdn6mkus5CkHBXIrMtPKex6XF2firjUDLuU7tC8y7WlHgjPxEEDDb0G
+w6D0yDdVSvG/5XlCNatBmO/8EznDu1vr72N8gJzISUZwa6CCUD7QBLbKJcXBBVVf
+8nwvV9GvlW+sbXlr
+-----END CERTIFICATE-----
+,]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:2053d0f7-b437-4586-9776-a581b222d3a6;8:sockname;26:14:176.124.201.58;5:56184#]8:peername;23:13:94.75.196.116;3:443#]}11:client_conn;557:10:proxy_mode;41:reverse:https://mmcos.codemasters.com@443;8:mitmcert;0:~19:timestamp_tls_setup;18:1694882385.1259494^13:timestamp_end;18:1694882385.8322308^15:timestamp_start;18:1694882385.0124757^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES128-GCM-SHA256;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;0:]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:3565d5d6-dcf7-4efe-bb54-9771586739f6;8:sockname;24:14:176.124.201.58;3:443#]8:peername;23:11:5.227.24.31;5:56852#]}5:error;0:~2:id;36:eebe5715-c970-4810-8dfc-115e214bab86;4:type;4:http;7:version;2:20#}7381:9:websocket;0:~8:response;319:6:reason;2:OK,11:status_code;3:200#13:timestamp_end;18:1694882386.1920967^15:timestamp_start;18:1694882386.1899436^8:trailers;0:~7:content;0:,7:headers;135:31:6:Server,18:Microsoft-IIS/10.0,]26:12:X-Powered-By,7:ASP.NET,]40:4:Date,29:Sat, 16 Sep 2023 16:39:45 GMT,]22:14:Content-Length,1:0,]]12:http_version;8:HTTP/1.1,}7:request;1450:4:path;77:/MMCOS/MMCOS-Matchmaking/MatchmakingService.svc/RegisterActiveGameWithPlayers,9:authority;0:,6:scheme;5:https,6:method;4:POST,4:port;3:443#4:host;21:mmcos.codemasters.com;13:timestamp_end;17:1694882386.172319^15:timestamp_start;18:1694882386.1258388^8:trailers;0:~7:content;868:<RegisterActiveGameWithPlayers>
+  <SessionToken>AQAAAAIAAADKOgoAAAAAAOw1pngEt9tIATLqwyf7IzOwmSnBmY+d01mjfBYhXK522MAR9euYs4IIeCHpu4qjubwYGrHvAenTmsS5nGbzNN/EqeMjj4BExxBO8/2Gc+qXYqMeiIKhjd4/Sfc6Eh4QC5PWnPxyh7uDF/S7tOc8FKiY76QRDK9YowHPP35hrXOnAqLesExPLgyorLA/PoVQHVUDdsNaNMrd9/QGjAddvZjVH2XbR7mxwUFAeeVKByNriqqDbKBgA1X2EiRmSPUuHGR4OQhQFhRZgwa0IYgzHK+KzVU6UDxgRicfmWq1etOXCh0sgdujivHnBSkxBvmSacClH4/4iGhXIywUUgVlBY3j/byC3z6qETE=</SessionToken>
+  <RaceKey>FBAAAD8DAE34C0BF</RaceKey>
+  <HostPlatformID>x</HostPlatformID>
+  <GameLobbyId>x</GameLobbyId>
+  <NetworkVersion>1</NetworkVersion>
+  <GameType>x</GameType>
+  <RuleSet>Race</RuleSet>
+  <Ranking>NotRanked</Ranking>
+  <Team1Size>0</Team1Size>
+  <Team2Size>0</Team2Size>
+  <SecondsItTookToMatchmake>0</SecondsItTookToMatchmake>
+  <PlatformIDs>76561198081105540</PlatformIDs>
+</RegisterActiveGameWithPlayers>,7:headers;251:32:4:Host,21:mmcos.codemasters.com,]58:10:User-Agent,40:UnityPlayer/5.4.5p1 (http://unity3d.com),]15:6:Accept,3:*/*,]30:15:Accept-Encoding,8:identity,]24:14:Content-Length,3:868,]29:15:X-Unity-Version,7:5.4.5p1,]35:12:content-type,15:application/xml,]]12:http_version;8:HTTP/1.1,}6:backup;0:~17:timestamp_created;18:1694882386.1261606^7:comment;0:;8:metadata;0:}6:marked;0:;9:is_replay;0:~11:intercepted;5:false!11:server_conn;4752:3:via;0:~19:timestamp_tcp_setup;17:1694882386.009351^7:address;31:21:mmcos.codemasters.com;3:443#]19:timestamp_tls_setup;17:1694882386.023777^13:timestamp_end;18:1694882386.2436624^15:timestamp_start;17:1694882385.985124^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES256-GCM-SHA384;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;4167:2394:-----BEGIN CERTIFICATE-----
+MIIGuzCCBaOgAwIBAgIQA2oXbx1OCTGJED+Fdu7l0jANBgkqhkiG9w0BAQsFADBN
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMScwJQYDVQQDEx5E
+aWdpQ2VydCBTSEEyIFNlY3VyZSBTZXJ2ZXIgQ0EwHhcNMjMwNzA0MDAwMDAwWhcN
+MjQwNzAzMjM1OTU5WjB1MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ0FMSUZPUk5J
+QTEVMBMGA1UEBxMMUmVkd29vZCBDaXR5MR4wHAYDVQQKExVFbGVjdHJvbmljIEFy
+dHMsIEluYy4xGjAYBgNVBAMMESouY29kZW1hc3RlcnMuY29tMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzPEO73a4C7q9YJcIrolZiW0zzhrQxCGQdgqe
+AOZgekqQ2g/EcLZL1WCD2uiDGbZ+dFZT+1v2zCFe9oPUQFCuAaeSu/2esWuHPKjm
+PyMezTl7KKmbth9ntjf4+wojOmCgowYAzSNIIYVUGbHqN1m7AcUp0Klg+wL6ONsp
+JI2SVPVD9JZlZgTc0VSvgdKCZLyVDIQ3fGxhg1hGqlD1Suctxv+1Zp+r2ohlzGd1
+JfAQ6fLcIordBs6IKfMqT3N5p4KUr13jtOdeeEf+zhVlMZRZWW3mYKv0s72+ERGj
+Zr8jW6sotbcsVOOj+CBDUD2ztzA38zUFCY+t6cbxL59zmLAEVQIDAQABo4IDbTCC
+A2kwHwYDVR0jBBgwFoAUD4BhHIIxYdUvKOeNRji0LOHG2eIwHQYDVR0OBBYEFCGc
+NLTCF5joDuMIwItBh3QSGAwEMBwGA1UdEQQVMBOCESouY29kZW1hc3RlcnMuY29t
+MA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIw
+gY0GA1UdHwSBhTCBgjA/oD2gO4Y5aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0Rp
+Z2ljZXJ0U0hBMlNlY3VyZVNlcnZlckNBLTEuY3JsMD+gPaA7hjlodHRwOi8vY3Js
+NC5kaWdpY2VydC5jb20vRGlnaWNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMS5jcmww
+PgYDVR0gBDcwNTAzBgZngQwBAgIwKTAnBggrBgEFBQcCARYbaHR0cDovL3d3dy5k
+aWdpY2VydC5jb20vQ1BTMH4GCCsGAQUFBwEBBHIwcDAkBggrBgEFBQcwAYYYaHR0
+cDovL29jc3AuZGlnaWNlcnQuY29tMEgGCCsGAQUFBzAChjxodHRwOi8vY2FjZXJ0
+cy5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMi5jcnQw
+CQYDVR0TBAIwADCCAX0GCisGAQQB1nkCBAIEggFtBIIBaQFnAHYA7s3QZNXbGs7F
+XLedtM0TojKHRny87N7DUUhZRnEftZsAAAGJIJS8fgAABAMARzBFAiA5sUBggWkb
+xYVBvqHSiFcsqbQiZK1RQiyrGGKXwfBBnQIhAK/MQolp5eTmOR3Z6vxHSoX+bkrd
+XJwFLsRI6qME4+c+AHYASLDja9qmRzQP5WoC+p0w6xxSActW3SyB2bu/qznYhHMA
+AAGJIJS85AAABAMARzBFAiEA9p5CjJZs71qhesjs6UGHwylSFnfGH7c8RPXbfW8U
+/joCIGjnQl232UyGb01+gNi1goIuKnzDlogy0Y7OcTlPC3CbAHUA2ra/az+1tiKf
+m8K7XGvocJFxbLtRhIU0vaQ9MEjX+6sAAAGJIJS88QAABAMARjBEAiAjoXK+Qhvl
+hatbz6iArlvFVoHw4aJCR6ksFr0eSuVPhgIga4BuN3+9iiUAYVajMufrOBe9IWnK
+YYmKzhFmH5xRKD0wDQYJKoZIhvcNAQELBQADggEBAAr3gMFEfvtnkzVdPjDKRRO+
+zGwTrAgePmdCF5dJ5NXh+vE0fixPoCzUgGgTe+dS75DFsqYFJmt2oNHky8NSn8C7
+7Ow7SZPDcfsGD1pnhJX3qBnOP/wWR0+GPw4ORrdEj3mp6LXZzrkOpS1GYlfaaGzb
+JhVIaaqwPngbGjGjS1/b2QWDDGTXJePAvaLR+krXjEEQtLPgLlulGGfU6Vgjqco/
+3IO/ltlkGNpbK1Am87l9AQDTrnQs8P+79MbKGRmInfACu6/hMtWktVqEEUw5zGZO
+O6I4+ye84Ejvauladg5LDx+3NjouVxY0VAzPyzXUKY2WfQGgNlVAoOhEfriIrS0=
+-----END CERTIFICATE-----
+,1761:-----BEGIN CERTIFICATE-----
+MIIE6DCCA9CgAwIBAgIQAnQuqhfKjiHHF7sf/P0MoDANBgkqhkiG9w0BAQsFADBh
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD
+QTAeFw0yMDA5MjMwMDAwMDBaFw0zMDA5MjIyMzU5NTlaME0xCzAJBgNVBAYTAlVT
+MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxJzAlBgNVBAMTHkRpZ2lDZXJ0IFNIQTIg
+U2VjdXJlIFNlcnZlciBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+ANyuWJBNwcQwFZA1W248ghX1LFy949v/cUP6ZCWA1O4Yok3wZtAKc24RmDYXZK83
+nf36QYSvx6+M/hpzTc8zl5CilodTgyu5pnVILR1WN3vaMTIa16yrBvSqXUu3R0bd
+KpPDkC55gIDvEwRqFDu1m5K+wgdlTvza/P96rtxcflUxDOg5B6TXvi/TC2rSsd9f
+/ld0Uzs1gN2ujkSYs58O09rg1/RrKatEp0tYhG2SS4HD2nOLEpdIkARFdRrdNzGX
+kujNVA075ME/OV4uuPNcfhCOhkEAjUVmR7ChZc6gqikJTvOX6+guqw9ypzAO+sf0
+/RR3w6RbKFfCs/mC/bdFWJsCAwEAAaOCAa4wggGqMB0GA1UdDgQWBBQPgGEcgjFh
+1S8o541GOLQs4cbZ4jAfBgNVHSMEGDAWgBQD3lA1VtFMu2bwo+IbG8OXsj3RVTAO
+BgNVHQ8BAf8EBAMCAYYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBIG
+A1UdEwEB/wQIMAYBAf8CAQAwdgYIKwYBBQUHAQEEajBoMCQGCCsGAQUFBzABhhho
+dHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQAYIKwYBBQUHMAKGNGh0dHA6Ly9jYWNl
+cnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RDQS5jcnQwewYDVR0f
+BHQwcjA3oDWgM4YxaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0R2xv
+YmFsUm9vdENBLmNybDA3oDWgM4YxaHR0cDovL2NybDQuZGlnaWNlcnQuY29tL0Rp
+Z2lDZXJ0R2xvYmFsUm9vdENBLmNybDAwBgNVHSAEKTAnMAcGBWeBDAEBMAgGBmeB
+DAECATAIBgZngQwBAgIwCAYGZ4EMAQIDMA0GCSqGSIb3DQEBCwUAA4IBAQB3MR8I
+l9cSm2PSEWUIpvZlubj6kgPLoX7hyA2MPrQbkb4CCF6fWXF7Ef3gwOOPWdegUqHQ
+S1TSSJZI73fpKQbLQxCgLzwWji3+HlU87MOY7hgNI+gH9bMtxKtXc1r2G1O6+x/6
+vYzTUVEgR17vf5irF0LKhVyfIjc0RXbyQ14AniKDrN+v0ebHExfppGlkTIBn6rak
+f4994VH6npdn6mkus5CkHBXIrMtPKex6XF2firjUDLuU7tC8y7WlHgjPxEEDDb0G
+w6D0yDdVSvG/5XlCNatBmO/8EznDu1vr72N8gJzISUZwa6CCUD7QBLbKJcXBBVVf
+8nwvV9GvlW+sbXlr
+-----END CERTIFICATE-----
+,]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:90609890-b434-4074-b1c9-337f4e25bc39;8:sockname;26:14:176.124.201.58;5:56190#]8:peername;23:13:94.75.196.116;3:443#]}11:client_conn;555:10:proxy_mode;41:reverse:https://mmcos.codemasters.com@443;8:mitmcert;0:~19:timestamp_tls_setup;17:1694882386.077546^13:timestamp_end;18:1694882386.2424827^15:timestamp_start;17:1694882385.983611^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES128-GCM-SHA256;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;0:]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:3d6998f5-be3c-4012-b87d-dbe1fbabb4a2;8:sockname;24:14:176.124.201.58;3:443#]8:peername;23:11:5.227.24.31;5:56868#]}5:error;0:~2:id;36:06cc1795-47f1-498f-a782-79e76cf1f0f4;4:type;4:http;7:version;2:20#}7450:9:websocket;0:~8:response;721:6:reason;2:OK,11:status_code;3:200#13:timestamp_end;17:1694882853.638668^15:timestamp_start;18:1694882853.6365893^8:trailers;0:~7:content;345:<AddPointsResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><BonusPoints>0</BonusPoints><Error i:nil="true"/><GameConfigChanged>false</GameConfigChanged><NewDivision>6</NewDivision><NewSeason>45</NewSeason><OldDivision>6</OldDivision><OldSeason>45</OldSeason><Points>3540</Points><Rank>32</Rank><UserID>670410</UserID></AddPointsResult>,7:headers;191:50:12:Content-Type,30:application/xml; charset=utf-8,]31:6:Server,18:Microsoft-IIS/10.0,]26:12:X-Powered-By,7:ASP.NET,]40:4:Date,29:Sat, 16 Sep 2023 16:47:32 GMT,]24:14:Content-Length,3:345,]]12:http_version;8:HTTP/1.1,}7:request;1113:4:path;65:/MMCOS/MMCOS-GameProgression/GameProgressionService.svc/AddPoints,9:authority;0:,6:scheme;5:https,6:method;4:POST,4:port;3:443#4:host;21:mmcos.codemasters.com;13:timestamp_end;18:1694882853.6149285^15:timestamp_start;18:1694882853.5691004^8:trailers;0:~7:content;542:<AddPoints>
+  <SessionToken>AQAAAAIAAADKOgoAAAAAAOw1pngEt9tIATLqwyf7IzOwmSnBmY+d01mjfBYhXK522MAR9euYs4IIeCHpu4qjubwYGrHvAenTmsS5nGbzNN/EqeMjj4BExxBO8/2Gc+qXYqMeiIKhjd4/Sfc6Eh4QC5PWnPxyh7uDF/S7tOc8FKiY76QRDK9YowHPP35hrXOnAqLesExPLgyorLA/PoVQHVUDdsNaNMrd9/QGjAddvZjVH2XbR7mxwUFAeeVKByNriqqDbKBgA1X2EiRmSPUuHGR4OQhQFhRZgwa0IYgzHK+KzVU6UDxgRicfmWq1etOXCh0sgdujivHnBSkxBvmSacClH4/4iGhXIywUUgVlBY3j/byC3z6qETE=</SessionToken>
+  <RaceKey>FBAAAD8DAE34C0BF</RaceKey>
+  <Points>0</Points>
+  <Level>34</Level>
+  <Prestige>8</Prestige>
+</AddPoints>,7:headers;251:32:4:Host,21:mmcos.codemasters.com,]58:10:User-Agent,40:UnityPlayer/5.4.5p1 (http://unity3d.com),]15:6:Accept,3:*/*,]30:15:Accept-Encoding,8:identity,]24:14:Content-Length,3:542,]29:15:X-Unity-Version,7:5.4.5p1,]35:12:content-type,15:application/xml,]]12:http_version;8:HTTP/1.1,}6:backup;0:~17:timestamp_created;18:1694882853.5694532^7:comment;0:;8:metadata;0:}6:marked;0:;9:is_replay;0:~11:intercepted;5:false!11:server_conn;4754:3:via;0:~19:timestamp_tcp_setup;18:1694882852.4244611^7:address;31:21:mmcos.codemasters.com;3:443#]19:timestamp_tls_setup;17:1694882853.469175^13:timestamp_end;18:1694882853.6904685^15:timestamp_start;18:1694882852.4136794^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES256-GCM-SHA384;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;4167:2394:-----BEGIN CERTIFICATE-----
+MIIGuzCCBaOgAwIBAgIQA2oXbx1OCTGJED+Fdu7l0jANBgkqhkiG9w0BAQsFADBN
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMScwJQYDVQQDEx5E
+aWdpQ2VydCBTSEEyIFNlY3VyZSBTZXJ2ZXIgQ0EwHhcNMjMwNzA0MDAwMDAwWhcN
+MjQwNzAzMjM1OTU5WjB1MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ0FMSUZPUk5J
+QTEVMBMGA1UEBxMMUmVkd29vZCBDaXR5MR4wHAYDVQQKExVFbGVjdHJvbmljIEFy
+dHMsIEluYy4xGjAYBgNVBAMMESouY29kZW1hc3RlcnMuY29tMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzPEO73a4C7q9YJcIrolZiW0zzhrQxCGQdgqe
+AOZgekqQ2g/EcLZL1WCD2uiDGbZ+dFZT+1v2zCFe9oPUQFCuAaeSu/2esWuHPKjm
+PyMezTl7KKmbth9ntjf4+wojOmCgowYAzSNIIYVUGbHqN1m7AcUp0Klg+wL6ONsp
+JI2SVPVD9JZlZgTc0VSvgdKCZLyVDIQ3fGxhg1hGqlD1Suctxv+1Zp+r2ohlzGd1
+JfAQ6fLcIordBs6IKfMqT3N5p4KUr13jtOdeeEf+zhVlMZRZWW3mYKv0s72+ERGj
+Zr8jW6sotbcsVOOj+CBDUD2ztzA38zUFCY+t6cbxL59zmLAEVQIDAQABo4IDbTCC
+A2kwHwYDVR0jBBgwFoAUD4BhHIIxYdUvKOeNRji0LOHG2eIwHQYDVR0OBBYEFCGc
+NLTCF5joDuMIwItBh3QSGAwEMBwGA1UdEQQVMBOCESouY29kZW1hc3RlcnMuY29t
+MA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIw
+gY0GA1UdHwSBhTCBgjA/oD2gO4Y5aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0Rp
+Z2ljZXJ0U0hBMlNlY3VyZVNlcnZlckNBLTEuY3JsMD+gPaA7hjlodHRwOi8vY3Js
+NC5kaWdpY2VydC5jb20vRGlnaWNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMS5jcmww
+PgYDVR0gBDcwNTAzBgZngQwBAgIwKTAnBggrBgEFBQcCARYbaHR0cDovL3d3dy5k
+aWdpY2VydC5jb20vQ1BTMH4GCCsGAQUFBwEBBHIwcDAkBggrBgEFBQcwAYYYaHR0
+cDovL29jc3AuZGlnaWNlcnQuY29tMEgGCCsGAQUFBzAChjxodHRwOi8vY2FjZXJ0
+cy5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMi5jcnQw
+CQYDVR0TBAIwADCCAX0GCisGAQQB1nkCBAIEggFtBIIBaQFnAHYA7s3QZNXbGs7F
+XLedtM0TojKHRny87N7DUUhZRnEftZsAAAGJIJS8fgAABAMARzBFAiA5sUBggWkb
+xYVBvqHSiFcsqbQiZK1RQiyrGGKXwfBBnQIhAK/MQolp5eTmOR3Z6vxHSoX+bkrd
+XJwFLsRI6qME4+c+AHYASLDja9qmRzQP5WoC+p0w6xxSActW3SyB2bu/qznYhHMA
+AAGJIJS85AAABAMARzBFAiEA9p5CjJZs71qhesjs6UGHwylSFnfGH7c8RPXbfW8U
+/joCIGjnQl232UyGb01+gNi1goIuKnzDlogy0Y7OcTlPC3CbAHUA2ra/az+1tiKf
+m8K7XGvocJFxbLtRhIU0vaQ9MEjX+6sAAAGJIJS88QAABAMARjBEAiAjoXK+Qhvl
+hatbz6iArlvFVoHw4aJCR6ksFr0eSuVPhgIga4BuN3+9iiUAYVajMufrOBe9IWnK
+YYmKzhFmH5xRKD0wDQYJKoZIhvcNAQELBQADggEBAAr3gMFEfvtnkzVdPjDKRRO+
+zGwTrAgePmdCF5dJ5NXh+vE0fixPoCzUgGgTe+dS75DFsqYFJmt2oNHky8NSn8C7
+7Ow7SZPDcfsGD1pnhJX3qBnOP/wWR0+GPw4ORrdEj3mp6LXZzrkOpS1GYlfaaGzb
+JhVIaaqwPngbGjGjS1/b2QWDDGTXJePAvaLR+krXjEEQtLPgLlulGGfU6Vgjqco/
+3IO/ltlkGNpbK1Am87l9AQDTrnQs8P+79MbKGRmInfACu6/hMtWktVqEEUw5zGZO
+O6I4+ye84Ejvauladg5LDx+3NjouVxY0VAzPyzXUKY2WfQGgNlVAoOhEfriIrS0=
+-----END CERTIFICATE-----
+,1761:-----BEGIN CERTIFICATE-----
+MIIE6DCCA9CgAwIBAgIQAnQuqhfKjiHHF7sf/P0MoDANBgkqhkiG9w0BAQsFADBh
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD
+QTAeFw0yMDA5MjMwMDAwMDBaFw0zMDA5MjIyMzU5NTlaME0xCzAJBgNVBAYTAlVT
+MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxJzAlBgNVBAMTHkRpZ2lDZXJ0IFNIQTIg
+U2VjdXJlIFNlcnZlciBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+ANyuWJBNwcQwFZA1W248ghX1LFy949v/cUP6ZCWA1O4Yok3wZtAKc24RmDYXZK83
+nf36QYSvx6+M/hpzTc8zl5CilodTgyu5pnVILR1WN3vaMTIa16yrBvSqXUu3R0bd
+KpPDkC55gIDvEwRqFDu1m5K+wgdlTvza/P96rtxcflUxDOg5B6TXvi/TC2rSsd9f
+/ld0Uzs1gN2ujkSYs58O09rg1/RrKatEp0tYhG2SS4HD2nOLEpdIkARFdRrdNzGX
+kujNVA075ME/OV4uuPNcfhCOhkEAjUVmR7ChZc6gqikJTvOX6+guqw9ypzAO+sf0
+/RR3w6RbKFfCs/mC/bdFWJsCAwEAAaOCAa4wggGqMB0GA1UdDgQWBBQPgGEcgjFh
+1S8o541GOLQs4cbZ4jAfBgNVHSMEGDAWgBQD3lA1VtFMu2bwo+IbG8OXsj3RVTAO
+BgNVHQ8BAf8EBAMCAYYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBIG
+A1UdEwEB/wQIMAYBAf8CAQAwdgYIKwYBBQUHAQEEajBoMCQGCCsGAQUFBzABhhho
+dHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQAYIKwYBBQUHMAKGNGh0dHA6Ly9jYWNl
+cnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RDQS5jcnQwewYDVR0f
+BHQwcjA3oDWgM4YxaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0R2xv
+YmFsUm9vdENBLmNybDA3oDWgM4YxaHR0cDovL2NybDQuZGlnaWNlcnQuY29tL0Rp
+Z2lDZXJ0R2xvYmFsUm9vdENBLmNybDAwBgNVHSAEKTAnMAcGBWeBDAEBMAgGBmeB
+DAECATAIBgZngQwBAgIwCAYGZ4EMAQIDMA0GCSqGSIb3DQEBCwUAA4IBAQB3MR8I
+l9cSm2PSEWUIpvZlubj6kgPLoX7hyA2MPrQbkb4CCF6fWXF7Ef3gwOOPWdegUqHQ
+S1TSSJZI73fpKQbLQxCgLzwWji3+HlU87MOY7hgNI+gH9bMtxKtXc1r2G1O6+x/6
+vYzTUVEgR17vf5irF0LKhVyfIjc0RXbyQ14AniKDrN+v0ebHExfppGlkTIBn6rak
+f4994VH6npdn6mkus5CkHBXIrMtPKex6XF2firjUDLuU7tC8y7WlHgjPxEEDDb0G
+w6D0yDdVSvG/5XlCNatBmO/8EznDu1vr72N8gJzISUZwa6CCUD7QBLbKJcXBBVVf
+8nwvV9GvlW+sbXlr
+-----END CERTIFICATE-----
+,]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:b63128f4-90bc-4e11-9e56-0fafa823fe22;8:sockname;26:14:176.124.201.58;5:36050#]8:peername;23:13:94.75.196.116;3:443#]}11:client_conn;557:10:proxy_mode;41:reverse:https://mmcos.codemasters.com@443;8:mitmcert;0:~19:timestamp_tls_setup;18:1694882853.5214777^13:timestamp_end;18:1694882853.6891367^15:timestamp_start;18:1694882852.4120708^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES128-GCM-SHA256;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;0:]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:c6020e44-19e7-4805-8d50-8bfc39bd394c;8:sockname;24:14:176.124.201.58;3:443#]8:peername;23:11:5.227.24.31;5:55256#]}5:error;0:~2:id;36:b29b0088-3401-4c53-b4c9-5d56c638cb8b;4:type;4:http;7:version;2:20#}7915:9:websocket;0:~8:response;903:6:reason;2:OK,11:status_code;3:200#13:timestamp_end;18:1694882935.6048303^15:timestamp_start;18:1694882935.6023011^8:trailers;0:~7:content;526:<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><AverageWaitTimeNonRanked>82.8</AverageWaitTimeNonRanked><AverageWaitTimeRanked>84.5</AverageWaitTimeRanked><Error i:nil="true"/><Groups><MatchmakingGroup><GameLobbyId>109775241630418712</GameLobbyId><GroupLobbyId>109775241626724054</GroupLobbyId><GroupSize>1</GroupSize><IsHost>true</IsHost><Team>0</Team></MatchmakingGroup></Groups><InProgressGameToJoin i:nil="true"/><RaceKey>4F540810D9C8077B</RaceKey><SessionId>8912619</SessionId></MatchmakingResult>,7:headers;191:50:12:Content-Type,30:application/xml; charset=utf-8,]31:6:Server,18:Microsoft-IIS/10.0,]26:12:X-Powered-By,7:ASP.NET,]40:4:Date,29:Sat, 16 Sep 2023 16:48:55 GMT,]24:14:Content-Length,3:526,]]12:http_version;8:HTTP/1.1,}7:request;1397:4:path;65:/MMCOS/MMCOS-Matchmaking/MatchmakingService.svc/EnterMatchmaking2,9:authority;0:,6:scheme;5:https,6:method;4:POST,4:port;3:443#4:host;21:mmcos.codemasters.com;13:timestamp_end;18:1694882910.3873496^15:timestamp_start;18:1694882910.3410187^8:trailers;0:~7:content;826:<EnterMatchmaking2>
+  <SessionToken>AQAAAAIAAADKOgoAAAAAAOw1pngEt9tIATLqwyf7IzOwmSnBmY+d01mjfBYhXK522MAR9euYs4IIeCHpu4qjubwYGrHvAenTmsS5nGbzNN/EqeMjj4BExxBO8/2Gc+qXYqMeiIKhjd4/Sfc6Eh4QC5PWnPxyh7uDF/S7tOc8FKiY76QRDK9YowHPP35hrXOnAqLesExPLgyorLA/PoVQHVUDdsNaNMrd9/QGjAddvZjVH2XbR7mxwUFAeeVKByNriqqDbKBgA1X2EiRmSPUuHGR4OQhQFhRZgwa0IYgzHK+KzVU6UDxgRicfmWq1etOXCh0sgdujivHnBSkxBvmSacClH4/4iGhXIywUUgVlBY3j/byC3z6qETE=</SessionToken>
+  <GroupLobbyId>109775241626724054</GroupLobbyId>
+  <GameLobbyId>109775241630418712</GameLobbyId>
+  <NetworkVersion>1</NetworkVersion>
+  <GameType>RankedBattle</GameType>
+  <GroupSize>1</GroupSize>
+  <SkillLevel>263127040</SkillLevel>
+  <RuleSet>Battle</RuleSet>
+  <Ranking>NotRanked</Ranking>
+  <IgnoreMinimumMatchRequirements>false</IgnoreMinimumMatchRequirements>
+</EnterMatchmaking2>,7:headers;251:32:4:Host,21:mmcos.codemasters.com,]58:10:User-Agent,40:UnityPlayer/5.4.5p1 (http://unity3d.com),]15:6:Accept,3:*/*,]30:15:Accept-Encoding,8:identity,]24:14:Content-Length,3:826,]29:15:X-Unity-Version,7:5.4.5p1,]35:12:content-type,15:application/xml,]]12:http_version;8:HTTP/1.1,}6:backup;0:~17:timestamp_created;18:1694882910.3413427^7:comment;0:;8:metadata;0:}6:marked;0:;9:is_replay;0:~11:intercepted;5:false!11:server_conn;4754:3:via;0:~19:timestamp_tcp_setup;17:1694882910.225191^7:address;31:21:mmcos.codemasters.com;3:443#]19:timestamp_tls_setup;18:1694882910.2404788^13:timestamp_end;18:1694882935.6582026^15:timestamp_start;18:1694882910.2138178^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES256-GCM-SHA384;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;4167:2394:-----BEGIN CERTIFICATE-----
+MIIGuzCCBaOgAwIBAgIQA2oXbx1OCTGJED+Fdu7l0jANBgkqhkiG9w0BAQsFADBN
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMScwJQYDVQQDEx5E
+aWdpQ2VydCBTSEEyIFNlY3VyZSBTZXJ2ZXIgQ0EwHhcNMjMwNzA0MDAwMDAwWhcN
+MjQwNzAzMjM1OTU5WjB1MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ0FMSUZPUk5J
+QTEVMBMGA1UEBxMMUmVkd29vZCBDaXR5MR4wHAYDVQQKExVFbGVjdHJvbmljIEFy
+dHMsIEluYy4xGjAYBgNVBAMMESouY29kZW1hc3RlcnMuY29tMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzPEO73a4C7q9YJcIrolZiW0zzhrQxCGQdgqe
+AOZgekqQ2g/EcLZL1WCD2uiDGbZ+dFZT+1v2zCFe9oPUQFCuAaeSu/2esWuHPKjm
+PyMezTl7KKmbth9ntjf4+wojOmCgowYAzSNIIYVUGbHqN1m7AcUp0Klg+wL6ONsp
+JI2SVPVD9JZlZgTc0VSvgdKCZLyVDIQ3fGxhg1hGqlD1Suctxv+1Zp+r2ohlzGd1
+JfAQ6fLcIordBs6IKfMqT3N5p4KUr13jtOdeeEf+zhVlMZRZWW3mYKv0s72+ERGj
+Zr8jW6sotbcsVOOj+CBDUD2ztzA38zUFCY+t6cbxL59zmLAEVQIDAQABo4IDbTCC
+A2kwHwYDVR0jBBgwFoAUD4BhHIIxYdUvKOeNRji0LOHG2eIwHQYDVR0OBBYEFCGc
+NLTCF5joDuMIwItBh3QSGAwEMBwGA1UdEQQVMBOCESouY29kZW1hc3RlcnMuY29t
+MA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIw
+gY0GA1UdHwSBhTCBgjA/oD2gO4Y5aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0Rp
+Z2ljZXJ0U0hBMlNlY3VyZVNlcnZlckNBLTEuY3JsMD+gPaA7hjlodHRwOi8vY3Js
+NC5kaWdpY2VydC5jb20vRGlnaWNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMS5jcmww
+PgYDVR0gBDcwNTAzBgZngQwBAgIwKTAnBggrBgEFBQcCARYbaHR0cDovL3d3dy5k
+aWdpY2VydC5jb20vQ1BTMH4GCCsGAQUFBwEBBHIwcDAkBggrBgEFBQcwAYYYaHR0
+cDovL29jc3AuZGlnaWNlcnQuY29tMEgGCCsGAQUFBzAChjxodHRwOi8vY2FjZXJ0
+cy5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMi5jcnQw
+CQYDVR0TBAIwADCCAX0GCisGAQQB1nkCBAIEggFtBIIBaQFnAHYA7s3QZNXbGs7F
+XLedtM0TojKHRny87N7DUUhZRnEftZsAAAGJIJS8fgAABAMARzBFAiA5sUBggWkb
+xYVBvqHSiFcsqbQiZK1RQiyrGGKXwfBBnQIhAK/MQolp5eTmOR3Z6vxHSoX+bkrd
+XJwFLsRI6qME4+c+AHYASLDja9qmRzQP5WoC+p0w6xxSActW3SyB2bu/qznYhHMA
+AAGJIJS85AAABAMARzBFAiEA9p5CjJZs71qhesjs6UGHwylSFnfGH7c8RPXbfW8U
+/joCIGjnQl232UyGb01+gNi1goIuKnzDlogy0Y7OcTlPC3CbAHUA2ra/az+1tiKf
+m8K7XGvocJFxbLtRhIU0vaQ9MEjX+6sAAAGJIJS88QAABAMARjBEAiAjoXK+Qhvl
+hatbz6iArlvFVoHw4aJCR6ksFr0eSuVPhgIga4BuN3+9iiUAYVajMufrOBe9IWnK
+YYmKzhFmH5xRKD0wDQYJKoZIhvcNAQELBQADggEBAAr3gMFEfvtnkzVdPjDKRRO+
+zGwTrAgePmdCF5dJ5NXh+vE0fixPoCzUgGgTe+dS75DFsqYFJmt2oNHky8NSn8C7
+7Ow7SZPDcfsGD1pnhJX3qBnOP/wWR0+GPw4ORrdEj3mp6LXZzrkOpS1GYlfaaGzb
+JhVIaaqwPngbGjGjS1/b2QWDDGTXJePAvaLR+krXjEEQtLPgLlulGGfU6Vgjqco/
+3IO/ltlkGNpbK1Am87l9AQDTrnQs8P+79MbKGRmInfACu6/hMtWktVqEEUw5zGZO
+O6I4+ye84Ejvauladg5LDx+3NjouVxY0VAzPyzXUKY2WfQGgNlVAoOhEfriIrS0=
+-----END CERTIFICATE-----
+,1761:-----BEGIN CERTIFICATE-----
+MIIE6DCCA9CgAwIBAgIQAnQuqhfKjiHHF7sf/P0MoDANBgkqhkiG9w0BAQsFADBh
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD
+QTAeFw0yMDA5MjMwMDAwMDBaFw0zMDA5MjIyMzU5NTlaME0xCzAJBgNVBAYTAlVT
+MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxJzAlBgNVBAMTHkRpZ2lDZXJ0IFNIQTIg
+U2VjdXJlIFNlcnZlciBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+ANyuWJBNwcQwFZA1W248ghX1LFy949v/cUP6ZCWA1O4Yok3wZtAKc24RmDYXZK83
+nf36QYSvx6+M/hpzTc8zl5CilodTgyu5pnVILR1WN3vaMTIa16yrBvSqXUu3R0bd
+KpPDkC55gIDvEwRqFDu1m5K+wgdlTvza/P96rtxcflUxDOg5B6TXvi/TC2rSsd9f
+/ld0Uzs1gN2ujkSYs58O09rg1/RrKatEp0tYhG2SS4HD2nOLEpdIkARFdRrdNzGX
+kujNVA075ME/OV4uuPNcfhCOhkEAjUVmR7ChZc6gqikJTvOX6+guqw9ypzAO+sf0
+/RR3w6RbKFfCs/mC/bdFWJsCAwEAAaOCAa4wggGqMB0GA1UdDgQWBBQPgGEcgjFh
+1S8o541GOLQs4cbZ4jAfBgNVHSMEGDAWgBQD3lA1VtFMu2bwo+IbG8OXsj3RVTAO
+BgNVHQ8BAf8EBAMCAYYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBIG
+A1UdEwEB/wQIMAYBAf8CAQAwdgYIKwYBBQUHAQEEajBoMCQGCCsGAQUFBzABhhho
+dHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQAYIKwYBBQUHMAKGNGh0dHA6Ly9jYWNl
+cnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RDQS5jcnQwewYDVR0f
+BHQwcjA3oDWgM4YxaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0R2xv
+YmFsUm9vdENBLmNybDA3oDWgM4YxaHR0cDovL2NybDQuZGlnaWNlcnQuY29tL0Rp
+Z2lDZXJ0R2xvYmFsUm9vdENBLmNybDAwBgNVHSAEKTAnMAcGBWeBDAEBMAgGBmeB
+DAECATAIBgZngQwBAgIwCAYGZ4EMAQIDMA0GCSqGSIb3DQEBCwUAA4IBAQB3MR8I
+l9cSm2PSEWUIpvZlubj6kgPLoX7hyA2MPrQbkb4CCF6fWXF7Ef3gwOOPWdegUqHQ
+S1TSSJZI73fpKQbLQxCgLzwWji3+HlU87MOY7hgNI+gH9bMtxKtXc1r2G1O6+x/6
+vYzTUVEgR17vf5irF0LKhVyfIjc0RXbyQ14AniKDrN+v0ebHExfppGlkTIBn6rak
+f4994VH6npdn6mkus5CkHBXIrMtPKex6XF2firjUDLuU7tC8y7WlHgjPxEEDDb0G
+w6D0yDdVSvG/5XlCNatBmO/8EznDu1vr72N8gJzISUZwa6CCUD7QBLbKJcXBBVVf
+8nwvV9GvlW+sbXlr
+-----END CERTIFICATE-----
+,]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:6200be60-a89e-42f0-9bfd-129c157827e3;8:sockname;26:14:176.124.201.58;5:59870#]8:peername;23:13:94.75.196.116;3:443#]}11:client_conn;556:10:proxy_mode;41:reverse:https://mmcos.codemasters.com@443;8:mitmcert;0:~19:timestamp_tls_setup;18:1694882910.2933538^13:timestamp_end;18:1694882935.6564486^15:timestamp_start;17:1694882910.212237^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES128-GCM-SHA256;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;0:]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:cedd78e3-5e79-4e57-9ad4-94954e4d0460;8:sockname;24:14:176.124.201.58;3:443#]8:peername;23:11:5.227.24.31;5:42670#]}5:error;0:~2:id;36:b6656537-3fd7-498b-a98e-5f3d329bd935;4:type;4:http;7:version;2:20#}7913:9:websocket;0:~8:response;903:6:reason;2:OK,11:status_code;3:200#13:timestamp_end;18:1694882961.4467876^15:timestamp_start;18:1694882961.4444718^8:trailers;0:~7:content;526:<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><AverageWaitTimeNonRanked>82.8</AverageWaitTimeNonRanked><AverageWaitTimeRanked>84.5</AverageWaitTimeRanked><Error i:nil="true"/><Groups><MatchmakingGroup><GameLobbyId>109775241630419383</GameLobbyId><GroupLobbyId>109775241626724054</GroupLobbyId><GroupSize>1</GroupSize><IsHost>true</IsHost><Team>0</Team></MatchmakingGroup></Groups><InProgressGameToJoin i:nil="true"/><RaceKey>0309EF24799AC35E</RaceKey><SessionId>8912620</SessionId></MatchmakingResult>,7:headers;191:50:12:Content-Type,30:application/xml; charset=utf-8,]31:6:Server,18:Microsoft-IIS/10.0,]26:12:X-Powered-By,7:ASP.NET,]40:4:Date,29:Sat, 16 Sep 2023 16:49:20 GMT,]24:14:Content-Length,3:526,]]12:http_version;8:HTTP/1.1,}7:request;1397:4:path;65:/MMCOS/MMCOS-Matchmaking/MatchmakingService.svc/EnterMatchmaking2,9:authority;0:,6:scheme;5:https,6:method;4:POST,4:port;3:443#4:host;21:mmcos.codemasters.com;13:timestamp_end;18:1694882936.3272386^15:timestamp_start;18:1694882936.2766047^8:trailers;0:~7:content;826:<EnterMatchmaking2>
+  <SessionToken>AQAAAAIAAADKOgoAAAAAAOw1pngEt9tIATLqwyf7IzOwmSnBmY+d01mjfBYhXK522MAR9euYs4IIeCHpu4qjubwYGrHvAenTmsS5nGbzNN/EqeMjj4BExxBO8/2Gc+qXYqMeiIKhjd4/Sfc6Eh4QC5PWnPxyh7uDF/S7tOc8FKiY76QRDK9YowHPP35hrXOnAqLesExPLgyorLA/PoVQHVUDdsNaNMrd9/QGjAddvZjVH2XbR7mxwUFAeeVKByNriqqDbKBgA1X2EiRmSPUuHGR4OQhQFhRZgwa0IYgzHK+KzVU6UDxgRicfmWq1etOXCh0sgdujivHnBSkxBvmSacClH4/4iGhXIywUUgVlBY3j/byC3z6qETE=</SessionToken>
+  <GroupLobbyId>109775241626724054</GroupLobbyId>
+  <GameLobbyId>109775241630419383</GameLobbyId>
+  <NetworkVersion>1</NetworkVersion>
+  <GameType>RankedBattle</GameType>
+  <GroupSize>1</GroupSize>
+  <SkillLevel>263127041</SkillLevel>
+  <RuleSet>Battle</RuleSet>
+  <Ranking>NotRanked</Ranking>
+  <IgnoreMinimumMatchRequirements>false</IgnoreMinimumMatchRequirements>
+</EnterMatchmaking2>,7:headers;251:32:4:Host,21:mmcos.codemasters.com,]58:10:User-Agent,40:UnityPlayer/5.4.5p1 (http://unity3d.com),]15:6:Accept,3:*/*,]30:15:Accept-Encoding,8:identity,]24:14:Content-Length,3:826,]29:15:X-Unity-Version,7:5.4.5p1,]35:12:content-type,15:application/xml,]]12:http_version;8:HTTP/1.1,}6:backup;0:~17:timestamp_created;17:1694882936.277034^7:comment;0:;8:metadata;0:}6:marked;0:;9:is_replay;0:~11:intercepted;5:false!11:server_conn;4753:3:via;0:~19:timestamp_tcp_setup;18:1694882936.1331236^7:address;31:21:mmcos.codemasters.com;3:443#]19:timestamp_tls_setup;17:1694882936.165767^13:timestamp_end;18:1694882961.5034864^15:timestamp_start;17:1694882936.121305^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES256-GCM-SHA384;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;4167:2394:-----BEGIN CERTIFICATE-----
+MIIGuzCCBaOgAwIBAgIQA2oXbx1OCTGJED+Fdu7l0jANBgkqhkiG9w0BAQsFADBN
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMScwJQYDVQQDEx5E
+aWdpQ2VydCBTSEEyIFNlY3VyZSBTZXJ2ZXIgQ0EwHhcNMjMwNzA0MDAwMDAwWhcN
+MjQwNzAzMjM1OTU5WjB1MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ0FMSUZPUk5J
+QTEVMBMGA1UEBxMMUmVkd29vZCBDaXR5MR4wHAYDVQQKExVFbGVjdHJvbmljIEFy
+dHMsIEluYy4xGjAYBgNVBAMMESouY29kZW1hc3RlcnMuY29tMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzPEO73a4C7q9YJcIrolZiW0zzhrQxCGQdgqe
+AOZgekqQ2g/EcLZL1WCD2uiDGbZ+dFZT+1v2zCFe9oPUQFCuAaeSu/2esWuHPKjm
+PyMezTl7KKmbth9ntjf4+wojOmCgowYAzSNIIYVUGbHqN1m7AcUp0Klg+wL6ONsp
+JI2SVPVD9JZlZgTc0VSvgdKCZLyVDIQ3fGxhg1hGqlD1Suctxv+1Zp+r2ohlzGd1
+JfAQ6fLcIordBs6IKfMqT3N5p4KUr13jtOdeeEf+zhVlMZRZWW3mYKv0s72+ERGj
+Zr8jW6sotbcsVOOj+CBDUD2ztzA38zUFCY+t6cbxL59zmLAEVQIDAQABo4IDbTCC
+A2kwHwYDVR0jBBgwFoAUD4BhHIIxYdUvKOeNRji0LOHG2eIwHQYDVR0OBBYEFCGc
+NLTCF5joDuMIwItBh3QSGAwEMBwGA1UdEQQVMBOCESouY29kZW1hc3RlcnMuY29t
+MA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIw
+gY0GA1UdHwSBhTCBgjA/oD2gO4Y5aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0Rp
+Z2ljZXJ0U0hBMlNlY3VyZVNlcnZlckNBLTEuY3JsMD+gPaA7hjlodHRwOi8vY3Js
+NC5kaWdpY2VydC5jb20vRGlnaWNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMS5jcmww
+PgYDVR0gBDcwNTAzBgZngQwBAgIwKTAnBggrBgEFBQcCARYbaHR0cDovL3d3dy5k
+aWdpY2VydC5jb20vQ1BTMH4GCCsGAQUFBwEBBHIwcDAkBggrBgEFBQcwAYYYaHR0
+cDovL29jc3AuZGlnaWNlcnQuY29tMEgGCCsGAQUFBzAChjxodHRwOi8vY2FjZXJ0
+cy5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMi5jcnQw
+CQYDVR0TBAIwADCCAX0GCisGAQQB1nkCBAIEggFtBIIBaQFnAHYA7s3QZNXbGs7F
+XLedtM0TojKHRny87N7DUUhZRnEftZsAAAGJIJS8fgAABAMARzBFAiA5sUBggWkb
+xYVBvqHSiFcsqbQiZK1RQiyrGGKXwfBBnQIhAK/MQolp5eTmOR3Z6vxHSoX+bkrd
+XJwFLsRI6qME4+c+AHYASLDja9qmRzQP5WoC+p0w6xxSActW3SyB2bu/qznYhHMA
+AAGJIJS85AAABAMARzBFAiEA9p5CjJZs71qhesjs6UGHwylSFnfGH7c8RPXbfW8U
+/joCIGjnQl232UyGb01+gNi1goIuKnzDlogy0Y7OcTlPC3CbAHUA2ra/az+1tiKf
+m8K7XGvocJFxbLtRhIU0vaQ9MEjX+6sAAAGJIJS88QAABAMARjBEAiAjoXK+Qhvl
+hatbz6iArlvFVoHw4aJCR6ksFr0eSuVPhgIga4BuN3+9iiUAYVajMufrOBe9IWnK
+YYmKzhFmH5xRKD0wDQYJKoZIhvcNAQELBQADggEBAAr3gMFEfvtnkzVdPjDKRRO+
+zGwTrAgePmdCF5dJ5NXh+vE0fixPoCzUgGgTe+dS75DFsqYFJmt2oNHky8NSn8C7
+7Ow7SZPDcfsGD1pnhJX3qBnOP/wWR0+GPw4ORrdEj3mp6LXZzrkOpS1GYlfaaGzb
+JhVIaaqwPngbGjGjS1/b2QWDDGTXJePAvaLR+krXjEEQtLPgLlulGGfU6Vgjqco/
+3IO/ltlkGNpbK1Am87l9AQDTrnQs8P+79MbKGRmInfACu6/hMtWktVqEEUw5zGZO
+O6I4+ye84Ejvauladg5LDx+3NjouVxY0VAzPyzXUKY2WfQGgNlVAoOhEfriIrS0=
+-----END CERTIFICATE-----
+,1761:-----BEGIN CERTIFICATE-----
+MIIE6DCCA9CgAwIBAgIQAnQuqhfKjiHHF7sf/P0MoDANBgkqhkiG9w0BAQsFADBh
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD
+QTAeFw0yMDA5MjMwMDAwMDBaFw0zMDA5MjIyMzU5NTlaME0xCzAJBgNVBAYTAlVT
+MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxJzAlBgNVBAMTHkRpZ2lDZXJ0IFNIQTIg
+U2VjdXJlIFNlcnZlciBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+ANyuWJBNwcQwFZA1W248ghX1LFy949v/cUP6ZCWA1O4Yok3wZtAKc24RmDYXZK83
+nf36QYSvx6+M/hpzTc8zl5CilodTgyu5pnVILR1WN3vaMTIa16yrBvSqXUu3R0bd
+KpPDkC55gIDvEwRqFDu1m5K+wgdlTvza/P96rtxcflUxDOg5B6TXvi/TC2rSsd9f
+/ld0Uzs1gN2ujkSYs58O09rg1/RrKatEp0tYhG2SS4HD2nOLEpdIkARFdRrdNzGX
+kujNVA075ME/OV4uuPNcfhCOhkEAjUVmR7ChZc6gqikJTvOX6+guqw9ypzAO+sf0
+/RR3w6RbKFfCs/mC/bdFWJsCAwEAAaOCAa4wggGqMB0GA1UdDgQWBBQPgGEcgjFh
+1S8o541GOLQs4cbZ4jAfBgNVHSMEGDAWgBQD3lA1VtFMu2bwo+IbG8OXsj3RVTAO
+BgNVHQ8BAf8EBAMCAYYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBIG
+A1UdEwEB/wQIMAYBAf8CAQAwdgYIKwYBBQUHAQEEajBoMCQGCCsGAQUFBzABhhho
+dHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQAYIKwYBBQUHMAKGNGh0dHA6Ly9jYWNl
+cnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RDQS5jcnQwewYDVR0f
+BHQwcjA3oDWgM4YxaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0R2xv
+YmFsUm9vdENBLmNybDA3oDWgM4YxaHR0cDovL2NybDQuZGlnaWNlcnQuY29tL0Rp
+Z2lDZXJ0R2xvYmFsUm9vdENBLmNybDAwBgNVHSAEKTAnMAcGBWeBDAEBMAgGBmeB
+DAECATAIBgZngQwBAgIwCAYGZ4EMAQIDMA0GCSqGSIb3DQEBCwUAA4IBAQB3MR8I
+l9cSm2PSEWUIpvZlubj6kgPLoX7hyA2MPrQbkb4CCF6fWXF7Ef3gwOOPWdegUqHQ
+S1TSSJZI73fpKQbLQxCgLzwWji3+HlU87MOY7hgNI+gH9bMtxKtXc1r2G1O6+x/6
+vYzTUVEgR17vf5irF0LKhVyfIjc0RXbyQ14AniKDrN+v0ebHExfppGlkTIBn6rak
+f4994VH6npdn6mkus5CkHBXIrMtPKex6XF2firjUDLuU7tC8y7WlHgjPxEEDDb0G
+w6D0yDdVSvG/5XlCNatBmO/8EznDu1vr72N8gJzISUZwa6CCUD7QBLbKJcXBBVVf
+8nwvV9GvlW+sbXlr
+-----END CERTIFICATE-----
+,]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:51d03e79-81fa-4951-9203-e4d8fed8607b;8:sockname;26:14:176.124.201.58;5:54574#]8:peername;23:13:94.75.196.116;3:443#]}11:client_conn;556:10:proxy_mode;41:reverse:https://mmcos.codemasters.com@443;8:mitmcert;0:~19:timestamp_tls_setup;17:1694882936.224061^13:timestamp_end;18:1694882961.5022726^15:timestamp_start;18:1694882936.1182177^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES128-GCM-SHA256;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;0:]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:35e6eec6-bf2a-4ee9-ba5e-d3f25a68556f;8:sockname;24:14:176.124.201.58;3:443#]8:peername;23:11:5.227.24.31;5:35242#]}5:error;0:~2:id;36:2e4a4d2e-b325-45e2-a730-ddf6f2a9187b;4:type;4:http;7:version;2:20#}7913:9:websocket;0:~8:response;902:6:reason;2:OK,11:status_code;3:200#13:timestamp_end;18:1694882987.3127887^15:timestamp_start;17:1694882987.310517^8:trailers;0:~7:content;526:<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><AverageWaitTimeNonRanked>82.8</AverageWaitTimeNonRanked><AverageWaitTimeRanked>84.5</AverageWaitTimeRanked><Error i:nil="true"/><Groups><MatchmakingGroup><GameLobbyId>109775241630420040</GameLobbyId><GroupLobbyId>109775241626724054</GroupLobbyId><GroupSize>1</GroupSize><IsHost>true</IsHost><Team>0</Team></MatchmakingGroup></Groups><InProgressGameToJoin i:nil="true"/><RaceKey>ECC430EB9B85B8D0</RaceKey><SessionId>8912621</SessionId></MatchmakingResult>,7:headers;191:50:12:Content-Type,30:application/xml; charset=utf-8,]31:6:Server,18:Microsoft-IIS/10.0,]26:12:X-Powered-By,7:ASP.NET,]40:4:Date,29:Sat, 16 Sep 2023 16:49:46 GMT,]24:14:Content-Length,3:526,]]12:http_version;8:HTTP/1.1,}7:request;1396:4:path;65:/MMCOS/MMCOS-Matchmaking/MatchmakingService.svc/EnterMatchmaking2,9:authority;0:,6:scheme;5:https,6:method;4:POST,4:port;3:443#4:host;21:mmcos.codemasters.com;13:timestamp_end;18:1694882962.1706908^15:timestamp_start;17:1694882962.122015^8:trailers;0:~7:content;826:<EnterMatchmaking2>
+  <SessionToken>AQAAAAIAAADKOgoAAAAAAOw1pngEt9tIATLqwyf7IzOwmSnBmY+d01mjfBYhXK522MAR9euYs4IIeCHpu4qjubwYGrHvAenTmsS5nGbzNN/EqeMjj4BExxBO8/2Gc+qXYqMeiIKhjd4/Sfc6Eh4QC5PWnPxyh7uDF/S7tOc8FKiY76QRDK9YowHPP35hrXOnAqLesExPLgyorLA/PoVQHVUDdsNaNMrd9/QGjAddvZjVH2XbR7mxwUFAeeVKByNriqqDbKBgA1X2EiRmSPUuHGR4OQhQFhRZgwa0IYgzHK+KzVU6UDxgRicfmWq1etOXCh0sgdujivHnBSkxBvmSacClH4/4iGhXIywUUgVlBY3j/byC3z6qETE=</SessionToken>
+  <GroupLobbyId>109775241626724054</GroupLobbyId>
+  <GameLobbyId>109775241630420040</GameLobbyId>
+  <NetworkVersion>1</NetworkVersion>
+  <GameType>RankedBattle</GameType>
+  <GroupSize>1</GroupSize>
+  <SkillLevel>263127042</SkillLevel>
+  <RuleSet>Battle</RuleSet>
+  <Ranking>NotRanked</Ranking>
+  <IgnoreMinimumMatchRequirements>false</IgnoreMinimumMatchRequirements>
+</EnterMatchmaking2>,7:headers;251:32:4:Host,21:mmcos.codemasters.com,]58:10:User-Agent,40:UnityPlayer/5.4.5p1 (http://unity3d.com),]15:6:Accept,3:*/*,]30:15:Accept-Encoding,8:identity,]24:14:Content-Length,3:826,]29:15:X-Unity-Version,7:5.4.5p1,]35:12:content-type,15:application/xml,]]12:http_version;8:HTTP/1.1,}6:backup;0:~17:timestamp_created;18:1694882962.1223497^7:comment;0:;8:metadata;0:}6:marked;0:;9:is_replay;0:~11:intercepted;5:false!11:server_conn;4754:3:via;0:~19:timestamp_tcp_setup;18:1694882961.9820726^7:address;31:21:mmcos.codemasters.com;3:443#]19:timestamp_tls_setup;18:1694882962.0163157^13:timestamp_end;18:1694882987.3686223^15:timestamp_start;17:1694882961.962071^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES256-GCM-SHA384;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;4167:2394:-----BEGIN CERTIFICATE-----
+MIIGuzCCBaOgAwIBAgIQA2oXbx1OCTGJED+Fdu7l0jANBgkqhkiG9w0BAQsFADBN
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMScwJQYDVQQDEx5E
+aWdpQ2VydCBTSEEyIFNlY3VyZSBTZXJ2ZXIgQ0EwHhcNMjMwNzA0MDAwMDAwWhcN
+MjQwNzAzMjM1OTU5WjB1MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ0FMSUZPUk5J
+QTEVMBMGA1UEBxMMUmVkd29vZCBDaXR5MR4wHAYDVQQKExVFbGVjdHJvbmljIEFy
+dHMsIEluYy4xGjAYBgNVBAMMESouY29kZW1hc3RlcnMuY29tMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzPEO73a4C7q9YJcIrolZiW0zzhrQxCGQdgqe
+AOZgekqQ2g/EcLZL1WCD2uiDGbZ+dFZT+1v2zCFe9oPUQFCuAaeSu/2esWuHPKjm
+PyMezTl7KKmbth9ntjf4+wojOmCgowYAzSNIIYVUGbHqN1m7AcUp0Klg+wL6ONsp
+JI2SVPVD9JZlZgTc0VSvgdKCZLyVDIQ3fGxhg1hGqlD1Suctxv+1Zp+r2ohlzGd1
+JfAQ6fLcIordBs6IKfMqT3N5p4KUr13jtOdeeEf+zhVlMZRZWW3mYKv0s72+ERGj
+Zr8jW6sotbcsVOOj+CBDUD2ztzA38zUFCY+t6cbxL59zmLAEVQIDAQABo4IDbTCC
+A2kwHwYDVR0jBBgwFoAUD4BhHIIxYdUvKOeNRji0LOHG2eIwHQYDVR0OBBYEFCGc
+NLTCF5joDuMIwItBh3QSGAwEMBwGA1UdEQQVMBOCESouY29kZW1hc3RlcnMuY29t
+MA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIw
+gY0GA1UdHwSBhTCBgjA/oD2gO4Y5aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0Rp
+Z2ljZXJ0U0hBMlNlY3VyZVNlcnZlckNBLTEuY3JsMD+gPaA7hjlodHRwOi8vY3Js
+NC5kaWdpY2VydC5jb20vRGlnaWNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMS5jcmww
+PgYDVR0gBDcwNTAzBgZngQwBAgIwKTAnBggrBgEFBQcCARYbaHR0cDovL3d3dy5k
+aWdpY2VydC5jb20vQ1BTMH4GCCsGAQUFBwEBBHIwcDAkBggrBgEFBQcwAYYYaHR0
+cDovL29jc3AuZGlnaWNlcnQuY29tMEgGCCsGAQUFBzAChjxodHRwOi8vY2FjZXJ0
+cy5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMi5jcnQw
+CQYDVR0TBAIwADCCAX0GCisGAQQB1nkCBAIEggFtBIIBaQFnAHYA7s3QZNXbGs7F
+XLedtM0TojKHRny87N7DUUhZRnEftZsAAAGJIJS8fgAABAMARzBFAiA5sUBggWkb
+xYVBvqHSiFcsqbQiZK1RQiyrGGKXwfBBnQIhAK/MQolp5eTmOR3Z6vxHSoX+bkrd
+XJwFLsRI6qME4+c+AHYASLDja9qmRzQP5WoC+p0w6xxSActW3SyB2bu/qznYhHMA
+AAGJIJS85AAABAMARzBFAiEA9p5CjJZs71qhesjs6UGHwylSFnfGH7c8RPXbfW8U
+/joCIGjnQl232UyGb01+gNi1goIuKnzDlogy0Y7OcTlPC3CbAHUA2ra/az+1tiKf
+m8K7XGvocJFxbLtRhIU0vaQ9MEjX+6sAAAGJIJS88QAABAMARjBEAiAjoXK+Qhvl
+hatbz6iArlvFVoHw4aJCR6ksFr0eSuVPhgIga4BuN3+9iiUAYVajMufrOBe9IWnK
+YYmKzhFmH5xRKD0wDQYJKoZIhvcNAQELBQADggEBAAr3gMFEfvtnkzVdPjDKRRO+
+zGwTrAgePmdCF5dJ5NXh+vE0fixPoCzUgGgTe+dS75DFsqYFJmt2oNHky8NSn8C7
+7Ow7SZPDcfsGD1pnhJX3qBnOP/wWR0+GPw4ORrdEj3mp6LXZzrkOpS1GYlfaaGzb
+JhVIaaqwPngbGjGjS1/b2QWDDGTXJePAvaLR+krXjEEQtLPgLlulGGfU6Vgjqco/
+3IO/ltlkGNpbK1Am87l9AQDTrnQs8P+79MbKGRmInfACu6/hMtWktVqEEUw5zGZO
+O6I4+ye84Ejvauladg5LDx+3NjouVxY0VAzPyzXUKY2WfQGgNlVAoOhEfriIrS0=
+-----END CERTIFICATE-----
+,1761:-----BEGIN CERTIFICATE-----
+MIIE6DCCA9CgAwIBAgIQAnQuqhfKjiHHF7sf/P0MoDANBgkqhkiG9w0BAQsFADBh
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD
+QTAeFw0yMDA5MjMwMDAwMDBaFw0zMDA5MjIyMzU5NTlaME0xCzAJBgNVBAYTAlVT
+MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxJzAlBgNVBAMTHkRpZ2lDZXJ0IFNIQTIg
+U2VjdXJlIFNlcnZlciBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+ANyuWJBNwcQwFZA1W248ghX1LFy949v/cUP6ZCWA1O4Yok3wZtAKc24RmDYXZK83
+nf36QYSvx6+M/hpzTc8zl5CilodTgyu5pnVILR1WN3vaMTIa16yrBvSqXUu3R0bd
+KpPDkC55gIDvEwRqFDu1m5K+wgdlTvza/P96rtxcflUxDOg5B6TXvi/TC2rSsd9f
+/ld0Uzs1gN2ujkSYs58O09rg1/RrKatEp0tYhG2SS4HD2nOLEpdIkARFdRrdNzGX
+kujNVA075ME/OV4uuPNcfhCOhkEAjUVmR7ChZc6gqikJTvOX6+guqw9ypzAO+sf0
+/RR3w6RbKFfCs/mC/bdFWJsCAwEAAaOCAa4wggGqMB0GA1UdDgQWBBQPgGEcgjFh
+1S8o541GOLQs4cbZ4jAfBgNVHSMEGDAWgBQD3lA1VtFMu2bwo+IbG8OXsj3RVTAO
+BgNVHQ8BAf8EBAMCAYYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBIG
+A1UdEwEB/wQIMAYBAf8CAQAwdgYIKwYBBQUHAQEEajBoMCQGCCsGAQUFBzABhhho
+dHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQAYIKwYBBQUHMAKGNGh0dHA6Ly9jYWNl
+cnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RDQS5jcnQwewYDVR0f
+BHQwcjA3oDWgM4YxaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0R2xv
+YmFsUm9vdENBLmNybDA3oDWgM4YxaHR0cDovL2NybDQuZGlnaWNlcnQuY29tL0Rp
+Z2lDZXJ0R2xvYmFsUm9vdENBLmNybDAwBgNVHSAEKTAnMAcGBWeBDAEBMAgGBmeB
+DAECATAIBgZngQwBAgIwCAYGZ4EMAQIDMA0GCSqGSIb3DQEBCwUAA4IBAQB3MR8I
+l9cSm2PSEWUIpvZlubj6kgPLoX7hyA2MPrQbkb4CCF6fWXF7Ef3gwOOPWdegUqHQ
+S1TSSJZI73fpKQbLQxCgLzwWji3+HlU87MOY7hgNI+gH9bMtxKtXc1r2G1O6+x/6
+vYzTUVEgR17vf5irF0LKhVyfIjc0RXbyQ14AniKDrN+v0ebHExfppGlkTIBn6rak
+f4994VH6npdn6mkus5CkHBXIrMtPKex6XF2firjUDLuU7tC8y7WlHgjPxEEDDb0G
+w6D0yDdVSvG/5XlCNatBmO/8EznDu1vr72N8gJzISUZwa6CCUD7QBLbKJcXBBVVf
+8nwvV9GvlW+sbXlr
+-----END CERTIFICATE-----
+,]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:9b83f688-35bf-46f1-bdf9-555513c1adb9;8:sockname;26:14:176.124.201.58;5:48380#]8:peername;23:13:94.75.196.116;3:443#]}11:client_conn;556:10:proxy_mode;41:reverse:https://mmcos.codemasters.com@443;8:mitmcert;0:~19:timestamp_tls_setup;17:1694882962.071744^13:timestamp_end;18:1694882987.3674061^15:timestamp_start;18:1694882961.9604378^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES128-GCM-SHA256;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;0:]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:d7df622a-5402-409e-a0dd-23af2d64dfff;8:sockname;24:14:176.124.201.58;3:443#]8:peername;23:11:5.227.24.31;5:42470#]}5:error;0:~2:id;36:54371725-f990-429a-9afe-c5e797bbede2;4:type;4:http;7:version;2:20#}7913:9:websocket;0:~8:response;903:6:reason;2:OK,11:status_code;3:200#13:timestamp_end;18:1694882988.5835698^15:timestamp_start;18:1694882988.5817182^8:trailers;0:~7:content;526:<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><AverageWaitTimeNonRanked>82.8</AverageWaitTimeNonRanked><AverageWaitTimeRanked>84.5</AverageWaitTimeRanked><Error i:nil="true"/><Groups><MatchmakingGroup><GameLobbyId>109775241630420670</GameLobbyId><GroupLobbyId>109775241626724054</GroupLobbyId><GroupSize>1</GroupSize><IsHost>true</IsHost><Team>1</Team></MatchmakingGroup></Groups><InProgressGameToJoin i:nil="true"/><RaceKey>0AC0230BE44A07AB</RaceKey><SessionId>8912622</SessionId></MatchmakingResult>,7:headers;191:50:12:Content-Type,30:application/xml; charset=utf-8,]31:6:Server,18:Microsoft-IIS/10.0,]26:12:X-Powered-By,7:ASP.NET,]40:4:Date,29:Sat, 16 Sep 2023 16:49:47 GMT,]24:14:Content-Length,3:526,]]12:http_version;8:HTTP/1.1,}7:request;1395:4:path;65:/MMCOS/MMCOS-Matchmaking/MatchmakingService.svc/EnterMatchmaking2,9:authority;0:,6:scheme;5:https,6:method;4:POST,4:port;3:443#4:host;21:mmcos.codemasters.com;13:timestamp_end;18:1694882988.0477593^15:timestamp_start;17:1694882987.993785^8:trailers;0:~7:content;825:<EnterMatchmaking2>
+  <SessionToken>AQAAAAIAAADKOgoAAAAAAOw1pngEt9tIATLqwyf7IzOwmSnBmY+d01mjfBYhXK522MAR9euYs4IIeCHpu4qjubwYGrHvAenTmsS5nGbzNN/EqeMjj4BExxBO8/2Gc+qXYqMeiIKhjd4/Sfc6Eh4QC5PWnPxyh7uDF/S7tOc8FKiY76QRDK9YowHPP35hrXOnAqLesExPLgyorLA/PoVQHVUDdsNaNMrd9/QGjAddvZjVH2XbR7mxwUFAeeVKByNriqqDbKBgA1X2EiRmSPUuHGR4OQhQFhRZgwa0IYgzHK+KzVU6UDxgRicfmWq1etOXCh0sgdujivHnBSkxBvmSacClH4/4iGhXIywUUgVlBY3j/byC3z6qETE=</SessionToken>
+  <GroupLobbyId>109775241626724054</GroupLobbyId>
+  <GameLobbyId>109775241630420670</GameLobbyId>
+  <NetworkVersion>1</NetworkVersion>
+  <GameType>RankedBattle</GameType>
+  <GroupSize>1</GroupSize>
+  <SkillLevel>263127043</SkillLevel>
+  <RuleSet>Battle</RuleSet>
+  <Ranking>NotRanked</Ranking>
+  <IgnoreMinimumMatchRequirements>true</IgnoreMinimumMatchRequirements>
+</EnterMatchmaking2>,7:headers;251:32:4:Host,21:mmcos.codemasters.com,]58:10:User-Agent,40:UnityPlayer/5.4.5p1 (http://unity3d.com),]15:6:Accept,3:*/*,]30:15:Accept-Encoding,8:identity,]24:14:Content-Length,3:825,]29:15:X-Unity-Version,7:5.4.5p1,]35:12:content-type,15:application/xml,]]12:http_version;8:HTTP/1.1,}6:backup;0:~17:timestamp_created;18:1694882987.9940805^7:comment;0:;8:metadata;0:}6:marked;0:;9:is_replay;0:~11:intercepted;5:false!11:server_conn;4753:3:via;0:~19:timestamp_tcp_setup;17:1694882987.863673^7:address;31:21:mmcos.codemasters.com;3:443#]19:timestamp_tls_setup;17:1694882987.878786^13:timestamp_end;18:1694882988.6425018^15:timestamp_start;18:1694882987.8346436^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES256-GCM-SHA384;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;4167:2394:-----BEGIN CERTIFICATE-----
+MIIGuzCCBaOgAwIBAgIQA2oXbx1OCTGJED+Fdu7l0jANBgkqhkiG9w0BAQsFADBN
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMScwJQYDVQQDEx5E
+aWdpQ2VydCBTSEEyIFNlY3VyZSBTZXJ2ZXIgQ0EwHhcNMjMwNzA0MDAwMDAwWhcN
+MjQwNzAzMjM1OTU5WjB1MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ0FMSUZPUk5J
+QTEVMBMGA1UEBxMMUmVkd29vZCBDaXR5MR4wHAYDVQQKExVFbGVjdHJvbmljIEFy
+dHMsIEluYy4xGjAYBgNVBAMMESouY29kZW1hc3RlcnMuY29tMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzPEO73a4C7q9YJcIrolZiW0zzhrQxCGQdgqe
+AOZgekqQ2g/EcLZL1WCD2uiDGbZ+dFZT+1v2zCFe9oPUQFCuAaeSu/2esWuHPKjm
+PyMezTl7KKmbth9ntjf4+wojOmCgowYAzSNIIYVUGbHqN1m7AcUp0Klg+wL6ONsp
+JI2SVPVD9JZlZgTc0VSvgdKCZLyVDIQ3fGxhg1hGqlD1Suctxv+1Zp+r2ohlzGd1
+JfAQ6fLcIordBs6IKfMqT3N5p4KUr13jtOdeeEf+zhVlMZRZWW3mYKv0s72+ERGj
+Zr8jW6sotbcsVOOj+CBDUD2ztzA38zUFCY+t6cbxL59zmLAEVQIDAQABo4IDbTCC
+A2kwHwYDVR0jBBgwFoAUD4BhHIIxYdUvKOeNRji0LOHG2eIwHQYDVR0OBBYEFCGc
+NLTCF5joDuMIwItBh3QSGAwEMBwGA1UdEQQVMBOCESouY29kZW1hc3RlcnMuY29t
+MA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIw
+gY0GA1UdHwSBhTCBgjA/oD2gO4Y5aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0Rp
+Z2ljZXJ0U0hBMlNlY3VyZVNlcnZlckNBLTEuY3JsMD+gPaA7hjlodHRwOi8vY3Js
+NC5kaWdpY2VydC5jb20vRGlnaWNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMS5jcmww
+PgYDVR0gBDcwNTAzBgZngQwBAgIwKTAnBggrBgEFBQcCARYbaHR0cDovL3d3dy5k
+aWdpY2VydC5jb20vQ1BTMH4GCCsGAQUFBwEBBHIwcDAkBggrBgEFBQcwAYYYaHR0
+cDovL29jc3AuZGlnaWNlcnQuY29tMEgGCCsGAQUFBzAChjxodHRwOi8vY2FjZXJ0
+cy5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMi5jcnQw
+CQYDVR0TBAIwADCCAX0GCisGAQQB1nkCBAIEggFtBIIBaQFnAHYA7s3QZNXbGs7F
+XLedtM0TojKHRny87N7DUUhZRnEftZsAAAGJIJS8fgAABAMARzBFAiA5sUBggWkb
+xYVBvqHSiFcsqbQiZK1RQiyrGGKXwfBBnQIhAK/MQolp5eTmOR3Z6vxHSoX+bkrd
+XJwFLsRI6qME4+c+AHYASLDja9qmRzQP5WoC+p0w6xxSActW3SyB2bu/qznYhHMA
+AAGJIJS85AAABAMARzBFAiEA9p5CjJZs71qhesjs6UGHwylSFnfGH7c8RPXbfW8U
+/joCIGjnQl232UyGb01+gNi1goIuKnzDlogy0Y7OcTlPC3CbAHUA2ra/az+1tiKf
+m8K7XGvocJFxbLtRhIU0vaQ9MEjX+6sAAAGJIJS88QAABAMARjBEAiAjoXK+Qhvl
+hatbz6iArlvFVoHw4aJCR6ksFr0eSuVPhgIga4BuN3+9iiUAYVajMufrOBe9IWnK
+YYmKzhFmH5xRKD0wDQYJKoZIhvcNAQELBQADggEBAAr3gMFEfvtnkzVdPjDKRRO+
+zGwTrAgePmdCF5dJ5NXh+vE0fixPoCzUgGgTe+dS75DFsqYFJmt2oNHky8NSn8C7
+7Ow7SZPDcfsGD1pnhJX3qBnOP/wWR0+GPw4ORrdEj3mp6LXZzrkOpS1GYlfaaGzb
+JhVIaaqwPngbGjGjS1/b2QWDDGTXJePAvaLR+krXjEEQtLPgLlulGGfU6Vgjqco/
+3IO/ltlkGNpbK1Am87l9AQDTrnQs8P+79MbKGRmInfACu6/hMtWktVqEEUw5zGZO
+O6I4+ye84Ejvauladg5LDx+3NjouVxY0VAzPyzXUKY2WfQGgNlVAoOhEfriIrS0=
+-----END CERTIFICATE-----
+,1761:-----BEGIN CERTIFICATE-----
+MIIE6DCCA9CgAwIBAgIQAnQuqhfKjiHHF7sf/P0MoDANBgkqhkiG9w0BAQsFADBh
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD
+QTAeFw0yMDA5MjMwMDAwMDBaFw0zMDA5MjIyMzU5NTlaME0xCzAJBgNVBAYTAlVT
+MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxJzAlBgNVBAMTHkRpZ2lDZXJ0IFNIQTIg
+U2VjdXJlIFNlcnZlciBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+ANyuWJBNwcQwFZA1W248ghX1LFy949v/cUP6ZCWA1O4Yok3wZtAKc24RmDYXZK83
+nf36QYSvx6+M/hpzTc8zl5CilodTgyu5pnVILR1WN3vaMTIa16yrBvSqXUu3R0bd
+KpPDkC55gIDvEwRqFDu1m5K+wgdlTvza/P96rtxcflUxDOg5B6TXvi/TC2rSsd9f
+/ld0Uzs1gN2ujkSYs58O09rg1/RrKatEp0tYhG2SS4HD2nOLEpdIkARFdRrdNzGX
+kujNVA075ME/OV4uuPNcfhCOhkEAjUVmR7ChZc6gqikJTvOX6+guqw9ypzAO+sf0
+/RR3w6RbKFfCs/mC/bdFWJsCAwEAAaOCAa4wggGqMB0GA1UdDgQWBBQPgGEcgjFh
+1S8o541GOLQs4cbZ4jAfBgNVHSMEGDAWgBQD3lA1VtFMu2bwo+IbG8OXsj3RVTAO
+BgNVHQ8BAf8EBAMCAYYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBIG
+A1UdEwEB/wQIMAYBAf8CAQAwdgYIKwYBBQUHAQEEajBoMCQGCCsGAQUFBzABhhho
+dHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQAYIKwYBBQUHMAKGNGh0dHA6Ly9jYWNl
+cnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RDQS5jcnQwewYDVR0f
+BHQwcjA3oDWgM4YxaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0R2xv
+YmFsUm9vdENBLmNybDA3oDWgM4YxaHR0cDovL2NybDQuZGlnaWNlcnQuY29tL0Rp
+Z2lDZXJ0R2xvYmFsUm9vdENBLmNybDAwBgNVHSAEKTAnMAcGBWeBDAEBMAgGBmeB
+DAECATAIBgZngQwBAgIwCAYGZ4EMAQIDMA0GCSqGSIb3DQEBCwUAA4IBAQB3MR8I
+l9cSm2PSEWUIpvZlubj6kgPLoX7hyA2MPrQbkb4CCF6fWXF7Ef3gwOOPWdegUqHQ
+S1TSSJZI73fpKQbLQxCgLzwWji3+HlU87MOY7hgNI+gH9bMtxKtXc1r2G1O6+x/6
+vYzTUVEgR17vf5irF0LKhVyfIjc0RXbyQ14AniKDrN+v0ebHExfppGlkTIBn6rak
+f4994VH6npdn6mkus5CkHBXIrMtPKex6XF2firjUDLuU7tC8y7WlHgjPxEEDDb0G
+w6D0yDdVSvG/5XlCNatBmO/8EznDu1vr72N8gJzISUZwa6CCUD7QBLbKJcXBBVVf
+8nwvV9GvlW+sbXlr
+-----END CERTIFICATE-----
+,]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:04809add-eabc-4958-9662-71644c5ff54c;8:sockname;26:14:176.124.201.58;5:57392#]8:peername;23:13:94.75.196.116;3:443#]}11:client_conn;557:10:proxy_mode;41:reverse:https://mmcos.codemasters.com@443;8:mitmcert;0:~19:timestamp_tls_setup;18:1694882987.9384117^13:timestamp_end;18:1694882988.6413083^15:timestamp_start;18:1694882987.8332465^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES128-GCM-SHA256;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;0:]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:9db389c7-a899-4b0a-96ba-ca33750fff24;8:sockname;24:14:176.124.201.58;3:443#]8:peername;23:11:5.227.24.31;5:38658#]}5:error;0:~2:id;36:39fae95c-dd51-47c2-b6cb-17abc2c7041d;4:type;4:http;7:version;2:20#}7382:9:websocket;0:~8:response;319:6:reason;2:OK,11:status_code;3:200#13:timestamp_end;18:1694882989.0273972^15:timestamp_start;18:1694882989.0254114^8:trailers;0:~7:content;0:,7:headers;135:31:6:Server,18:Microsoft-IIS/10.0,]26:12:X-Powered-By,7:ASP.NET,]40:4:Date,29:Sat, 16 Sep 2023 16:49:48 GMT,]22:14:Content-Length,1:0,]]12:http_version;8:HTTP/1.1,}7:request;1449:4:path;77:/MMCOS/MMCOS-Matchmaking/MatchmakingService.svc/RegisterActiveGameWithPlayers,9:authority;0:,6:scheme;5:https,6:method;4:POST,4:port;3:443#4:host;21:mmcos.codemasters.com;13:timestamp_end;18:1694882988.9903114^15:timestamp_start;18:1694882988.9389238^8:trailers;0:~7:content;866:<RegisterActiveGameWithPlayers>
+  <SessionToken>AQAAAAIAAADKOgoAAAAAAOw1pngEt9tIATLqwyf7IzOwmSnBmY+d01mjfBYhXK522MAR9euYs4IIeCHpu4qjubwYGrHvAenTmsS5nGbzNN/EqeMjj4BExxBO8/2Gc+qXYqMeiIKhjd4/Sfc6Eh4QC5PWnPxyh7uDF/S7tOc8FKiY76QRDK9YowHPP35hrXOnAqLesExPLgyorLA/PoVQHVUDdsNaNMrd9/QGjAddvZjVH2XbR7mxwUFAeeVKByNriqqDbKBgA1X2EiRmSPUuHGR4OQhQFhRZgwa0IYgzHK+KzVU6UDxgRicfmWq1etOXCh0sgdujivHnBSkxBvmSacClH4/4iGhXIywUUgVlBY3j/byC3z6qETE=</SessionToken>
+  <RaceKey>0AC0230BE44A07AB</RaceKey>
+  <HostPlatformID>x</HostPlatformID>
+  <GameLobbyId>x</GameLobbyId>
+  <NetworkVersion>1</NetworkVersion>
+  <GameType>x</GameType>
+  <RuleSet>Race</RuleSet>
+  <Ranking>Ranked</Ranking>
+  <Team1Size>0</Team1Size>
+  <Team2Size>0</Team2Size>
+  <SecondsItTookToMatchmake>78</SecondsItTookToMatchmake>
+  <PlatformIDs>76561198081105540</PlatformIDs>
+</RegisterActiveGameWithPlayers>,7:headers;251:32:4:Host,21:mmcos.codemasters.com,]58:10:User-Agent,40:UnityPlayer/5.4.5p1 (http://unity3d.com),]15:6:Accept,3:*/*,]30:15:Accept-Encoding,8:identity,]24:14:Content-Length,3:866,]29:15:X-Unity-Version,7:5.4.5p1,]35:12:content-type,15:application/xml,]]12:http_version;8:HTTP/1.1,}6:backup;0:~17:timestamp_created;17:1694882988.939264^7:comment;0:;8:metadata;0:}6:marked;0:;9:is_replay;0:~11:intercepted;5:false!11:server_conn;4753:3:via;0:~19:timestamp_tcp_setup;17:1694882988.813548^7:address;31:21:mmcos.codemasters.com;3:443#]19:timestamp_tls_setup;18:1694882988.8298244^13:timestamp_end;18:1694882989.0831475^15:timestamp_start;17:1694882988.794869^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES256-GCM-SHA384;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;4167:2394:-----BEGIN CERTIFICATE-----
+MIIGuzCCBaOgAwIBAgIQA2oXbx1OCTGJED+Fdu7l0jANBgkqhkiG9w0BAQsFADBN
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMScwJQYDVQQDEx5E
+aWdpQ2VydCBTSEEyIFNlY3VyZSBTZXJ2ZXIgQ0EwHhcNMjMwNzA0MDAwMDAwWhcN
+MjQwNzAzMjM1OTU5WjB1MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ0FMSUZPUk5J
+QTEVMBMGA1UEBxMMUmVkd29vZCBDaXR5MR4wHAYDVQQKExVFbGVjdHJvbmljIEFy
+dHMsIEluYy4xGjAYBgNVBAMMESouY29kZW1hc3RlcnMuY29tMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzPEO73a4C7q9YJcIrolZiW0zzhrQxCGQdgqe
+AOZgekqQ2g/EcLZL1WCD2uiDGbZ+dFZT+1v2zCFe9oPUQFCuAaeSu/2esWuHPKjm
+PyMezTl7KKmbth9ntjf4+wojOmCgowYAzSNIIYVUGbHqN1m7AcUp0Klg+wL6ONsp
+JI2SVPVD9JZlZgTc0VSvgdKCZLyVDIQ3fGxhg1hGqlD1Suctxv+1Zp+r2ohlzGd1
+JfAQ6fLcIordBs6IKfMqT3N5p4KUr13jtOdeeEf+zhVlMZRZWW3mYKv0s72+ERGj
+Zr8jW6sotbcsVOOj+CBDUD2ztzA38zUFCY+t6cbxL59zmLAEVQIDAQABo4IDbTCC
+A2kwHwYDVR0jBBgwFoAUD4BhHIIxYdUvKOeNRji0LOHG2eIwHQYDVR0OBBYEFCGc
+NLTCF5joDuMIwItBh3QSGAwEMBwGA1UdEQQVMBOCESouY29kZW1hc3RlcnMuY29t
+MA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIw
+gY0GA1UdHwSBhTCBgjA/oD2gO4Y5aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0Rp
+Z2ljZXJ0U0hBMlNlY3VyZVNlcnZlckNBLTEuY3JsMD+gPaA7hjlodHRwOi8vY3Js
+NC5kaWdpY2VydC5jb20vRGlnaWNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMS5jcmww
+PgYDVR0gBDcwNTAzBgZngQwBAgIwKTAnBggrBgEFBQcCARYbaHR0cDovL3d3dy5k
+aWdpY2VydC5jb20vQ1BTMH4GCCsGAQUFBwEBBHIwcDAkBggrBgEFBQcwAYYYaHR0
+cDovL29jc3AuZGlnaWNlcnQuY29tMEgGCCsGAQUFBzAChjxodHRwOi8vY2FjZXJ0
+cy5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMi5jcnQw
+CQYDVR0TBAIwADCCAX0GCisGAQQB1nkCBAIEggFtBIIBaQFnAHYA7s3QZNXbGs7F
+XLedtM0TojKHRny87N7DUUhZRnEftZsAAAGJIJS8fgAABAMARzBFAiA5sUBggWkb
+xYVBvqHSiFcsqbQiZK1RQiyrGGKXwfBBnQIhAK/MQolp5eTmOR3Z6vxHSoX+bkrd
+XJwFLsRI6qME4+c+AHYASLDja9qmRzQP5WoC+p0w6xxSActW3SyB2bu/qznYhHMA
+AAGJIJS85AAABAMARzBFAiEA9p5CjJZs71qhesjs6UGHwylSFnfGH7c8RPXbfW8U
+/joCIGjnQl232UyGb01+gNi1goIuKnzDlogy0Y7OcTlPC3CbAHUA2ra/az+1tiKf
+m8K7XGvocJFxbLtRhIU0vaQ9MEjX+6sAAAGJIJS88QAABAMARjBEAiAjoXK+Qhvl
+hatbz6iArlvFVoHw4aJCR6ksFr0eSuVPhgIga4BuN3+9iiUAYVajMufrOBe9IWnK
+YYmKzhFmH5xRKD0wDQYJKoZIhvcNAQELBQADggEBAAr3gMFEfvtnkzVdPjDKRRO+
+zGwTrAgePmdCF5dJ5NXh+vE0fixPoCzUgGgTe+dS75DFsqYFJmt2oNHky8NSn8C7
+7Ow7SZPDcfsGD1pnhJX3qBnOP/wWR0+GPw4ORrdEj3mp6LXZzrkOpS1GYlfaaGzb
+JhVIaaqwPngbGjGjS1/b2QWDDGTXJePAvaLR+krXjEEQtLPgLlulGGfU6Vgjqco/
+3IO/ltlkGNpbK1Am87l9AQDTrnQs8P+79MbKGRmInfACu6/hMtWktVqEEUw5zGZO
+O6I4+ye84Ejvauladg5LDx+3NjouVxY0VAzPyzXUKY2WfQGgNlVAoOhEfriIrS0=
+-----END CERTIFICATE-----
+,1761:-----BEGIN CERTIFICATE-----
+MIIE6DCCA9CgAwIBAgIQAnQuqhfKjiHHF7sf/P0MoDANBgkqhkiG9w0BAQsFADBh
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD
+QTAeFw0yMDA5MjMwMDAwMDBaFw0zMDA5MjIyMzU5NTlaME0xCzAJBgNVBAYTAlVT
+MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxJzAlBgNVBAMTHkRpZ2lDZXJ0IFNIQTIg
+U2VjdXJlIFNlcnZlciBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+ANyuWJBNwcQwFZA1W248ghX1LFy949v/cUP6ZCWA1O4Yok3wZtAKc24RmDYXZK83
+nf36QYSvx6+M/hpzTc8zl5CilodTgyu5pnVILR1WN3vaMTIa16yrBvSqXUu3R0bd
+KpPDkC55gIDvEwRqFDu1m5K+wgdlTvza/P96rtxcflUxDOg5B6TXvi/TC2rSsd9f
+/ld0Uzs1gN2ujkSYs58O09rg1/RrKatEp0tYhG2SS4HD2nOLEpdIkARFdRrdNzGX
+kujNVA075ME/OV4uuPNcfhCOhkEAjUVmR7ChZc6gqikJTvOX6+guqw9ypzAO+sf0
+/RR3w6RbKFfCs/mC/bdFWJsCAwEAAaOCAa4wggGqMB0GA1UdDgQWBBQPgGEcgjFh
+1S8o541GOLQs4cbZ4jAfBgNVHSMEGDAWgBQD3lA1VtFMu2bwo+IbG8OXsj3RVTAO
+BgNVHQ8BAf8EBAMCAYYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBIG
+A1UdEwEB/wQIMAYBAf8CAQAwdgYIKwYBBQUHAQEEajBoMCQGCCsGAQUFBzABhhho
+dHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQAYIKwYBBQUHMAKGNGh0dHA6Ly9jYWNl
+cnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RDQS5jcnQwewYDVR0f
+BHQwcjA3oDWgM4YxaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0R2xv
+YmFsUm9vdENBLmNybDA3oDWgM4YxaHR0cDovL2NybDQuZGlnaWNlcnQuY29tL0Rp
+Z2lDZXJ0R2xvYmFsUm9vdENBLmNybDAwBgNVHSAEKTAnMAcGBWeBDAEBMAgGBmeB
+DAECATAIBgZngQwBAgIwCAYGZ4EMAQIDMA0GCSqGSIb3DQEBCwUAA4IBAQB3MR8I
+l9cSm2PSEWUIpvZlubj6kgPLoX7hyA2MPrQbkb4CCF6fWXF7Ef3gwOOPWdegUqHQ
+S1TSSJZI73fpKQbLQxCgLzwWji3+HlU87MOY7hgNI+gH9bMtxKtXc1r2G1O6+x/6
+vYzTUVEgR17vf5irF0LKhVyfIjc0RXbyQ14AniKDrN+v0ebHExfppGlkTIBn6rak
+f4994VH6npdn6mkus5CkHBXIrMtPKex6XF2firjUDLuU7tC8y7WlHgjPxEEDDb0G
+w6D0yDdVSvG/5XlCNatBmO/8EznDu1vr72N8gJzISUZwa6CCUD7QBLbKJcXBBVVf
+8nwvV9GvlW+sbXlr
+-----END CERTIFICATE-----
+,]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:51f0cd87-00e0-4163-ae26-15e0410443bf;8:sockname;26:14:176.124.201.58;5:57402#]8:peername;23:13:94.75.196.116;3:443#]}11:client_conn;557:10:proxy_mode;41:reverse:https://mmcos.codemasters.com@443;8:mitmcert;0:~19:timestamp_tls_setup;18:1694882988.8864346^13:timestamp_end;18:1694882989.0819983^15:timestamp_start;18:1694882988.7934685^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES128-GCM-SHA256;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;0:]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:76ae5b87-1db6-4d7d-8d41-79358050b3e9;8:sockname;24:14:176.124.201.58;3:443#]8:peername;23:11:5.227.24.31;5:38668#]}5:error;0:~2:id;36:2a77e12c-7a7e-411d-93a0-75d172ff6feb;4:type;4:http;7:version;2:20#}7451:9:websocket;0:~8:response;722:6:reason;2:OK,11:status_code;3:200#13:timestamp_end;18:1694883208.9512477^15:timestamp_start;18:1694883208.9490004^8:trailers;0:~7:content;345:<AddPointsResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><BonusPoints>0</BonusPoints><Error i:nil="true"/><GameConfigChanged>false</GameConfigChanged><NewDivision>6</NewDivision><NewSeason>45</NewSeason><OldDivision>6</OldDivision><OldSeason>45</OldSeason><Points>3580</Points><Rank>32</Rank><UserID>670410</UserID></AddPointsResult>,7:headers;191:50:12:Content-Type,30:application/xml; charset=utf-8,]31:6:Server,18:Microsoft-IIS/10.0,]26:12:X-Powered-By,7:ASP.NET,]40:4:Date,29:Sat, 16 Sep 2023 16:53:28 GMT,]24:14:Content-Length,3:345,]]12:http_version;8:HTTP/1.1,}7:request;1114:4:path;65:/MMCOS/MMCOS-GameProgression/GameProgressionService.svc/AddPoints,9:authority;0:,6:scheme;5:https,6:method;4:POST,4:port;3:443#4:host;21:mmcos.codemasters.com;13:timestamp_end;18:1694883208.9241023^15:timestamp_start;18:1694883208.8783484^8:trailers;0:~7:content;543:<AddPoints>
+  <SessionToken>AQAAAAIAAADKOgoAAAAAAOw1pngEt9tIATLqwyf7IzOwmSnBmY+d01mjfBYhXK522MAR9euYs4IIeCHpu4qjubwYGrHvAenTmsS5nGbzNN/EqeMjj4BExxBO8/2Gc+qXYqMeiIKhjd4/Sfc6Eh4QC5PWnPxyh7uDF/S7tOc8FKiY76QRDK9YowHPP35hrXOnAqLesExPLgyorLA/PoVQHVUDdsNaNMrd9/QGjAddvZjVH2XbR7mxwUFAeeVKByNriqqDbKBgA1X2EiRmSPUuHGR4OQhQFhRZgwa0IYgzHK+KzVU6UDxgRicfmWq1etOXCh0sgdujivHnBSkxBvmSacClH4/4iGhXIywUUgVlBY3j/byC3z6qETE=</SessionToken>
+  <RaceKey>0AC0230BE44A07AB</RaceKey>
+  <Points>40</Points>
+  <Level>34</Level>
+  <Prestige>8</Prestige>
+</AddPoints>,7:headers;251:32:4:Host,21:mmcos.codemasters.com,]58:10:User-Agent,40:UnityPlayer/5.4.5p1 (http://unity3d.com),]15:6:Accept,3:*/*,]30:15:Accept-Encoding,8:identity,]24:14:Content-Length,3:543,]29:15:X-Unity-Version,7:5.4.5p1,]35:12:content-type,15:application/xml,]]12:http_version;8:HTTP/1.1,}6:backup;0:~17:timestamp_created;18:1694883208.8787615^7:comment;0:;8:metadata;0:}6:marked;0:;9:is_replay;0:~11:intercepted;5:false!11:server_conn;4754:3:via;0:~19:timestamp_tcp_setup;18:1694883208.7463639^7:address;31:21:mmcos.codemasters.com;3:443#]19:timestamp_tls_setup;17:1694883208.778198^13:timestamp_end;18:1694883209.0031106^15:timestamp_start;18:1694883208.7358215^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES256-GCM-SHA384;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;4167:2394:-----BEGIN CERTIFICATE-----
+MIIGuzCCBaOgAwIBAgIQA2oXbx1OCTGJED+Fdu7l0jANBgkqhkiG9w0BAQsFADBN
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMScwJQYDVQQDEx5E
+aWdpQ2VydCBTSEEyIFNlY3VyZSBTZXJ2ZXIgQ0EwHhcNMjMwNzA0MDAwMDAwWhcN
+MjQwNzAzMjM1OTU5WjB1MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ0FMSUZPUk5J
+QTEVMBMGA1UEBxMMUmVkd29vZCBDaXR5MR4wHAYDVQQKExVFbGVjdHJvbmljIEFy
+dHMsIEluYy4xGjAYBgNVBAMMESouY29kZW1hc3RlcnMuY29tMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzPEO73a4C7q9YJcIrolZiW0zzhrQxCGQdgqe
+AOZgekqQ2g/EcLZL1WCD2uiDGbZ+dFZT+1v2zCFe9oPUQFCuAaeSu/2esWuHPKjm
+PyMezTl7KKmbth9ntjf4+wojOmCgowYAzSNIIYVUGbHqN1m7AcUp0Klg+wL6ONsp
+JI2SVPVD9JZlZgTc0VSvgdKCZLyVDIQ3fGxhg1hGqlD1Suctxv+1Zp+r2ohlzGd1
+JfAQ6fLcIordBs6IKfMqT3N5p4KUr13jtOdeeEf+zhVlMZRZWW3mYKv0s72+ERGj
+Zr8jW6sotbcsVOOj+CBDUD2ztzA38zUFCY+t6cbxL59zmLAEVQIDAQABo4IDbTCC
+A2kwHwYDVR0jBBgwFoAUD4BhHIIxYdUvKOeNRji0LOHG2eIwHQYDVR0OBBYEFCGc
+NLTCF5joDuMIwItBh3QSGAwEMBwGA1UdEQQVMBOCESouY29kZW1hc3RlcnMuY29t
+MA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIw
+gY0GA1UdHwSBhTCBgjA/oD2gO4Y5aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0Rp
+Z2ljZXJ0U0hBMlNlY3VyZVNlcnZlckNBLTEuY3JsMD+gPaA7hjlodHRwOi8vY3Js
+NC5kaWdpY2VydC5jb20vRGlnaWNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMS5jcmww
+PgYDVR0gBDcwNTAzBgZngQwBAgIwKTAnBggrBgEFBQcCARYbaHR0cDovL3d3dy5k
+aWdpY2VydC5jb20vQ1BTMH4GCCsGAQUFBwEBBHIwcDAkBggrBgEFBQcwAYYYaHR0
+cDovL29jc3AuZGlnaWNlcnQuY29tMEgGCCsGAQUFBzAChjxodHRwOi8vY2FjZXJ0
+cy5kaWdpY2VydC5jb20vRGlnaUNlcnRTSEEyU2VjdXJlU2VydmVyQ0EtMi5jcnQw
+CQYDVR0TBAIwADCCAX0GCisGAQQB1nkCBAIEggFtBIIBaQFnAHYA7s3QZNXbGs7F
+XLedtM0TojKHRny87N7DUUhZRnEftZsAAAGJIJS8fgAABAMARzBFAiA5sUBggWkb
+xYVBvqHSiFcsqbQiZK1RQiyrGGKXwfBBnQIhAK/MQolp5eTmOR3Z6vxHSoX+bkrd
+XJwFLsRI6qME4+c+AHYASLDja9qmRzQP5WoC+p0w6xxSActW3SyB2bu/qznYhHMA
+AAGJIJS85AAABAMARzBFAiEA9p5CjJZs71qhesjs6UGHwylSFnfGH7c8RPXbfW8U
+/joCIGjnQl232UyGb01+gNi1goIuKnzDlogy0Y7OcTlPC3CbAHUA2ra/az+1tiKf
+m8K7XGvocJFxbLtRhIU0vaQ9MEjX+6sAAAGJIJS88QAABAMARjBEAiAjoXK+Qhvl
+hatbz6iArlvFVoHw4aJCR6ksFr0eSuVPhgIga4BuN3+9iiUAYVajMufrOBe9IWnK
+YYmKzhFmH5xRKD0wDQYJKoZIhvcNAQELBQADggEBAAr3gMFEfvtnkzVdPjDKRRO+
+zGwTrAgePmdCF5dJ5NXh+vE0fixPoCzUgGgTe+dS75DFsqYFJmt2oNHky8NSn8C7
+7Ow7SZPDcfsGD1pnhJX3qBnOP/wWR0+GPw4ORrdEj3mp6LXZzrkOpS1GYlfaaGzb
+JhVIaaqwPngbGjGjS1/b2QWDDGTXJePAvaLR+krXjEEQtLPgLlulGGfU6Vgjqco/
+3IO/ltlkGNpbK1Am87l9AQDTrnQs8P+79MbKGRmInfACu6/hMtWktVqEEUw5zGZO
+O6I4+ye84Ejvauladg5LDx+3NjouVxY0VAzPyzXUKY2WfQGgNlVAoOhEfriIrS0=
+-----END CERTIFICATE-----
+,1761:-----BEGIN CERTIFICATE-----
+MIIE6DCCA9CgAwIBAgIQAnQuqhfKjiHHF7sf/P0MoDANBgkqhkiG9w0BAQsFADBh
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD
+QTAeFw0yMDA5MjMwMDAwMDBaFw0zMDA5MjIyMzU5NTlaME0xCzAJBgNVBAYTAlVT
+MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxJzAlBgNVBAMTHkRpZ2lDZXJ0IFNIQTIg
+U2VjdXJlIFNlcnZlciBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+ANyuWJBNwcQwFZA1W248ghX1LFy949v/cUP6ZCWA1O4Yok3wZtAKc24RmDYXZK83
+nf36QYSvx6+M/hpzTc8zl5CilodTgyu5pnVILR1WN3vaMTIa16yrBvSqXUu3R0bd
+KpPDkC55gIDvEwRqFDu1m5K+wgdlTvza/P96rtxcflUxDOg5B6TXvi/TC2rSsd9f
+/ld0Uzs1gN2ujkSYs58O09rg1/RrKatEp0tYhG2SS4HD2nOLEpdIkARFdRrdNzGX
+kujNVA075ME/OV4uuPNcfhCOhkEAjUVmR7ChZc6gqikJTvOX6+guqw9ypzAO+sf0
+/RR3w6RbKFfCs/mC/bdFWJsCAwEAAaOCAa4wggGqMB0GA1UdDgQWBBQPgGEcgjFh
+1S8o541GOLQs4cbZ4jAfBgNVHSMEGDAWgBQD3lA1VtFMu2bwo+IbG8OXsj3RVTAO
+BgNVHQ8BAf8EBAMCAYYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBIG
+A1UdEwEB/wQIMAYBAf8CAQAwdgYIKwYBBQUHAQEEajBoMCQGCCsGAQUFBzABhhho
+dHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQAYIKwYBBQUHMAKGNGh0dHA6Ly9jYWNl
+cnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RDQS5jcnQwewYDVR0f
+BHQwcjA3oDWgM4YxaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0R2xv
+YmFsUm9vdENBLmNybDA3oDWgM4YxaHR0cDovL2NybDQuZGlnaWNlcnQuY29tL0Rp
+Z2lDZXJ0R2xvYmFsUm9vdENBLmNybDAwBgNVHSAEKTAnMAcGBWeBDAEBMAgGBmeB
+DAECATAIBgZngQwBAgIwCAYGZ4EMAQIDMA0GCSqGSIb3DQEBCwUAA4IBAQB3MR8I
+l9cSm2PSEWUIpvZlubj6kgPLoX7hyA2MPrQbkb4CCF6fWXF7Ef3gwOOPWdegUqHQ
+S1TSSJZI73fpKQbLQxCgLzwWji3+HlU87MOY7hgNI+gH9bMtxKtXc1r2G1O6+x/6
+vYzTUVEgR17vf5irF0LKhVyfIjc0RXbyQ14AniKDrN+v0ebHExfppGlkTIBn6rak
+f4994VH6npdn6mkus5CkHBXIrMtPKex6XF2firjUDLuU7tC8y7WlHgjPxEEDDb0G
+w6D0yDdVSvG/5XlCNatBmO/8EznDu1vr72N8gJzISUZwa6CCUD7QBLbKJcXBBVVf
+8nwvV9GvlW+sbXlr
+-----END CERTIFICATE-----
+,]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:31027da6-556f-4fd9-9012-e3fc34436338;8:sockname;26:14:176.124.201.58;5:39662#]8:peername;23:13:94.75.196.116;3:443#]}11:client_conn;556:10:proxy_mode;41:reverse:https://mmcos.codemasters.com@443;8:mitmcert;0:~19:timestamp_tls_setup;18:1694883208.8302817^13:timestamp_end;17:1694883209.001933^15:timestamp_start;18:1694883208.7343295^3:sni;21:mmcos.codemasters.com;11:tls_version;7:TLSv1.2;11:cipher_list;0:]6:cipher;27:ECDHE-RSA-AES128-GCM-SHA256;11:alpn_offers;11:8:http/1.1,]4:alpn;8:http/1.1,16:certificate_list;0:]3:tls;4:true!5:error;0:~18:transport_protocol;3:tcp;2:id;36:eece386a-a82a-41de-abca-7966e8f1a5ec;8:sockname;24:14:176.124.201.58;3:443#]8:peername;23:11:5.227.24.31;5:57684#]}5:error;0:~2:id;36:6c9cd53f-6a91-425b-8560-433f1d6d126b;4:type;4:http;7:version;2:20#}

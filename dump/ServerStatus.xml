@@ -1,0 +1,10 @@
+<OnlineServiceStatus>
+
+  <Message display="false" localize="false">
+    Server is up!
+  </Message>
+  
+  <ServerStatus accessible="true"/>
+  <Egonet enabled="true"/>
+    
+</OnlineServiceStatus>
