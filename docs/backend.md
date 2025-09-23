@@ -28,12 +28,14 @@
 
 - https://mmcos.codemasters.com/MMCOS/MMCOS-ServerStatus/ServerStatus.xml
 
-## Egonet
+## EgoNet
 
-### `EgonetServerType.Live`
+https://prod.egonet.codemasters.com/MicroMachines/STEAM/1.0/
 
-- https://prod.egonet.codemasters.com/MicroMachines/STEAM/1.0/Analytics.DataEvent
-- https://prod.egonet.codemasters.com/MicroMachines/STEAM/1.0/LoginService.Login
+`X-EgoNet-Function`
+
+- Analytics.DataEvent
+- LoginService.Login
 
 ## CDN
 
