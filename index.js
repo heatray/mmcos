@@ -1,25 +1,137 @@
-const express = require('express')
-// const xmlparser = require('express-xml-bodyparser');
-const http = require('http')
-const https = require('https')
-const fs = require('fs')
+const express = require('express');
+const xmlparser = require('express-xml-bodyparser');
+const http = require('http');
+const https = require('https');
+const fs = require('fs');
+const { generateLoginResponse } = require('./responses');
+const { GameSession } = require('./game-session');
 
-const app = express()
+// Initialize game session manager
+const gameSession = new GameSession();
+
+// Cleanup old games every 30 minutes
+setInterval(() => {
+  gameSession.cleanupOldGames();
+}, 30 * 60 * 1000);
+
+const app = express();
 
 app.use('/static', express.static('static'));
+app.use(xmlparser());
 
 app.use(function(error, req, res, next) {
-  console.log(req);
-})
+  console.log('Error:', error);
+  next();
+});
 
 app.use((req, res, next) => {
   console.log('%s %s - %s', req.method, req.url, req.ip);
   next();
-})
+});
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
-})
+  res.send('🎮 MMCOS Community Server - Micro Machines World Series Revival');
+});
+
+// Admin dashboard endpoint
+app.get('/admin', (req, res) => {
+  const stats = gameSession.getServerStats();
+  const games = Array.from(gameSession.games.values());
+  const players = Array.from(gameSession.players.values());
+  
+  res.set('Content-Type', 'text/html');
+  res.send(`
+    <html>
+    <head><title>MMCOS Admin Dashboard</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; background: #1a1a1a; color: #fff; }
+      .card { background: #2d2d2d; padding: 15px; margin: 10px 0; border-radius: 8px; }
+      .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+      .stat { background: #333; padding: 10px; border-radius: 5px; text-align: center; }
+      .stat-value { font-size: 24px; font-weight: bold; color: #4CAF50; }
+      table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+      th, td { padding: 8px; text-align: left; border-bottom: 1px solid #444; }
+      th { background: #333; }
+      .host { color: #FFD700; font-weight: bold; }
+      .online { color: #4CAF50; }
+      .offline { color: #f44336; }
+    </style>
+    </head>
+    <body>
+      <h1>🎮 MMCOS Community Server Dashboard</h1>
+      
+      <div class="card">
+        <h2>📊 Server Statistics</h2>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-value">${stats.totalGames}</div>
+            <div>Total Games</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">${stats.activeGames}</div>
+            <div>Active Games</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">${stats.waitingGames}</div>
+            <div>Waiting Games</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">${stats.onlinePlayers}</div>
+            <div>Online Players</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">${stats.totalPlayers}</div>
+            <div>Total Players</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">${stats.averageWaitTime.toFixed(1)}s</div>
+            <div>Avg Wait Time</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>🏁 Active Games</h2>
+        <table>
+          <tr><th>Session ID</th><th>Host</th><th>Players</th><th>Status</th><th>Game Type</th><th>Created</th></tr>
+          ${games.map(game => `
+            <tr>
+              <td>${game.sessionId}</td>
+              <td class="host">${game.hostDisplayName}</td>
+              <td>${game.players.length}/${game.maxPlayers}</td>
+              <td>${game.status}</td>
+              <td>${game.gameType} (${game.ranking})</td>
+              <td>${new Date(game.createdAt).toLocaleTimeString()}</td>
+            </tr>
+          `).join('')}
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>👥 Players</h2>
+        <table>
+          <tr><th>Display Name</th><th>Platform ID</th><th>Status</th><th>Points</th><th>Games</th><th>Wins</th><th>Current Game</th></tr>
+          ${players.map(player => `
+            <tr>
+              <td>${player.displayName}</td>
+              <td>${player.platformId.substring(0, 20)}...</td>
+              <td class="${player.isOnline ? 'online' : 'offline'}">${player.isOnline ? 'Online' : 'Offline'}</td>
+              <td>${player.points}</td>
+              <td>${player.totalGames}</td>
+              <td>${player.wins}</td>
+              <td>${player.currentGameId || 'None'}</td>
+            </tr>
+          `).join('')}
+        </table>
+      </div>
+
+      <script>
+        setTimeout(() => location.reload(), 10000); // Auto-refresh every 10 seconds
+      </script>
+    </body>
+    </html>
+  `);
+});
 
 app.post('/MicroMachines/STEAM/1\.0/', (req, res) => {
   console.log(req);
@@ -45,9 +157,211 @@ app.get('/MMCOS/MMCOS-ServerStatus/ServerStatus\.xml', (req, res) => {
 `)
 })
 
-app.post('/MMCOS/MMCOS-Account/AccountService\.svc/Login', (req, res) => {
-  var xml = `
-<LoginDetails
+app.post('/MMCOS/MMCOS-Account/AccountService\\.svc/Login', (req, res) => {
+  console.log('🔐 Login request from:', req.ip);
+  
+  // Extract data from request
+  const platformId = req.body.login?.platformid?.[0] || "76561198081105540";
+  const displayName = req.body.login?.displayname?.[0] || "Player";
+  const userId = Math.floor(Math.random() * 1000000);
+  
+  console.log(`✅ User logged in: ${displayName} (${platformId.substring(0, 20)}...)`);
+  
+  // Register player in game session
+  const player = gameSession.registerPlayer(platformId, displayName);
+  
+  // Generate authentic response
+  const loginResponse = generateLoginResponse(platformId, displayName, userId);
+  res.set('Content-Type', 'application/xml');
+  res.send(loginResponse);
+});
+
+app.post('/MMCOS/MMCOS-Account/AccountService\\.svc/UpdateAccountTitle', (req, res) => {
+  console.log('UpdateAccountTitle request:', req.body);
+  res.set('Content-Type', 'application/xml');
+  res.send('<UpdateAccountTitleResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Error i:nil="true"/></UpdateAccountTitleResult>');
+});
+
+// Matchmaking Service Endpoints
+app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\\.svc/EnterMatchmaking2', (req, res) => {
+  console.log('🎯 EnterMatchmaking2 request');
+  
+  // Extract session token to identify player
+  const sessionToken = req.body.entermatchmaking2?.sessiontoken?.[0];
+  const gameType = req.body.entermatchmaking2?.gametype?.[0] || 'RankedRace';
+  const ranking = req.body.entermatchmaking2?.ranking?.[0] || 'NotRanked';
+  const skillLevel = req.body.entermatchmaking2?.skilllevel?.[0] || '1000000';
+  
+  // Try to identify player by session token, fallback to generated ID
+  let platformId;
+  if (sessionToken) {
+    // Simple session token mapping (in production, decode properly)
+    platformId = `steam_${sessionToken.substring(0, 16)}`;
+  } else {
+    platformId = `player_${Date.now()}_${Math.floor(Math.random() * 1000)}`;
+  }
+  
+  // Register player if not exists
+  if (!gameSession.getPlayer(platformId)) {
+    gameSession.registerPlayer(platformId, `Player_${platformId.substring(0, 8)}`, sessionToken);
+  }
+  
+  let game;
+  let isHost = false;
+  
+  try {
+    // Try to find existing game to join
+    const availableGames = gameSession.getAvailableGames(gameType, ranking);
+    
+    if (availableGames.length > 0 && availableGames[0].players.length < 4) {
+      // Join existing game
+      game = gameSession.joinGame(availableGames[0].sessionId, platformId);
+      console.log(`🎮 Player joined existing game: Session ${game.sessionId} (${game.players.length}/${game.maxPlayers})`);
+    } else {
+      // Create new game (player becomes host/admin)
+      game = gameSession.createGame(platformId, gameType, 'Race', ranking);
+      isHost = true;
+      console.log(`👑 NEW GAME CREATED! Player is HOST: Session ${game.sessionId}`);
+      console.log(`   🎮 Game Type: ${gameType}, Ranking: ${ranking}, Skill: ${skillLevel}`);
+    }
+    
+    // Find current player in game
+    const currentPlayer = game.players.find(p => p.platformId === platformId);
+    const groupSize = game.players.length;
+    
+    const stats = gameSession.getServerStats();
+    
+    const response = `<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+      <AverageWaitTimeNonRanked>${stats.averageWaitTime.toFixed(1)}</AverageWaitTimeNonRanked>
+      <AverageWaitTimeRanked>${(stats.averageWaitTime + 10).toFixed(1)}</AverageWaitTimeRanked>
+      <Error i:nil="true"/>
+      <Groups>
+        <MatchmakingGroup>
+          <GameLobbyId>${game.gameLobbyId}</GameLobbyId>
+          <GroupLobbyId>${game.groupLobbyId}</GroupLobbyId>
+          <GroupSize>${groupSize}</GroupSize>
+          <IsHost>${currentPlayer.isHost}</IsHost>
+          <Team>${currentPlayer.team}</Team>
+        </MatchmakingGroup>
+      </Groups>
+      <InProgressGameToJoin i:nil="true"/>
+      <RaceKey>${game.raceKey}</RaceKey>
+      <SessionId>${game.sessionId}</SessionId>
+    </MatchmakingResult>`;
+    
+    console.log(`🎲 Matchmaking result: SessionId ${game.sessionId}, RaceKey ${game.raceKey}`);
+    console.log(`   👥 Players: ${groupSize}/${game.maxPlayers}, Host: ${currentPlayer.isHost ? '👑 YES' : 'NO'}`);
+    
+    res.set('Content-Type', 'application/xml');
+    res.send(response);
+    
+  } catch (error) {
+    console.error('❌ Matchmaking error:', error.message);
+    
+    // Fallback response (original behavior)
+    const fallbackSessionId = Math.floor(Math.random() * 10000000);
+    const fallbackRaceKey = Math.random().toString(16).substring(2, 18).toUpperCase();
+    
+    const response = `<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+      <AverageWaitTimeNonRanked>45.0</AverageWaitTimeNonRanked>
+      <AverageWaitTimeRanked>55.0</AverageWaitTimeRanked>
+      <Error i:nil="true"/>
+      <Groups>
+        <MatchmakingGroup>
+          <GameLobbyId>109775241628860699</GameLobbyId>
+          <GroupLobbyId>109775241626724054</GroupLobbyId>
+          <GroupSize>1</GroupSize>
+          <IsHost>true</IsHost>
+          <Team>0</Team>
+        </MatchmakingGroup>
+      </Groups>
+      <InProgressGameToJoin i:nil="true"/>
+      <RaceKey>${fallbackRaceKey}</RaceKey>
+      <SessionId>${fallbackSessionId}</SessionId>
+    </MatchmakingResult>`;
+    
+    res.set('Content-Type', 'application/xml');
+    res.send(response);
+  }
+});
+
+// Additional critical game endpoints
+app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\.svc/RegisterActiveGameWithPlayers', (req, res) => {
+  console.log('🎮 RegisterActiveGameWithPlayers request');
+  
+  const sessionToken = req.body.registeractivegamewithplayers?.sessiontoken?.[0];
+  const raceKey = req.body.registeractivegamewithplayers?.racekey?.[0];
+  const hostPlatformID = req.body.registeractivegamewithplayers?.hostplatformid?.[0];
+  const gameLobbyId = req.body.registeractivegamewithplayers?.gamelobbyid?.[0];
+  const gameType = req.body.registeractivegamewithplayers?.gametype?.[0];
+  const ruleSet = req.body.registeractivegamewithplayers?.ruleset?.[0];
+  const ranking = req.body.registeractivegamewithplayers?.ranking?.[0];
+  const platformIDs = req.body.registeractivegamewithplayers?.platformids?.[0];
+  
+  console.log(`🏁 Game registration: RaceKey ${raceKey}, Host: ${hostPlatformID}`);
+  console.log(`   Players: ${platformIDs}, Type: ${gameType}, Rules: ${ruleSet}`);
+  
+  // Find and start the game
+  try {
+    // Find game by race key or create if needed
+    let game = null;
+    for (const [sessionId, gameData] of gameSession.games) {
+      if (gameData.raceKey === raceKey) {
+        game = gameData;
+        break;
+      }
+    }
+    
+    if (game) {
+      gameSession.startGame(game.sessionId);
+      console.log(`🚀 Game started: Session ${game.sessionId}`);
+    }
+  } catch (error) {
+    console.error('❌ Error starting game:', error.message);
+  }
+  
+  res.set('Content-Type', 'application/xml');
+  res.send('<RegisterActiveGameWithPlayersResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Error i:nil="true"/></RegisterActiveGameWithPlayersResult>');
+});
+
+app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\.svc/AddPoints', (req, res) => {
+  console.log('🏆 AddPoints request');
+  
+  const sessionToken = req.body.addpoints?.sessiontoken?.[0];
+  const raceKey = req.body.addpoints?.racekey?.[0];
+  const points = parseInt(req.body.addpoints?.points?.[0] || '0');
+  const level = parseInt(req.body.addpoints?.level?.[0] || '1');
+  const prestige = parseInt(req.body.addpoints?.prestige?.[0] || '0');
+  
+  console.log(`💎 Points awarded: ${points} points, Level ${level}, Prestige ${prestige}`);
+  console.log(`   RaceKey: ${raceKey}`);
+  
+  // Find game by race key and end it
+  try {
+    for (const [sessionId, game] of gameSession.games) {
+      if (game.raceKey === raceKey) {
+        // Create mock results for point distribution
+        const results = game.players.map((player, index) => ({
+          platformId: player.platformId,
+          position: index + 1,
+          points: Math.max(100 - (index * 20), 10)
+        }));
+        
+        gameSession.endGame(sessionId, results);
+        console.log(`🏁 Game ended: Session ${sessionId} with results`);
+        break;
+      }
+    }
+  } catch (error) {
+    console.error('❌ Error ending game:', error.message);
+  }
+  
+  res.set('Content-Type', 'application/xml');
+  res.send('<AddPointsResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Error i:nil="true"/></AddPointsResult>');
+});
+
+app.post('/MMCOS/MMCOS-Account/AccountService\.svc/Login_OLD', (req, res) => {
+  const xml = `<LoginDetails
   xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
   <Error i:nil="true"/>
   <GameConfigurationData>
@@ -2369,14 +2683,46 @@ app.post('/MMCOS/MMCOS-Account/AccountService\.svc/UpdateAccountTitle', (req, re
   console.log(res);
 })
 
+// Start HTTP server (for testing)
 http.createServer(app).listen(80, () => {
-  console.log(`Example app listening on port 80`);
-})
+  console.log('🌐 MMCOS Server listening on HTTP port 80');
+});
 
-// var options = {
-//   key: fs.readFileSync('./ssl/key.pem'),
-//   cert: fs.readFileSync('./ssl/cert.pem'),
-// }
-// https.createServer(options, app).listen(443, () => {
-//   console.log(`Example app listening on port 443`);
-// })
+// Start HTTPS server (for production)
+try {
+  const options = {
+    key: fs.readFileSync('./ssl/key.pem'),
+    cert: fs.readFileSync('./ssl/cert.pem'),
+  };
+  
+  https.createServer(options, app).listen(443, () => {
+    console.log('========================================');
+    console.log('🔒 MMCOS Community Server ONLINE (HTTPS)');
+    console.log('   Micro Machines World Series Revival');
+    console.log('   🎯 INTELLIGENT MATCHMAKING ENABLED');
+    console.log('========================================');
+    console.log('🌐 HTTP Server: http://localhost:80');
+    console.log('🔐 HTTPS Server: https://localhost:443');
+    console.log('🎮 Admin Dashboard: http://localhost/admin');
+    console.log('');
+    console.log('🎲 Features:');
+    console.log('  • ✅ Automatic game creation');
+    console.log('  • ✅ First player becomes host/admin');
+    console.log('  • ✅ Smart matchmaking (join existing games first)');
+    console.log('  • ✅ Player session management');
+    console.log('  • ✅ Points and leaderboard system');
+    console.log('  • ✅ Real-time admin dashboard');
+    console.log('');
+    console.log('🔧 Next steps:');
+    console.log('  1. Add these lines to C:\\Windows\\System32\\drivers\\etc\\hosts:');
+    console.log('     127.0.0.1    mmcos.codemasters.com');
+    console.log('     127.0.0.1    ecdn.codemasters.com');
+    console.log('     127.0.0.1    prod.egonet.codemasters.com');
+    console.log('  2. Start Micro Machines World Series');
+    console.log('  3. Watch the magic happen! 🎮');
+    console.log('========================================');
+  });
+} catch (error) {
+  console.warn('⚠️  Could not start HTTPS server:', error.message);
+  console.log('HTTP server is running on port 80');
+}
