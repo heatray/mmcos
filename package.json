@@ -1,0 +1,22 @@
+{
+  "name": "mmcos-server",
+  "version": "1.0.0",
+  "description": "Micro Machines World Series Community Server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "keywords": [
+    "micro-machines",
+    "game-server",
+    "community"
+  ],
+  "author": "MMCOS Community",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-xml-bodyparser": "^0.3.0",
+    "selfsigned": "^3.0.1"
+  }
+}
