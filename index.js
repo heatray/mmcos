@@ -17,7 +17,28 @@ setInterval(() => {
 const app = express();
 
 app.use('/static', express.static('static'));
-app.use(xmlparser());
+
+// Configure XML parser for MMCOS protocol
+app.use(express.raw({ 
+    type: ['application/egonet-stream', 'application/xml', 'text/xml'],
+    limit: '10mb'
+}));
+
+// Convert raw buffer to string for XML processing
+app.use((req, res, next) => {
+    if (req.headers['content-type'] && 
+        req.headers['content-type'].includes('egonet-stream')) {
+        try {
+            if (Buffer.isBuffer(req.body)) {
+                req.body = req.body.toString('utf8');
+                console.log('MMCOS Request:', req.headers['x-egonet-function']);
+            }
+        } catch (error) {
+            console.error('Error parsing XML body:', error);
+        }
+    }
+    next();
+});
 
 app.use(function(error, req, res, next) {
   console.log('Error:', error);
@@ -134,8 +155,7 @@ app.get('/admin', (req, res) => {
 });
 
 app.post('/MicroMachines/STEAM/1\.0/', (req, res) => {
-  console.log(req);
-  console.log(res);
+  // Debug endpoint - request received
 })
 
 app.get('/MMCOS/redirect_steam_submission[1-3]\.txt', (req, res) => {
@@ -186,51 +206,87 @@ app.post('/MMCOS/MMCOS-Account/AccountService\\.svc/UpdateAccountTitle', (req, r
 app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\\.svc/EnterMatchmaking2', (req, res) => {
   console.log('🎯 EnterMatchmaking2 request');
   
-  // Extract session token to identify player
+  // Extract all important fields from request
   const sessionToken = req.body.entermatchmaking2?.sessiontoken?.[0];
+  const groupLobbyId = req.body.entermatchmaking2?.grouplobbyid?.[0];
+  const gameLobbyId = req.body.entermatchmaking2?.gamelobbyid?.[0];
+  const networkVersion = req.body.entermatchmaking2?.networkversion?.[0] || '1';
   const gameType = req.body.entermatchmaking2?.gametype?.[0] || 'RankedRace';
-  const ranking = req.body.entermatchmaking2?.ranking?.[0] || 'NotRanked';
+  const requestedGroupSize = req.body.entermatchmaking2?.groupsize?.[0] || '1';
   const skillLevel = req.body.entermatchmaking2?.skilllevel?.[0] || '1000000';
+  const ruleSet = req.body.entermatchmaking2?.ruleset?.[0] || 'Race';
+  const ranking = req.body.entermatchmaking2?.ranking?.[0] || 'NotRanked';
+  const ignoreMinRequirements = req.body.entermatchmaking2?.ignoreminimummatchrequirements?.[0] || 'false';
   
-  // Try to identify player by session token, fallback to generated ID
+  console.log(`🎮 Matchmaking request: ${gameType}/${ruleSet}/${ranking}, Group: ${requestedGroupSize}, Skill: ${skillLevel}`);
+  
+  // Try to identify player by session token, fallback to IP-based ID
   let platformId;
   if (sessionToken) {
     // Simple session token mapping (in production, decode properly)
     platformId = `steam_${sessionToken.substring(0, 16)}`;
   } else {
-    platformId = `player_${Date.now()}_${Math.floor(Math.random() * 1000)}`;
+    // Use IP address to create consistent player ID for same client
+    const clientIp = req.ip.replace(/[^a-zA-Z0-9]/g, '_');
+    platformId = `player_${clientIp}`;
   }
   
   // Register player if not exists
   if (!gameSession.getPlayer(platformId)) {
-    gameSession.registerPlayer(platformId, `Player_${platformId.substring(0, 8)}`, sessionToken);
+    gameSession.registerPlayer(platformId, `Player_${platformId.substring(7, 15)}`, sessionToken);
+    console.log(`🎮 Player registered: Player_${platformId.substring(7, 15)} (${platformId})`);
   }
   
   let game;
   let isHost = false;
   
-  try {
-    // Try to find existing game to join
-    const availableGames = gameSession.getAvailableGames(gameType, ranking);
-    
-    if (availableGames.length > 0 && availableGames[0].players.length < 4) {
-      // Join existing game
-      game = gameSession.joinGame(availableGames[0].sessionId, platformId);
-      console.log(`🎮 Player joined existing game: Session ${game.sessionId} (${game.players.length}/${game.maxPlayers})`);
+  // Check if player is already in a game
+  const existingPlayer = gameSession.getPlayer(platformId);
+  if (existingPlayer && existingPlayer.currentGameId) {
+    const existingGame = gameSession.games.get(existingPlayer.currentGameId);
+    if (existingGame && existingGame.status === 'waiting') {
+      // Return existing game info
+      console.log(`🔄 Player reconnecting to existing game: Session ${existingGame.sessionId}`);
+      game = existingGame;
     } else {
-      // Create new game (player becomes host/admin)
-      game = gameSession.createGame(platformId, gameType, 'Race', ranking);
-      isHost = true;
-      console.log(`👑 NEW GAME CREATED! Player is HOST: Session ${game.sessionId}`);
-      console.log(`   🎮 Game Type: ${gameType}, Ranking: ${ranking}, Skill: ${skillLevel}`);
+      // Clear stale game reference
+      existingPlayer.currentGameId = null;
     }
+  }
+  
+  // Only do matchmaking if player doesn't have an existing game
+  if (!game) {
+    try {
+      // Try to find existing game to join
+      const availableGames = gameSession.getAvailableGames(gameType, ranking);
+      
+      if (availableGames.length > 0) {
+        // Join existing game (games can have up to 8 players)
+        game = gameSession.joinGame(availableGames[0].sessionId, platformId);
+        console.log(`🎮 Player joined existing game: Session ${game.sessionId} (${game.players.length}/${game.maxPlayers})`);
+      } else {
+        // Create new game (player becomes host/admin)
+        game = gameSession.createGame(platformId, gameType, ruleSet, ranking, gameLobbyId, groupLobbyId);
+        isHost = true;
+        console.log(`👑 NEW GAME CREATED! Player is HOST: Session ${game.sessionId}`);
+        console.log(`   🎮 Game Type: ${gameType}/${ruleSet}, Ranking: ${ranking}, Skill: ${skillLevel}`);
+      }
+    } catch (error) {
+      console.error('❌ Matchmaking error:', error.message);
+      // Fallback: create new game
+      game = gameSession.createGame(platformId, gameType, ruleSet, ranking, gameLobbyId, groupLobbyId);
+      isHost = true;
+      console.log(`🆘 Fallback: Created new game after error - Session ${game.sessionId}`);
+    }
+  }
     
-    // Find current player in game
-    const currentPlayer = game.players.find(p => p.platformId === platformId);
-    const groupSize = game.players.length;
-    
-    const stats = gameSession.getServerStats();
-    
+  // Find current player in game
+  const currentPlayer = game.players.find(p => p.platformId === platformId);
+  const groupSize = game.players.length;
+  
+  const stats = gameSession.getServerStats();
+  
+  try {
     const response = `<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
       <AverageWaitTimeNonRanked>${stats.averageWaitTime.toFixed(1)}</AverageWaitTimeNonRanked>
       <AverageWaitTimeRanked>${(stats.averageWaitTime + 10).toFixed(1)}</AverageWaitTimeRanked>
@@ -256,7 +312,7 @@ app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\\.svc/EnterMatchmaking2', 
     res.send(response);
     
   } catch (error) {
-    console.error('❌ Matchmaking error:', error.message);
+    console.error('❌ Response error:', error.message);
     
     // Fallback response (original behavior)
     const fallbackSessionId = Math.floor(Math.random() * 10000000);
@@ -336,11 +392,29 @@ app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\.svc/AddPoints', (req, res
   console.log(`💎 Points awarded: ${points} points, Level ${level}, Prestige ${prestige}`);
   console.log(`   RaceKey: ${raceKey}`);
   
-  // Find game by race key and end it
+  // Find player and update stats
+  let playerData = null;
   try {
+    // Try to find player by session token or fallback to IP-based ID
+    let platformId;
+    if (sessionToken) {
+      platformId = `steam_${sessionToken.substring(0, 16)}`;
+    } else {
+      const clientIp = req.ip.replace(/[^a-zA-Z0-9]/g, '_');
+      platformId = `player_${clientIp}`;
+    }
+    
+    playerData = gameSession.getPlayer(platformId);
+    if (playerData) {
+      playerData.points += points;
+      playerData.level = level;
+      playerData.prestige = prestige;
+      console.log(`💎 Player ${playerData.displayName}: ${playerData.points} total points`);
+    }
+    
+    // Find game by race key and end it
     for (const [sessionId, game] of gameSession.games) {
       if (game.raceKey === raceKey) {
-        // Create mock results for point distribution
         const results = game.players.map((player, index) => ({
           platformId: player.platformId,
           position: index + 1,
@@ -353,11 +427,30 @@ app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\.svc/AddPoints', (req, res
       }
     }
   } catch (error) {
-    console.error('❌ Error ending game:', error.message);
+    console.error('❌ Error processing points:', error.message);
   }
   
+  // Generate realistic response based on dumps
+  const totalPoints = playerData ? playerData.points : Math.floor(Math.random() * 5000) + 1000;
+  const userID = Math.floor(Math.random() * 1000000) + 100000;
+  const rank = Math.max(1, Math.floor(totalPoints / 100));
+  const division = Math.min(6, Math.floor(rank / 10));
+  
+  const response = `<AddPointsResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <BonusPoints>0</BonusPoints>
+    <Error i:nil="true"/>
+    <GameConfigChanged>false</GameConfigChanged>
+    <NewDivision>${division}</NewDivision>
+    <NewSeason>45</NewSeason>
+    <OldDivision>${division}</OldDivision>
+    <OldSeason>45</OldSeason>
+    <Points>${totalPoints}</Points>
+    <Rank>${rank}</Rank>
+    <UserID>${userID}</UserID>
+  </AddPointsResult>`;
+  
   res.set('Content-Type', 'application/xml');
-  res.send('<AddPointsResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Error i:nil="true"/></AddPointsResult>');
+  res.send(response);
 });
 
 app.post('/MMCOS/MMCOS-Account/AccountService\.svc/Login_OLD', (req, res) => {
@@ -2679,8 +2772,7 @@ app.post('/MMCOS/MMCOS-Account/AccountService\.svc/Login_OLD', (req, res) => {
 })
 
 app.post('/MMCOS/MMCOS-Account/AccountService\.svc/UpdateAccountTitle', (req, res) => {
-  console.log(req);
-  console.log(res);
+  // Debug endpoint - request received
 })
 
 // Start HTTP server (for testing)

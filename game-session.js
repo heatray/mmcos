@@ -49,11 +49,11 @@ class GameSession {
   }
 
   // Create new game session
-  createGame(hostPlatformId, gameType = 'Race', ruleSet = 'Race', ranking = 'NotRanked') {
+  createGame(hostPlatformId, gameType = 'Race', ruleSet = 'Race', ranking = 'NotRanked', clientGameLobbyId = null, clientGroupLobbyId = null) {
     const sessionId = this.generateSessionId();
     const raceKey = this.generateRaceKey();
-    const gameLobbyId = this.generateLobbyId();
-    const groupLobbyId = this.generateLobbyId();
+    const gameLobbyId = clientGameLobbyId || this.generateLobbyId();
+    const groupLobbyId = clientGroupLobbyId || this.generateLobbyId();
 
     const host = this.players.get(hostPlatformId);
     if (!host) {
