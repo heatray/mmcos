@@ -1,5 +1,9 @@
 const express = require('express');
 const xmlparser = require('express-xml-bodyparser');
+const xml2js = require('xml2js');
+
+// Global request counter for testing
+let enterMatchmakingCounter = 0;
 const http = require('http');
 const https = require('https');
 const fs = require('fs');
@@ -27,11 +31,40 @@ app.use(express.raw({
 // Convert raw buffer to string for XML processing
 app.use((req, res, next) => {
     if (req.headers['content-type'] && 
-        req.headers['content-type'].includes('egonet-stream')) {
+        (req.headers['content-type'].includes('egonet-stream') || 
+         req.headers['content-type'].includes('application/xml') ||
+         req.headers['content-type'].includes('text/xml'))) {
         try {
             if (Buffer.isBuffer(req.body)) {
-                req.body = req.body.toString('utf8');
-                console.log('MMCOS Request:', req.headers['x-egonet-function']);
+                const xmlString = req.body.toString('utf8');
+                console.log('MMCOS Request:', req.headers['x-egonet-function'] || 'XML');
+                console.log('🔍 XML String:', xmlString);
+                
+                // Parse XML to JavaScript object
+                const parser = new xml2js.Parser({ 
+                    explicitArray: true, 
+                    mergeAttrs: true,
+                    ignoreAttrs: true,
+                    explicitCharkey: false,
+                    trim: true,
+                    normalize: true
+                });
+                
+                parser.parseString(xmlString, (err, result) => {
+                    if (!err && result) {
+                        // Convert to lowercase for easier access
+                        req.body = {};
+                        for (const key in result) {
+                            req.body[key.toLowerCase()] = result[key];
+                        }
+                        console.log('✅ Parsed XML:', JSON.stringify(req.body, null, 2));
+                    } else {
+                        console.error('❌ XML Parse Error:', err);
+                        req.body = xmlString; // Fallback to original string
+                    }
+                    next();
+                });
+                return; // Don't call next() here, wait for parser callback
             }
         } catch (error) {
             console.error('Error parsing XML body:', error);
@@ -205,20 +238,64 @@ app.post('/MMCOS/MMCOS-Account/AccountService\\.svc/UpdateAccountTitle', (req, r
 // Matchmaking Service Endpoints
 app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\\.svc/EnterMatchmaking2', (req, res) => {
   console.log('🎯 EnterMatchmaking2 request');
+  console.log('🔍 Raw req.body:', JSON.stringify(req.body, null, 2));
   
+  // Increment counter for testing
+  enterMatchmakingCounter++;
+  console.log(`🔢 EnterMatchmaking2 request #${enterMatchmakingCounter}`);
+  
+  // TEST: Send error after 3rd request to see if client switches to RegisterActiveGameWithPlayers
+  if (enterMatchmakingCounter >= 4) {
+    console.log(`🚨 TESTING: Sending ERROR response on request #${enterMatchmakingCounter} to trigger RegisterActiveGameWithPlayers`);
+    res.set('Content-Type', 'text/xml; charset=utf-8');
+    res.status(500).send('<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><AverageWaitTimeNonRanked>82.8</AverageWaitTimeNonRanked><AverageWaitTimeRanked>84.5</AverageWaitTimeRanked><Error>MATCHMAKING_TIMEOUT</Error><Groups/><InProgressGameToJoin i:nil="true"/><RaceKey>FBAAAD8DAE34C0BF</RaceKey><SessionId>8912612</SessionId></MatchmakingResult>');
+    return;
+  }
+  
+  // NEW TEST: On request #2, try InProgressGameToJoin instead of GroupSize!
+  if (enterMatchmakingCounter === 2) {
+    console.log(`🎮 TESTING: Setting InProgressGameToJoin (not nil) on request #${enterMatchmakingCounter}`);
+    const testGameLobbyId = req.body.entermatchmaking2?.GameLobbyId?.[0];
+    const testGroupLobbyId = req.body.entermatchmaking2?.GroupLobbyId?.[0];
+    const testGameType = req.body.entermatchmaking2?.GameType?.[0];
+    res.set('Content-Type', 'text/xml; charset=utf-8');
+    res.send('<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><AverageWaitTimeNonRanked>82.8</AverageWaitTimeNonRanked><AverageWaitTimeRanked>84.5</AverageWaitTimeRanked><Error i:nil="true"/><Groups><MatchmakingGroup><GameLobbyId>' + testGameLobbyId + '</GameLobbyId><GroupLobbyId>' + testGroupLobbyId + '</GroupLobbyId><GroupSize>1</GroupSize><IsHost>true</IsHost><Team>0</Team><HostPlatformID>steam_AQAAAAIAAADKOgoA</HostPlatformID><GameType>' + testGameType + '</GameType></MatchmakingGroup></Groups><InProgressGameToJoin><SessionId>8912612</SessionId><RaceKey>FBAAAD8DAE34C0BF</RaceKey></InProgressGameToJoin><RaceKey>FBAAAD8DAE34C0BF</RaceKey><SessionId>8912612</SessionId></MatchmakingResult>');
+    return;
+  }
   // Extract all important fields from request
-  const sessionToken = req.body.entermatchmaking2?.sessiontoken?.[0];
-  const groupLobbyId = req.body.entermatchmaking2?.grouplobbyid?.[0];
-  const gameLobbyId = req.body.entermatchmaking2?.gamelobbyid?.[0];
-  const networkVersion = req.body.entermatchmaking2?.networkversion?.[0] || '1';
-  const gameType = req.body.entermatchmaking2?.gametype?.[0] || 'RankedRace';
-  const requestedGroupSize = req.body.entermatchmaking2?.groupsize?.[0] || '1';
-  const skillLevel = req.body.entermatchmaking2?.skilllevel?.[0] || '1000000';
-  const ruleSet = req.body.entermatchmaking2?.ruleset?.[0] || 'Race';
-  const ranking = req.body.entermatchmaking2?.ranking?.[0] || 'NotRanked';
-  const ignoreMinRequirements = req.body.entermatchmaking2?.ignoreminimummatchrequirements?.[0] || 'false';
+  const sessionToken = req.body.entermatchmaking2?.SessionToken?.[0];
+  const groupLobbyId = req.body.entermatchmaking2?.GroupLobbyId?.[0];
+  const gameLobbyId = req.body.entermatchmaking2?.GameLobbyId?.[0];
+  const gameType = req.body.entermatchmaking2?.GameType?.[0];
+  
+  // TEST: Send error after 3rd request to see if client switches to RegisterActiveGameWithPlayers
+  if (enterMatchmakingCounter >= 3) {
+    console.log(`🎮 TESTING: Pretending game is FULL with 2+ players on request #${enterMatchmakingCounter}`);
+    res.set('Content-Type', 'text/xml; charset=utf-8');
+    res.send('<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><AverageWaitTimeNonRanked>82.8</AverageWaitTimeNonRanked><AverageWaitTimeRanked>84.5</AverageWaitTimeRanked><Error i:nil="true"/><Groups><MatchmakingGroup><GameLobbyId>' + gameLobbyId + '</GameLobbyId><GroupLobbyId>' + groupLobbyId + '</GroupLobbyId><GroupSize>2</GroupSize><IsHost>true</IsHost><Team>0</Team><HostPlatformID>test_platform</HostPlatformID><GameType>' + gameType + '</GameType></MatchmakingGroup></Groups><InProgressGameToJoin i:nil="true"/><RaceKey>FBAAAD8DAE34C0BF</RaceKey><SessionId>8912612</SessionId></MatchmakingResult>');
+    return;
+  }
+  
+  const networkVersion = req.body.entermatchmaking2?.NetworkVersion?.[0] || '1';
+  const requestedGroupSize = req.body.entermatchmaking2?.GroupSize?.[0] || '1';
+  const skillLevel = req.body.entermatchmaking2?.SkillLevel?.[0] || '1000000';
+  const ruleSet = req.body.entermatchmaking2?.RuleSet?.[0] || 'Race';
+  const ranking = req.body.entermatchmaking2?.Ranking?.[0] || 'NotRanked';
+  const ignoreMinRequirements = req.body.entermatchmaking2?.IgnoreMinimumMatchRequirements?.[0] || 'false';
+  
+  console.log(`🔍 Field Access Test: GroupLobbyId=${groupLobbyId}, GameLobbyId=${gameLobbyId}`);
+  console.log(`🔍 Available fields:`, Object.keys(req.body.entermatchmaking2 || {}));
+  
+  // Generate MITM dump compatible IDs if not provided
+  if (!groupLobbyId) {
+    groupLobbyId = '109775241626724054'; // Fixed GroupLobbyId from MITM dump
+  }
+  if (!gameLobbyId) {
+    gameLobbyId = `10977524${Date.now().toString().substring(-8)}`; // Dynamic GameLobbyId in same format
+  }
   
   console.log(`🎮 Matchmaking request: ${gameType}/${ruleSet}/${ranking}, Group: ${requestedGroupSize}, Skill: ${skillLevel}`);
+  console.log(`📍 Client IDs: GroupLobbyId=${groupLobbyId}, GameLobbyId=${gameLobbyId}`);
   
   // Try to identify player by session token, fallback to IP-based ID
   let platformId;
@@ -231,34 +308,44 @@ app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\\.svc/EnterMatchmaking2', 
     platformId = `player_${clientIp}`;
   }
   
-  // Register player if not exists
+  // Register player if not exists (use SAME platformId for everything)
   if (!gameSession.getPlayer(platformId)) {
     gameSession.registerPlayer(platformId, `Player_${platformId.substring(7, 15)}`, sessionToken);
     console.log(`🎮 Player registered: Player_${platformId.substring(7, 15)} (${platformId})`);
   }
   
+  // IMPORTANT: Store admin tracking with same platformId
+  console.log(`🔍 Using consistent platformId: ${platformId}`);
+  
   let game;
   let isHost = false;
   
-  // Check if player is already in a game
-  const existingPlayer = gameSession.getPlayer(platformId);
-  if (existingPlayer && existingPlayer.currentGameId) {
-    const existingGame = gameSession.games.get(existingPlayer.currentGameId);
-    if (existingGame && existingGame.status === 'waiting') {
-      // Return existing game info
-      console.log(`🔄 Player reconnecting to existing game: Session ${existingGame.sessionId}`);
-      game = existingGame;
-    } else {
-      // Clear stale game reference
-      existingPlayer.currentGameId = null;
+  // IMPORTANT: Use GameLobbyId to identify unique game requests
+  // When client sends new GameLobbyId, they want a NEW game session!
+  
+  // Check if there's already a game with this exact GameLobbyId
+  const existingGameByLobbyId = Array.from(gameSession.games.values()).find(g => 
+    g.gameLobbyId === gameLobbyId && (g.status === 'waiting' || g.status === 'active')
+  );
+  
+  if (existingGameByLobbyId) {
+    console.log(`🔄 Found existing game for GameLobbyId ${gameLobbyId}: Session ${existingGameByLobbyId.sessionId}`);
+    game = existingGameByLobbyId;
+    
+    // Make sure player is in this game
+    const playerInGame = game.players.find(p => p.platformId === platformId);
+    if (!playerInGame) {
+      game = gameSession.joinGame(game.sessionId, platformId);
+      console.log(`🎮 Player joined existing game: Session ${game.sessionId}`);
     }
   }
   
-  // Only do matchmaking if player doesn't have an existing game
+  // Only create new game if we didn't find existing one by GameLobbyId
   if (!game) {
     try {
-      // Try to find existing game to join
-      const availableGames = gameSession.getAvailableGames(gameType, ranking);
+      // Try to find existing game to join (but exclude games with different lobby IDs)
+      const availableGames = gameSession.getAvailableGames(gameType, ranking)
+        .filter(g => !g.gameLobbyId || g.gameLobbyId === gameLobbyId); // Only join games with same lobby ID
       
       if (availableGames.length > 0) {
         // Join existing game (games can have up to 8 players)
@@ -268,8 +355,21 @@ app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\\.svc/EnterMatchmaking2', 
         // Create new game (player becomes host/admin)
         game = gameSession.createGame(platformId, gameType, ruleSet, ranking, gameLobbyId, groupLobbyId);
         isHost = true;
-        console.log(`👑 NEW GAME CREATED! Player is HOST: Session ${game.sessionId}`);
+        console.log(`👑 NEW GAME CREATED for GameLobbyId ${gameLobbyId}! Player is HOST: Session ${game.sessionId}`);
         console.log(`   🎮 Game Type: ${gameType}/${ruleSet}, Ranking: ${ranking}, Skill: ${skillLevel}`);
+        
+        // Auto-start game after 5 seconds for single player (for testing)
+        setTimeout(() => {
+          try {
+            const currentGame = gameSession.games.get(game.sessionId);
+            if (currentGame && currentGame.status === 'waiting' && currentGame.players.length === 1) {
+              gameSession.startGame(game.sessionId);
+              console.log(`⏰ Auto-started single player game: Session ${game.sessionId}`);
+            }
+          } catch (error) {
+            console.error('Error auto-starting game:', error.message);
+          }
+        }, 5000);
       }
     } catch (error) {
       console.error('❌ Matchmaking error:', error.message);
@@ -287,28 +387,21 @@ app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\\.svc/EnterMatchmaking2', 
   const stats = gameSession.getServerStats();
   
   try {
-    const response = `<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-      <AverageWaitTimeNonRanked>${stats.averageWaitTime.toFixed(1)}</AverageWaitTimeNonRanked>
-      <AverageWaitTimeRanked>${(stats.averageWaitTime + 10).toFixed(1)}</AverageWaitTimeRanked>
-      <Error i:nil="true"/>
-      <Groups>
-        <MatchmakingGroup>
-          <GameLobbyId>${game.gameLobbyId}</GameLobbyId>
-          <GroupLobbyId>${game.groupLobbyId}</GroupLobbyId>
-          <GroupSize>${groupSize}</GroupSize>
-          <IsHost>${currentPlayer.isHost}</IsHost>
-          <Team>${currentPlayer.team}</Team>
-        </MatchmakingGroup>
-      </Groups>
-      <InProgressGameToJoin i:nil="true"/>
-      <RaceKey>${game.raceKey}</RaceKey>
-      <SessionId>${game.sessionId}</SessionId>
-    </MatchmakingResult>`;
+    const response = `<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><AverageWaitTimeNonRanked>82.8</AverageWaitTimeNonRanked><AverageWaitTimeRanked>84.5</AverageWaitTimeRanked><Error i:nil="true"/><Groups><MatchmakingGroup><GameLobbyId>${gameLobbyId}</GameLobbyId><GroupLobbyId>${groupLobbyId}</GroupLobbyId><GroupSize>${groupSize}</GroupSize><IsHost>${currentPlayer.isHost}</IsHost><Team>0</Team><HostPlatformID>${platformId}</HostPlatformID><GameType>${gameType}</GameType></MatchmakingGroup></Groups><InProgressGameToJoin i:nil="true"/><RaceKey>FBAAAD8DAE34C0BF</RaceKey><SessionId>8912612</SessionId></MatchmakingResult>`;
     
     console.log(`🎲 Matchmaking result: SessionId ${game.sessionId}, RaceKey ${game.raceKey}`);
     console.log(`   👥 Players: ${groupSize}/${game.maxPlayers}, Host: ${currentPlayer.isHost ? '👑 YES' : 'NO'}`);
+    console.log(`📤 Response XML:`, response.replace(/\n\s*/g, ''));
+    console.log(`📤 Response length: ${response.length} bytes`);
     
-    res.set('Content-Type', 'application/xml');
+    // Set exact MMCOS-style headers
+    res.set('Content-Type', 'text/xml; charset=utf-8');
+    res.set('Content-Length', response.length.toString());
+    res.set('Server', 'Microsoft-IIS/8.0');
+    res.set('X-Powered-By', 'ASP.NET');
+    res.set('Cache-Control', 'private');
+    console.log(`📤 Response Headers: ${JSON.stringify(res.getHeaders())}`);
+    
     res.send(response);
     
   } catch (error) {
@@ -341,39 +434,88 @@ app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\\.svc/EnterMatchmaking2', 
   }
 });
 
+// Cancel Matchmaking Service Endpoint
+app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\\.svc/CancelMatchmaking', (req, res) => {
+  console.log('❌ CancelMatchmaking request');
+  
+  const sessionToken = req.body.cancelmatchmaking?.sessiontoken?.[0];
+  
+  // Try to identify player and remove from matchmaking
+  let platformId;
+  if (sessionToken) {
+    platformId = `steam_${sessionToken.substring(0, 16)}`;
+  } else {
+    const clientIp = req.ip.replace(/[^a-zA-Z0-9]/g, '_');
+    platformId = `player_${clientIp}`;
+  }
+  
+  const player = gameSession.getPlayer(platformId);
+  if (player && player.currentGameId) {
+    const game = gameSession.games.get(player.currentGameId);
+    if (game && game.status === 'waiting') {
+      // Remove player from game
+      game.players = game.players.filter(p => p.platformId !== platformId);
+      player.currentGameId = null;
+      
+      console.log(`🚪 Player left matchmaking: ${player.displayName} from Session ${game.sessionId}`);
+      console.log(`   Remaining players: ${game.players.length}/8`);
+      
+      // If game is empty, remove it
+      if (game.players.length === 0) {
+        gameSession.games.delete(player.currentGameId);
+        console.log(`🗑️ Empty game removed: Session ${game.sessionId}`);
+      }
+    }
+  }
+  
+  res.set('Content-Type', 'application/xml');
+  res.send('<CancelMatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Error i:nil="true"/></CancelMatchmakingResult>');
+});
+
 // Additional critical game endpoints
 app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\.svc/RegisterActiveGameWithPlayers', (req, res) => {
   console.log('🎮 RegisterActiveGameWithPlayers request');
+  console.log('🔍 Raw req.body:', JSON.stringify(req.body, null, 2));
   
-  const sessionToken = req.body.registeractivegamewithplayers?.sessiontoken?.[0];
-  const raceKey = req.body.registeractivegamewithplayers?.racekey?.[0];
-  const hostPlatformID = req.body.registeractivegamewithplayers?.hostplatformid?.[0];
-  const gameLobbyId = req.body.registeractivegamewithplayers?.gamelobbyid?.[0];
-  const gameType = req.body.registeractivegamewithplayers?.gametype?.[0];
-  const ruleSet = req.body.registeractivegamewithplayers?.ruleset?.[0];
-  const ranking = req.body.registeractivegamewithplayers?.ranking?.[0];
-  const platformIDs = req.body.registeractivegamewithplayers?.platformids?.[0];
+  // Try both casing variants
+  const data = req.body.registeractivegamewithplayers || req.body.RegisterActiveGameWithPlayers;
+  console.log('🔍 Found data:', data ? 'YES' : 'NO');
   
-  console.log(`🏁 Game registration: RaceKey ${raceKey}, Host: ${hostPlatformID}`);
-  console.log(`   Players: ${platformIDs}, Type: ${gameType}, Rules: ${ruleSet}`);
-  
-  // Find and start the game
-  try {
-    // Find game by race key or create if needed
-    let game = null;
-    for (const [sessionId, gameData] of gameSession.games) {
-      if (gameData.raceKey === raceKey) {
-        game = gameData;
-        break;
-      }
-    }
+  if (data) {
+    const sessionToken = data.SessionToken?.[0] || data.sessiontoken?.[0];
+    const raceKey = data.RaceKey?.[0] || data.racekey?.[0]; 
+    const hostPlatformID = data.HostPlatformID?.[0] || data.hostplatformid?.[0];
+    const gameLobbyId = data.GameLobbyId?.[0] || data.gamelobbyid?.[0];
+    const gameType = data.GameType?.[0] || data.gametype?.[0];
+    const ruleSet = data.RuleSet?.[0] || data.ruleset?.[0];
+    const ranking = data.Ranking?.[0] || data.ranking?.[0];
+    const platformIDs = data.PlatformIDs?.[0] || data.platformids?.[0];
     
-    if (game) {
-      gameSession.startGame(game.sessionId);
-      console.log(`🚀 Game started: Session ${game.sessionId}`);
+    console.log(`🏁 Game registration: RaceKey ${raceKey}, Host: ${hostPlatformID}`);
+    console.log(`   Players: ${platformIDs}, Type: ${gameType}, Rules: ${ruleSet}`);
+    
+    // Find and start the game
+    try {
+      // Find game by race key or create if needed
+      let game = null;
+      for (const [sessionId, gameData] of gameSession.games) {
+        if (gameData.raceKey === raceKey) {
+          game = gameData;
+          break;
+        }
+      }
+      
+      if (game) {
+        gameSession.startGame(game.sessionId);
+        console.log(`🚀 Game started via RegisterActiveGameWithPlayers: Session ${game.sessionId}`);
+      } else {
+        console.log(`⚠️ No game found with RaceKey ${raceKey}`);
+      }
+    } catch (error) {
+      console.error('❌ Error starting game:', error.message);
     }
-  } catch (error) {
-    console.error('❌ Error starting game:', error.message);
+  } else {
+    console.log('❌ No valid data found in RegisterActiveGameWithPlayers request');
   }
   
   res.set('Content-Type', 'application/xml');

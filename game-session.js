@@ -12,11 +12,11 @@ class GameSession {
     return Math.floor(Math.random() * 99999999) + 1000000;
   }
 
-  // Generate unique race key
+  // Generate unique race key (16 characters like MITM dumps)
   generateRaceKey() {
     let raceKey;
     do {
-      raceKey = Math.random().toString(16).substring(2, 18).toUpperCase();
+      raceKey = Math.random().toString(16).substring(2, 18).toUpperCase().padEnd(16, '0');
     } while (this.raceKeys.has(raceKey));
     this.raceKeys.add(raceKey);
     return raceKey;
@@ -74,7 +74,7 @@ class GameSession {
       players: [{
         platformId: hostPlatformId,
         displayName: host.displayName,
-        team: 0,
+        team: 1,
         isHost: true,
         joinedAt: new Date()
       }],
@@ -126,7 +126,7 @@ class GameSession {
     game.players.push({
       platformId: platformId,
       displayName: player.displayName,
-      team: Math.floor(game.players.length / 4), // Auto-balance teams
+      team: 1, // All players on team 1 (like in MITM dumps)
       isHost: false,
       joinedAt: new Date()
     });
