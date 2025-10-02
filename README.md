@@ -12,7 +12,7 @@ A community-run replacement server for **Micro Machines World Series** multiplay
 
 ## Requirements
 
-- **Node.js** 14.x or higher
+- **Node.js** 22.x LTS or higher
 - **Micro Machines World Series** (Steam version)
 
 ## Installation
