@@ -5,6 +5,9 @@ class GameSession {
     this.players = new Map(); // platformId -> player data
     this.lobbies = new Map(); // lobbyId -> lobby data
     this.raceKeys = new Set(); // track used race keys
+    this.sessionTokenMap = new Map(); // sessionToken -> platformId (to prevent duplicate player registration)
+    this.displayNameToIdMap = new Map(); // displayName -> platformId (auto-generate unique IDs per player name)
+    this.idCounter = 76561198081105540; // Starting Steam ID for auto-generated IDs
   }
 
   // Generate unique session ID
@@ -44,8 +47,40 @@ class GameSession {
     };
 
     this.players.set(platformId, player);
+    
+    // Map sessionToken to platformId to prevent duplicate player registration
+    if (sessionToken) {
+      this.sessionTokenMap.set(sessionToken, platformId);
+      console.log(`🔑 SessionToken mapped: ${sessionToken.substring(0, 20)}... -> ${platformId}`);
+    }
+    
     console.log(`🎮 Player registered: ${player.displayName} (${platformId})`);
     return player;
+  }
+  
+  // Get platformId by sessionToken
+  getPlatformIdByToken(sessionToken) {
+    return this.sessionTokenMap.get(sessionToken) || null;
+  }
+
+  // Generate or retrieve unique platformId for a display name
+  // This ensures each unique display name gets a consistent, unique Steam ID
+  getOrCreatePlatformId(displayName) {
+    // Check if we already have an ID for this display name
+    if (this.displayNameToIdMap.has(displayName)) {
+      const existingId = this.displayNameToIdMap.get(displayName);
+      console.log(`🔄 Reusing existing ID for "${displayName}": ${existingId}`);
+      return existingId;
+    }
+    
+    // Generate new unique ID for this display name
+    const newId = this.idCounter.toString();
+    this.idCounter++; // Increment for next player
+    
+    this.displayNameToIdMap.set(displayName, newId);
+    console.log(`✨ Generated NEW unique ID for "${displayName}": ${newId}`);
+    
+    return newId;
   }
 
   // Create new game session
