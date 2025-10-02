@@ -204,7 +204,7 @@ app.post('/MicroMachines/STEAM/1\.0/', (req, res) => {
   console.log('🔍 Headers:', req.headers);
   
   // Parse binary Steam login data
-  let displayName = "Player"; // Default name
+  let displayName = "Player"; // Default name (will be extracted from Steam data)
   let extractedSteamId = null; // Track if we found a Steam ID in the request
   
   try {
@@ -212,26 +212,43 @@ app.post('/MicroMachines/STEAM/1\.0/', (req, res) => {
     const dataString = req.body.toString('utf8');
     console.log('🔍 Request body (first 500 chars):', dataString.substring(0, 500));
     
-    // Extract Name field (look for "Name" followed by data)
-    const nameMatch = dataString.match(/Name[^\w]*([A-Za-z0-9_]+)/);
+    // Try to extract Steam username from the structured format: "Namedstr♠USERNAME♂"
+    const namePattern = /Namedstr[^\w]*(\w+)/;
+    const nameMatch = dataString.match(namePattern);
     if (nameMatch && nameMatch[1]) {
       displayName = nameMatch[1];
-      console.log('🔍 Found display name:', displayName);
+      console.log('✅ Found Steam username in Namedstr field:', displayName);
+    } else {
+      // Fallback: Method 1 - Look for "personaname" field (case-insensitive)
+      const personaMatch = dataString.match(/personaname[^\x20-\x7E]*([A-Za-z0-9_\-]{2,32})/i);
+      if (personaMatch && personaMatch[1]) {
+        displayName = personaMatch[1];
+        console.log('✅ Found Steam persona name:', displayName);
+      } else {
+        // Fallback: Method 2 - Look for any readable username-like string
+        const potentialNames = dataString.match(/[A-Za-z][A-Za-z0-9_\-]{2,31}/g);
+        if (potentialNames && potentialNames.length > 0) {
+          // Filter out common false positives
+          const filtered = potentialNames.filter(name => 
+            !['Name', 'Type', 'Data', 'Ticket', 'Steam', 'Login', 'User', 'vdic', 'dstr', 'blob', 'Namedstr', 'SteamTicketblob'].includes(name)
+          );
+          if (filtered.length > 0) {
+            displayName = filtered[0];
+            console.log('✅ Extracted display name (fallback method):', displayName);
+          } else {
+            console.warn('⚠️ Could not extract display name from request, using default');
+          }
+        } else {
+          console.warn('⚠️ Could not extract display name from request, using default');
+        }
+      }
     }
     
-    // Try multiple patterns to extract Steam ID
-    // Pattern 1: Look for a 17-digit number (Steam ID format)
-    const steamIdPattern1 = dataString.match(/(\d{17})/);
-    if (steamIdPattern1 && steamIdPattern1[1]) {
-      extractedSteamId = steamIdPattern1[1];
-      console.log('🔍 Found Steam ID in request (pattern 1):', extractedSteamId);
-    }
-    
-    // Pattern 2: Look for steam_<id>
-    const steamIdPattern2 = dataString.match(/steam_(\w+)/);
-    if (steamIdPattern2 && steamIdPattern2[1]) {
-      extractedSteamId = "steam_" + steamIdPattern2[1];
-      console.log('🔍 Found Steam ID in request (pattern 2):', extractedSteamId);
+    // Extract Steam ID from ticket
+    const steamIdMatch = dataString.match(/steam_(\w+)/);
+    if (steamIdMatch && steamIdMatch[1]) {
+      extractedSteamId = "steam_" + steamIdMatch[1];
+      console.log('🔍 Found Steam ID in request:', extractedSteamId);
     }
   } catch (error) {
     console.error('❌ Error parsing login data:', error);
@@ -279,18 +296,43 @@ app.post('/MMCOS/MMCOS-Account/AccountService\\.svc/Login', (req, res) => {
   console.log('🔐 MMCOS Account Login request from:', req.ip);
   
   // Parse binary Steam login data
-  let displayName = "Player"; // Default name
+  let displayName = "Player"; // Default name (will be extracted from Steam data)
   let extractedSteamId = null; // Track if we found a Steam ID in the request
   
   try {
     // Convert buffer to string and extract data
     const dataString = req.body.toString('utf8');
     
-    // Extract Name field (look for "Name" followed by data)
-    const nameMatch = dataString.match(/Name[^\w]*([A-Za-z0-9_]+)/);
+    // Try to extract Steam username from the structured format: "Namedstr♠USERNAME♂"
+    const namePattern = /Namedstr[^\w]*(\w+)/;
+    const nameMatch = dataString.match(namePattern);
     if (nameMatch && nameMatch[1]) {
       displayName = nameMatch[1];
-      console.log('🔍 Found display name:', displayName);
+      console.log('✅ Found Steam username in Namedstr field:', displayName);
+    } else {
+      // Fallback: Method 1 - Look for readable text after "personaname" field (case-insensitive)
+      const personaMatch = dataString.match(/personaname[^\x20-\x7E]*([A-Za-z0-9_\-]{2,32})/i);
+      if (personaMatch && personaMatch[1]) {
+        displayName = personaMatch[1];
+        console.log('✅ Found Steam persona name:', displayName);
+      } else {
+        // Fallback: Method 2 - Look for any readable username-like string (3-32 chars)
+        const potentialNames = dataString.match(/[A-Za-z][A-Za-z0-9_\-]{2,31}/g);
+        if (potentialNames && potentialNames.length > 0) {
+          // Filter out common false positives
+          const filtered = potentialNames.filter(name => 
+            !['Name', 'Type', 'Data', 'Ticket', 'Steam', 'Login', 'User', 'vdic', 'dstr', 'blob', 'Namedstr', 'SteamTicketblob'].includes(name)
+          );
+          if (filtered.length > 0) {
+            displayName = filtered[0];
+            console.log('✅ Extracted display name (fallback method):', displayName);
+          } else {
+            console.warn('⚠️ Could not extract display name from request, using default');
+          }
+        } else {
+          console.warn('⚠️ Could not extract display name from request, using default');
+        }
+      }
     }
     
     // Extract Steam ID from ticket (optional)
@@ -452,6 +494,19 @@ app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\\.svc/EnterMatchmaking2', 
       // Register with this sessionToken
       gameSession.registerPlayer(platformId, `Player_${platformId.substring(7, 15)}`, sessionToken);
     } else {
+      // Check if player actually exists in our database
+      const playerExists = gameSession.getPlayer(platformId);
+      if (!playerExists) {
+        console.warn(`⚠️ Session token valid but player ${platformId} not found - server was restarted`);
+        console.warn(`⚠️ Clearing invalid session token - client must re-login`);
+        // Clear the invalid session token
+        gameSession.sessionTokenMap.delete(sessionToken);
+        // Return error to force re-login
+        return res.status(401).type('application/xml').send(`<?xml version="1.0" encoding="utf-8"?>
+<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <Error>Session expired. Please restart game.</Error>
+</MatchmakingResult>`);
+      }
       console.log(`🔑 Found existing player via sessionToken: ${platformId}`);
     }
   } else {
