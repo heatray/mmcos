@@ -28,8 +28,20 @@ app.use(express.raw({
     limit: '10mb'
 }));
 
-// Convert raw buffer to string for XML processing
+// Convert raw buffer to string for XML processing (skip binary endpoints)
 app.use((req, res, next) => {
+    // Skip XML parsing for services that use binary Steam ticket data
+    if (req.path.includes('/Login') || 
+        req.path.includes('AccountService') || 
+        req.path.includes('/MicroMachines/STEAM/') ||
+        req.headers['x-egonet-function'] === 'LoginService.Login') {
+        console.log('MMCOS Request:', req.headers['x-egonet-function'] || 'Binary Service');
+        console.log('🔍 Binary endpoint detected - skipping XML parsing');
+        console.log('🔍 Request path:', req.path);
+        next();
+        return;
+    }
+    
     if (req.headers['content-type'] && 
         (req.headers['content-type'].includes('egonet-stream') || 
          req.headers['content-type'].includes('application/xml') ||
@@ -188,8 +200,61 @@ app.get('/admin', (req, res) => {
 });
 
 app.post('/MicroMachines/STEAM/1\.0/', (req, res) => {
-  // Debug endpoint - request received
-})
+  console.log('🎮 MicroMachines STEAM 1.0 LoginService.Login request');
+  console.log('🔍 Headers:', req.headers);
+  
+  // Parse binary Steam login data
+  let displayName = "Player"; // Default name
+  let extractedSteamId = null; // Track if we found a Steam ID in the request
+  
+  try {
+    // Convert buffer to string and extract data
+    const dataString = req.body.toString('utf8');
+    console.log('🔍 Request body (first 500 chars):', dataString.substring(0, 500));
+    
+    // Extract Name field (look for "Name" followed by data)
+    const nameMatch = dataString.match(/Name[^\w]*([A-Za-z0-9_]+)/);
+    if (nameMatch && nameMatch[1]) {
+      displayName = nameMatch[1];
+      console.log('🔍 Found display name:', displayName);
+    }
+    
+    // Try multiple patterns to extract Steam ID
+    // Pattern 1: Look for a 17-digit number (Steam ID format)
+    const steamIdPattern1 = dataString.match(/(\d{17})/);
+    if (steamIdPattern1 && steamIdPattern1[1]) {
+      extractedSteamId = steamIdPattern1[1];
+      console.log('🔍 Found Steam ID in request (pattern 1):', extractedSteamId);
+    }
+    
+    // Pattern 2: Look for steam_<id>
+    const steamIdPattern2 = dataString.match(/steam_(\w+)/);
+    if (steamIdPattern2 && steamIdPattern2[1]) {
+      extractedSteamId = "steam_" + steamIdPattern2[1];
+      console.log('🔍 Found Steam ID in request (pattern 2):', extractedSteamId);
+    }
+  } catch (error) {
+    console.error('❌ Error parsing login data:', error);
+  }
+  
+  // Generate or retrieve unique platformId based on display name
+  // This ensures each player with a unique name gets a unique ID
+  const platformId = gameSession.getOrCreatePlatformId(displayName);
+  console.log(`✅ MicroMachines Login: ${displayName} -> Platform ID: ${platformId}`);
+  
+  const userId = Math.floor(Math.random() * 1000000);
+  
+  // Generate unique session token for this player
+  const sessionToken = Buffer.from(`${platformId}_${Date.now()}_${Math.random()}`).toString('base64');
+  
+  // Register player in game session WITH sessionToken mapping
+  const player = gameSession.registerPlayer(platformId, displayName, sessionToken);
+  
+  // Generate authentic response with the sessionToken
+  const loginResponse = generateLoginResponse(platformId, displayName, userId, sessionToken);
+  res.set('Content-Type', 'application/xml');
+  res.send(loginResponse);
+});
 
 app.get('/MMCOS/redirect_steam_submission[1-3]\.txt', (req, res) => {
   res.send('Live')
@@ -211,20 +276,48 @@ app.get('/MMCOS/MMCOS-ServerStatus/ServerStatus\.xml', (req, res) => {
 })
 
 app.post('/MMCOS/MMCOS-Account/AccountService\\.svc/Login', (req, res) => {
-  console.log('🔐 Login request from:', req.ip);
+  console.log('🔐 MMCOS Account Login request from:', req.ip);
   
-  // Extract data from request
-  const platformId = req.body.login?.platformid?.[0] || "76561198081105540";
-  const displayName = req.body.login?.displayname?.[0] || "Player";
+  // Parse binary Steam login data
+  let displayName = "Player"; // Default name
+  let extractedSteamId = null; // Track if we found a Steam ID in the request
+  
+  try {
+    // Convert buffer to string and extract data
+    const dataString = req.body.toString('utf8');
+    
+    // Extract Name field (look for "Name" followed by data)
+    const nameMatch = dataString.match(/Name[^\w]*([A-Za-z0-9_]+)/);
+    if (nameMatch && nameMatch[1]) {
+      displayName = nameMatch[1];
+      console.log('🔍 Found display name:', displayName);
+    }
+    
+    // Extract Steam ID from ticket (optional)
+    const steamIdMatch = dataString.match(/steam_(\w+)/);
+    if (steamIdMatch && steamIdMatch[1]) {
+      extractedSteamId = "steam_" + steamIdMatch[1];
+      console.log('🔍 Found Steam ID in request:', extractedSteamId);
+    }
+  } catch (error) {
+    console.error('❌ Error parsing login data:', error);
+  }
+  
+  // Generate or retrieve unique platformId based on display name
+  // This ensures each player with a unique name gets a unique ID
+  const platformId = gameSession.getOrCreatePlatformId(displayName);
+  console.log(`✅ MMCOS Account Login: ${displayName} -> Platform ID: ${platformId}`);
+  
   const userId = Math.floor(Math.random() * 1000000);
   
-  console.log(`✅ User logged in: ${displayName} (${platformId.substring(0, 20)}...)`);
+  // Generate unique session token for this player
+  const sessionToken = Buffer.from(`${platformId}_${Date.now()}_${Math.random()}`).toString('base64');
   
-  // Register player in game session
-  const player = gameSession.registerPlayer(platformId, displayName);
+  // Register player in game session WITH sessionToken mapping
+  const player = gameSession.registerPlayer(platformId, displayName, sessionToken);
   
-  // Generate authentic response
-  const loginResponse = generateLoginResponse(platformId, displayName, userId);
+  // Generate authentic response with the sessionToken
+  const loginResponse = generateLoginResponse(platformId, displayName, userId, sessionToken);
   res.set('Content-Type', 'application/xml');
   res.send(loginResponse);
 });
@@ -244,42 +337,89 @@ app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\\.svc/EnterMatchmaking2', 
   enterMatchmakingCounter++;
   console.log(`🔢 EnterMatchmaking2 request #${enterMatchmakingCounter}`);
   
-  // TEST: Send error after 3rd request to see if client switches to RegisterActiveGameWithPlayers
-  if (enterMatchmakingCounter >= 4) {
-    console.log(`🚨 TESTING: Sending ERROR response on request #${enterMatchmakingCounter} to trigger RegisterActiveGameWithPlayers`);
-    res.set('Content-Type', 'text/xml; charset=utf-8');
-    res.status(500).send('<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><AverageWaitTimeNonRanked>82.8</AverageWaitTimeNonRanked><AverageWaitTimeRanked>84.5</AverageWaitTimeRanked><Error>MATCHMAKING_TIMEOUT</Error><Groups/><InProgressGameToJoin i:nil="true"/><RaceKey>FBAAAD8DAE34C0BF</RaceKey><SessionId>8912612</SessionId></MatchmakingResult>');
-    return;
-  }
-  
-  // NEW TEST: On request #2, try InProgressGameToJoin instead of GroupSize!
-  if (enterMatchmakingCounter === 2) {
-    console.log(`🎮 TESTING: Setting InProgressGameToJoin (not nil) on request #${enterMatchmakingCounter}`);
-    const testGameLobbyId = req.body.entermatchmaking2?.GameLobbyId?.[0];
-    const testGroupLobbyId = req.body.entermatchmaking2?.GroupLobbyId?.[0];
-    const testGameType = req.body.entermatchmaking2?.GameType?.[0];
-    res.set('Content-Type', 'text/xml; charset=utf-8');
-    res.send('<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><AverageWaitTimeNonRanked>82.8</AverageWaitTimeNonRanked><AverageWaitTimeRanked>84.5</AverageWaitTimeRanked><Error i:nil="true"/><Groups><MatchmakingGroup><GameLobbyId>' + testGameLobbyId + '</GameLobbyId><GroupLobbyId>' + testGroupLobbyId + '</GroupLobbyId><GroupSize>1</GroupSize><IsHost>true</IsHost><Team>0</Team><HostPlatformID>steam_AQAAAAIAAADKOgoA</HostPlatformID><GameType>' + testGameType + '</GameType></MatchmakingGroup></Groups><InProgressGameToJoin><SessionId>8912612</SessionId><RaceKey>FBAAAD8DAE34C0BF</RaceKey></InProgressGameToJoin><RaceKey>FBAAAD8DAE34C0BF</RaceKey><SessionId>8912612</SessionId></MatchmakingResult>');
-    return;
-  }
-  // Extract all important fields from request
+  // Extract all important fields from request FIRST
   const sessionToken = req.body.entermatchmaking2?.SessionToken?.[0];
   const groupLobbyId = req.body.entermatchmaking2?.GroupLobbyId?.[0];
   const gameLobbyId = req.body.entermatchmaking2?.GameLobbyId?.[0];
   const gameType = req.body.entermatchmaking2?.GameType?.[0];
+  const ruleSet = req.body.entermatchmaking2?.RuleSet?.[0] || 'Race';
   
-  // TEST: Send error after 3rd request to see if client switches to RegisterActiveGameWithPlayers
-  if (enterMatchmakingCounter >= 3) {
-    console.log(`🎮 TESTING: Pretending game is FULL with 2+ players on request #${enterMatchmakingCounter}`);
-    res.set('Content-Type', 'text/xml; charset=utf-8');
-    res.send('<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><AverageWaitTimeNonRanked>82.8</AverageWaitTimeNonRanked><AverageWaitTimeRanked>84.5</AverageWaitTimeRanked><Error i:nil="true"/><Groups><MatchmakingGroup><GameLobbyId>' + gameLobbyId + '</GameLobbyId><GroupLobbyId>' + groupLobbyId + '</GroupLobbyId><GroupSize>2</GroupSize><IsHost>true</IsHost><Team>0</Team><HostPlatformID>test_platform</HostPlatformID><GameType>' + gameType + '</GameType></MatchmakingGroup></Groups><InProgressGameToJoin i:nil="true"/><RaceKey>FBAAAD8DAE34C0BF</RaceKey><SessionId>8912612</SessionId></MatchmakingResult>');
+  // 🚀 FORCE QUICK PLAY MODE: Always set to true to allow solo play
+  // This overrides client's IgnoreMinimumMatchRequirements setting
+  const clientIgnoreMinMatch = req.body.entermatchmaking2?.IgnoreMinimumMatchRequirements?.[0] === 'true';
+  const ignoreMinMatch = true; // ALWAYS TRUE for community server!
+  
+  if (!clientIgnoreMinMatch) {
+    console.log(`🎯 FORCING Quick Play Mode (client sent Ranked/Public, we override to Quick Play)`);
+  }
+
+  // 🔥 CRITICAL PATTERN DETECTION: Battle Mode triggers RegisterActiveGameWithPlayers!
+  const isBattleMode = gameType === 'RankedBattle' && ruleSet === 'Battle';
+  
+  // DEBUG: Check why Battle Mode Detection might not trigger
+  console.log(`🔍 Mode Check: gameType="${gameType}", ruleSet="${ruleSet}", clientIgnoreMinMatch=${clientIgnoreMinMatch}, serverIgnoreMinMatch=${ignoreMinMatch}`);
+  console.log(`🔍 isBattleMode=${isBattleMode}, ignoreMinMatch=${ignoreMinMatch}`);
+  
+  if (isBattleMode && ignoreMinMatch) {
+    console.log('� BATTLE MODE DETECTED! RankedBattle/Battle + IgnoreMinimumMatchRequirements=true');
+    console.log('🎯 This should trigger RegisterActiveGameWithPlayers!');
+    
+    // ✅ BATTLE MODE RESPONSE: Critical Team=1 (not Team=0!)
+    const raceKey = Math.random().toString(16).substring(2, 18).toUpperCase();
+    const sessionId = Math.floor(Math.random() * 10000000);
+    
+    const battleModeResponse = `<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><AverageWaitTimeNonRanked>82.8</AverageWaitTimeNonRanked><AverageWaitTimeRanked>84.5</AverageWaitTimeRanked><Error i:nil="true"/><Groups><MatchmakingGroup><GameLobbyId>${gameLobbyId}</GameLobbyId><GroupLobbyId>${groupLobbyId}</GroupLobbyId><GroupSize>1</GroupSize><IsHost>true</IsHost><Team>1</Team><HostPlatformID>steam_AQAAAAIAAADKOgoA</HostPlatformID><GameType>${gameType}</GameType></MatchmakingGroup></Groups><InProgressGameToJoin i:nil="true"/><RaceKey>${raceKey}</RaceKey><SessionId>${sessionId}</SessionId></MatchmakingResult>`;
+    
+    res.set({
+      'X-Powered-By': 'ASP.NET',
+      'Content-Type': 'text/xml; charset=utf-8',
+      'Content-Length': battleModeResponse.length.toString(),
+      'Server': 'Microsoft-IIS/8.0',
+      'Cache-Control': 'private'
+    });
+    
+    console.log(`📤 BATTLE MODE Response: Team=1, RaceKey=${raceKey}, SessionId=${sessionId}`);
+    res.send(battleModeResponse);
     return;
   }
+  
+  // NEW STRATEGY: Test different response types systematically
+  if (enterMatchmakingCounter === 2) {
+    console.log(`� NEW TEST: Sending "MATCH FOUND" response on request #${enterMatchmakingCounter}`);
+    const raceKey = gameSession.generateRaceKey();
+    const sessionId = Math.floor(Math.random() * 10000000);
+    
+    const matchFoundXML = `<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <AverageWaitTimeNonRanked>47.7</AverageWaitTimeNonRanked>
+  <AverageWaitTimeRanked>84.5</AverageWaitTimeRanked>
+  <Error i:nil="true"/>
+  <Groups>
+    <MatchmakingGroup>
+      <GameLobbyId>${gameLobbyId}</GameLobbyId>
+      <GroupLobbyId>${groupLobbyId}</GroupLobbyId>
+      <GroupSize>1</GroupSize>
+      <IsHost>true</IsHost>
+      <Team>1</Team>
+      <HostPlatformID>76561198081105540</HostPlatformID>
+      <GameType>${gameType}</GameType>
+    </MatchmakingGroup>
+  </Groups>
+  <InProgressGameToJoin i:nil="true"/>
+  <RaceKey>${raceKey}</RaceKey>
+  <SessionId>${sessionId}</SessionId>
+</MatchmakingResult>`;
+    
+    console.log(`🎮 CORRECTED MATCH FOUND XML - InProgressGameToJoin is now nil!`);
+    res.set('Content-Type', 'text/xml; charset=utf-8');
+    res.send(matchFoundXML);
+    return;
+  }
+
   
   const networkVersion = req.body.entermatchmaking2?.NetworkVersion?.[0] || '1';
   const requestedGroupSize = req.body.entermatchmaking2?.GroupSize?.[0] || '1';
   const skillLevel = req.body.entermatchmaking2?.SkillLevel?.[0] || '1000000';
-  const ruleSet = req.body.entermatchmaking2?.RuleSet?.[0] || 'Race';
+  // ruleSet already defined above
   const ranking = req.body.entermatchmaking2?.Ranking?.[0] || 'NotRanked';
   const ignoreMinRequirements = req.body.entermatchmaking2?.IgnoreMinimumMatchRequirements?.[0] || 'false';
   
@@ -297,79 +437,121 @@ app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\\.svc/EnterMatchmaking2', 
   console.log(`🎮 Matchmaking request: ${gameType}/${ruleSet}/${ranking}, Group: ${requestedGroupSize}, Skill: ${skillLevel}`);
   console.log(`📍 Client IDs: GroupLobbyId=${groupLobbyId}, GameLobbyId=${gameLobbyId}`);
   
-  // Try to identify player by session token, fallback to IP-based ID
+  // 🔑 CRITICAL FIX: Look up platformId by sessionToken to prevent duplicate players
   let platformId;
   if (sessionToken) {
-    // Simple session token mapping (in production, decode properly)
-    platformId = `steam_${sessionToken.substring(0, 16)}`;
+    // Try to find existing player by sessionToken
+    platformId = gameSession.getPlatformIdByToken(sessionToken);
+    
+    if (!platformId) {
+      // SessionToken not found - this shouldn't happen if player logged in
+      console.warn(`⚠️ SessionToken not found in map: ${sessionToken.substring(0, 20)}...`);
+      // Fallback: use IP-based ID
+      const clientIp = req.ip.replace(/[^a-zA-Z0-9]/g, '_');
+      platformId = `player_${clientIp}`;
+      // Register with this sessionToken
+      gameSession.registerPlayer(platformId, `Player_${platformId.substring(7, 15)}`, sessionToken);
+    } else {
+      console.log(`🔑 Found existing player via sessionToken: ${platformId}`);
+    }
   } else {
-    // Use IP address to create consistent player ID for same client
+    // No sessionToken - use IP address to create consistent player ID
     const clientIp = req.ip.replace(/[^a-zA-Z0-9]/g, '_');
     platformId = `player_${clientIp}`;
+    
+    // Register player if not exists
+    if (!gameSession.getPlayer(platformId)) {
+      gameSession.registerPlayer(platformId, `Player_${platformId.substring(7, 15)}`);
+      console.log(`🎮 Player registered: Player_${platformId.substring(7, 15)} (${platformId})`);
+    }
   }
   
-  // Register player if not exists (use SAME platformId for everything)
-  if (!gameSession.getPlayer(platformId)) {
-    gameSession.registerPlayer(platformId, `Player_${platformId.substring(7, 15)}`, sessionToken);
-    console.log(`🎮 Player registered: Player_${platformId.substring(7, 15)} (${platformId})`);
-  }
-  
-  // IMPORTANT: Store admin tracking with same platformId
+  // IMPORTANT: Using consistent platformId prevents duplicate player registration
   console.log(`🔍 Using consistent platformId: ${platformId}`);
   
   let game;
   let isHost = false;
   
-  // IMPORTANT: Use GameLobbyId to identify unique game requests
-  // When client sends new GameLobbyId, they want a NEW game session!
-  
-  // Check if there's already a game with this exact GameLobbyId
-  const existingGameByLobbyId = Array.from(gameSession.games.values()).find(g => 
-    g.gameLobbyId === gameLobbyId && (g.status === 'waiting' || g.status === 'active')
-  );
-  
-  if (existingGameByLobbyId) {
-    console.log(`🔄 Found existing game for GameLobbyId ${gameLobbyId}: Session ${existingGameByLobbyId.sessionId}`);
-    game = existingGameByLobbyId;
-    
-    // Make sure player is in this game
-    const playerInGame = game.players.find(p => p.platformId === platformId);
-    if (!playerInGame) {
-      game = gameSession.joinGame(game.sessionId, platformId);
-      console.log(`🎮 Player joined existing game: Session ${game.sessionId}`);
+  // 🔑 CRITICAL FIX: Check if player is already in a game (prevents loop!)
+  const currentPlayer = gameSession.getPlayer(platformId);
+  if (currentPlayer && currentPlayer.currentGameId) {
+    // Player already in a game - return that game instead of creating/joining another
+    const existingGame = gameSession.games.get(currentPlayer.currentGameId);
+    if (existingGame && existingGame.status === 'waiting') {
+      // Game is waiting - return it
+      game = existingGame;
+      const playerInGame = game.players.find(p => p.platformId === platformId);
+      isHost = playerInGame ? playerInGame.isHost : false;
+      console.log(`♻️ Player already in WAITING game Session ${game.sessionId} - returning existing game`);
+      console.log(`   👥 Players: ${game.players.length}/${game.maxPlayers}, IsHost: ${isHost}`);
+    } else if (existingGame && existingGame.status === 'active') {
+      // Game is active - check if it's old/stale (more than 5 minutes)
+      const gameAge = Date.now() - (existingGame.startedAt?.getTime() || existingGame.createdAt.getTime());
+      const fiveMinutes = 5 * 60 * 1000;
+      
+      if (gameAge > fiveMinutes) {
+        // Game is old/stale - mark as finished and create new one
+        existingGame.status = 'finished';
+        currentPlayer.currentGameId = null;
+        console.log(`🧹 Game Session ${existingGame.sessionId} is stale (${Math.floor(gameAge/1000)}s old) - creating new game`);
+        game = null;
+      } else {
+        // Game is active and fresh - return it (client might be in-game)
+        game = existingGame;
+        const playerInGame = game.players.find(p => p.platformId === platformId);
+        isHost = playerInGame ? playerInGame.isHost : false;
+        console.log(`♻️ Player in ACTIVE game Session ${game.sessionId} - returning game`);
+        console.log(`   👥 Players: ${game.players.length}/${game.maxPlayers}, IsHost: ${isHost}`);
+      }
+    } else {
+      // Game is finished or doesn't exist - clear currentGameId and continue
+      currentPlayer.currentGameId = null;
+      console.log(`🧹 Cleared finished/missing game from player record`);
+      game = null;
     }
   }
   
-  // Only create new game if we didn't find existing one by GameLobbyId
+  // If player not in a game, do matchmaking
   if (!game) {
+    // 🎯 SMART MATCHMAKING: Always try to join existing games first
+    // Look for any available game that matches our criteria
     try {
-      // Try to find existing game to join (but exclude games with different lobby IDs)
-      const availableGames = gameSession.getAvailableGames(gameType, ranking)
-        .filter(g => !g.gameLobbyId || g.gameLobbyId === gameLobbyId); // Only join games with same lobby ID
+      const availableGames = gameSession.getAvailableGames(gameType, ranking);
       
       if (availableGames.length > 0) {
-        // Join existing game (games can have up to 8 players)
-        game = gameSession.joinGame(availableGames[0].sessionId, platformId);
-        console.log(`🎮 Player joined existing game: Session ${game.sessionId} (${game.players.length}/${game.maxPlayers})`);
+        // Found an existing game - join it
+        const existingGame = availableGames[0];
+        game = gameSession.joinGame(existingGame.sessionId, platformId);
+        isHost = false;
+        console.log(`🎮 MATCH FOUND: Joined existing game: Session ${game.sessionId} (${game.players.length}/${game.maxPlayers})`);
+        console.log(`   🎮 Game Type: ${game.gameType}/${game.ruleSet}, Ranking: ${game.ranking}`);
       } else {
-        // Create new game (player becomes host/admin)
+        // No available games - create new one
         game = gameSession.createGame(platformId, gameType, ruleSet, ranking, gameLobbyId, groupLobbyId);
         isHost = true;
         console.log(`👑 NEW GAME CREATED for GameLobbyId ${gameLobbyId}! Player is HOST: Session ${game.sessionId}`);
         console.log(`   🎮 Game Type: ${gameType}/${ruleSet}, Ranking: ${ranking}, Skill: ${skillLevel}`);
+        console.log(`   ⏳ Game stays in 'waiting' state - Client will start when ready`);
         
-        // Auto-start game after 5 seconds for single player (for testing)
-        setTimeout(() => {
-          try {
-            const currentGame = gameSession.games.get(game.sessionId);
-            if (currentGame && currentGame.status === 'waiting' && currentGame.players.length === 1) {
-              gameSession.startGame(game.sessionId);
-              console.log(`⏰ Auto-started single player game: Session ${game.sessionId}`);
+        // 🎯 COMMUNITY SERVER AUTO-START:
+        // If IgnoreMinimumMatchRequirements=false (Ranked/Public mode),
+        // we auto-start after 3 seconds since no real players will join
+        if (ignoreMinMatch === false || ignoreMinMatch === 'false') {
+          console.log(`⏰ Community Server Mode: Auto-starting game in 3 seconds (Ranked match with solo player)`);
+          setTimeout(() => {
+            try {
+              const currentGame = gameSession.games.get(game.sessionId);
+              if (currentGame && currentGame.status === 'waiting') {
+                currentGame.status = 'active';
+                currentGame.startedAt = new Date();
+                console.log(`🚀 AUTO-STARTED Game Session ${game.sessionId} (Community Server - Solo Ranked Match)`);
+                console.log(`   � Player ${platformId} can now play solo!`);
+              }
+            } catch (e) {
+              console.error(`❌ Auto-start failed: ${e.message}`);
             }
-          } catch (error) {
-            console.error('Error auto-starting game:', error.message);
-          }
-        }, 5000);
+          }, 3000);
+        }
       }
     } catch (error) {
       console.error('❌ Matchmaking error:', error.message);
@@ -380,18 +562,25 @@ app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\\.svc/EnterMatchmaking2', 
     }
   }
     
-  // Find current player in game
-  const currentPlayer = game.players.find(p => p.platformId === platformId);
+  // Find player info in game
+  const playerInGame = game.players.find(p => p.platformId === platformId);
   const groupSize = game.players.length;
   
   const stats = gameSession.getServerStats();
   
   try {
-    const response = `<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><AverageWaitTimeNonRanked>82.8</AverageWaitTimeNonRanked><AverageWaitTimeRanked>84.5</AverageWaitTimeRanked><Error i:nil="true"/><Groups><MatchmakingGroup><GameLobbyId>${gameLobbyId}</GameLobbyId><GroupLobbyId>${groupLobbyId}</GroupLobbyId><GroupSize>${groupSize}</GroupSize><IsHost>${currentPlayer.isHost}</IsHost><Team>0</Team><HostPlatformID>${platformId}</HostPlatformID><GameType>${gameType}</GameType></MatchmakingGroup></Groups><InProgressGameToJoin i:nil="true"/><RaceKey>FBAAAD8DAE34C0BF</RaceKey><SessionId>8912612</SessionId></MatchmakingResult>`;
+    // 🎯 NEW THEORY: InProgressGameToJoin with SessionId might trigger RegisterActiveGameWithPlayers!
+    // Tell client there's an active game ready to join
+    const teamValue = 0;
+    const inProgressGame = `<InProgressGameToJoin><SessionId>${game.sessionId}</SessionId></InProgressGameToJoin>`;
+    const finalResponse = `<MatchmakingResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><AverageWaitTimeNonRanked>82.8</AverageWaitTimeNonRanked><AverageWaitTimeRanked>84.5</AverageWaitTimeRanked><Error i:nil="true"/><Groups><MatchmakingGroup><GameLobbyId>${gameLobbyId}</GameLobbyId><GroupLobbyId>${groupLobbyId}</GroupLobbyId><GroupSize>${groupSize}</GroupSize><IsHost>${playerInGame.isHost}</IsHost><Team>${teamValue}</Team></MatchmakingGroup></Groups>${inProgressGame}<RaceKey>${game.raceKey}</RaceKey><SessionId>${game.sessionId}</SessionId></MatchmakingResult>`;
+    
+    const response = finalResponse;
     
     console.log(`🎲 Matchmaking result: SessionId ${game.sessionId}, RaceKey ${game.raceKey}`);
-    console.log(`   👥 Players: ${groupSize}/${game.maxPlayers}, Host: ${currentPlayer.isHost ? '👑 YES' : 'NO'}`);
-    console.log(`📤 Response XML:`, response.replace(/\n\s*/g, ''));
+    console.log(`   👥 Players: ${groupSize}/${game.maxPlayers}, Host: ${playerInGame.isHost ? '👑 YES' : 'NO'}`);
+    console.log(`✅ Sending Team=${teamValue} ${ignoreMinMatch ? '(Quick Play Mode!)' : '(Ranked Mode)'} - Authentic MMCOS response format`);
+    console.log(`📤 FULL Response XML:\n${response}`);
     console.log(`📤 Response length: ${response.length} bytes`);
     
     // Set exact MMCOS-style headers
@@ -421,7 +610,7 @@ app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\\.svc/EnterMatchmaking2', 
           <GroupLobbyId>109775241626724054</GroupLobbyId>
           <GroupSize>1</GroupSize>
           <IsHost>true</IsHost>
-          <Team>0</Team>
+          <Team>1</Team>
         </MatchmakingGroup>
       </Groups>
       <InProgressGameToJoin i:nil="true"/>
@@ -440,14 +629,21 @@ app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\\.svc/CancelMatchmaking', 
   
   const sessionToken = req.body.cancelmatchmaking?.sessiontoken?.[0];
   
-  // Try to identify player and remove from matchmaking
+  // 🔑 Use SessionToken-Mapping to find existing player
   let platformId;
   if (sessionToken) {
-    platformId = `steam_${sessionToken.substring(0, 16)}`;
+    platformId = gameSession.getPlatformIdByToken(sessionToken);
+    if (!platformId) {
+      console.warn(`⚠️ SessionToken not found in CancelMatchmaking: ${sessionToken.substring(0, 20)}...`);
+      const clientIp = req.ip.replace(/[^a-zA-Z0-9]/g, '_');
+      platformId = `player_${clientIp}`;
+    }
   } else {
     const clientIp = req.ip.replace(/[^a-zA-Z0-9]/g, '_');
     platformId = `player_${clientIp}`;
   }
+  
+  console.log(`🔍 CancelMatchmaking for platformId: ${platformId}`);
   
   const player = gameSession.getPlayer(platformId);
   if (player && player.currentGameId) {
@@ -534,17 +730,24 @@ app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\.svc/AddPoints', (req, res
   console.log(`💎 Points awarded: ${points} points, Level ${level}, Prestige ${prestige}`);
   console.log(`   RaceKey: ${raceKey}`);
   
-  // Find player and update stats
+  // 🔑 Find player using SessionToken-Mapping
   let playerData = null;
   try {
-    // Try to find player by session token or fallback to IP-based ID
+    // Use SessionToken-Mapping to find correct player
     let platformId;
     if (sessionToken) {
-      platformId = `steam_${sessionToken.substring(0, 16)}`;
+      platformId = gameSession.getPlatformIdByToken(sessionToken);
+      if (!platformId) {
+        console.warn(`⚠️ SessionToken not found in AddPoints: ${sessionToken.substring(0, 20)}...`);
+        const clientIp = req.ip.replace(/[^a-zA-Z0-9]/g, '_');
+        platformId = `player_${clientIp}`;
+      }
     } else {
       const clientIp = req.ip.replace(/[^a-zA-Z0-9]/g, '_');
       platformId = `player_${clientIp}`;
     }
+    
+    console.log(`🔍 AddPoints for platformId: ${platformId}`);
     
     playerData = gameSession.getPlayer(platformId);
     if (playerData) {
@@ -2933,7 +3136,6 @@ try {
     console.log('========================================');
     console.log('🔒 MMCOS Community Server ONLINE (HTTPS)');
     console.log('   Micro Machines World Series Revival');
-    console.log('   🎯 INTELLIGENT MATCHMAKING ENABLED');
     console.log('========================================');
     console.log('🌐 HTTP Server: http://localhost:80');
     console.log('🔐 HTTPS Server: https://localhost:443');
@@ -2946,14 +3148,16 @@ try {
     console.log('  • ✅ Player session management');
     console.log('  • ✅ Points and leaderboard system');
     console.log('  • ✅ Real-time admin dashboard');
+
     console.log('');
-    console.log('🔧 Next steps:');
-    console.log('  1. Add these lines to C:\\Windows\\System32\\drivers\\etc\\hosts:');
-    console.log('     127.0.0.1    mmcos.codemasters.com');
-    console.log('     127.0.0.1    ecdn.codemasters.com');
-    console.log('     127.0.0.1    prod.egonet.codemasters.com');
-    console.log('  2. Start Micro Machines World Series');
-    console.log('  3. Watch the magic happen! 🎮');
+    console.log('🔧 Setup Required:');
+    console.log('   Edit your hosts file to redirect game servers:');
+    console.log('   Windows: C:\\Windows\\System32\\drivers\\etc\\hosts');
+    console.log('   Add these lines:');
+    console.log('   127.0.0.1 mmcos.codemasters.com');
+    console.log('   127.0.0.1 prod.egonet.codemasters.com');
+    console.log('   127.0.0.1 ecdn.codemasters.com');
+    console.log('');
     console.log('========================================');
   });
 } catch (error) {

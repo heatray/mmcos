@@ -1,8 +1,12 @@
 const fs = require('fs');
 
 // Generate realistic login response based on MITM dumps
-function generateLoginResponse(platformId, displayName, userId) {
-  const sessionToken = "AQAAAAIAAADKOgoAAAAAAOw1pngEt9tIATLqwyf7IzOwmSnBmY+d01mjfBYhXK522MAR9euYs4IIeCHpu4qjubwYGrHvAenTmsS5nGbzNN/EqeMjj4BExxBO8/2Gc+qXYqMeiIKhjd4/Sfc6Eh4QC5PWnPxyh7uDF/S7tOc8FKiY76QRDK9YowHPP35hrXOnAqLesExPLgyorLA/PoVQHVUDdsNaNMrd9/QGjAddvZjVH2XbR7mxwUFAeeVKByNriqqDbKBgA1X2EiRmSPUuHGR4OQhQFhRZgwa0IYgzHK+KzVU6UDxgRicfmWq1etOXCh0sgdujivHnBSkxBvmSacClH4/4iGhXIywUUgVlBY3j/byC3z6qETE=";
+function generateLoginResponse(platformId, displayName, userId, sessionToken) {
+  // Use provided sessionToken or generate one
+  if (!sessionToken) {
+    // Generate unique sessionToken based on platformId
+    sessionToken = Buffer.from(`${platformId}_${Date.now()}_${Math.random()}`).toString('base64');
+  }
   const userFacingId = Math.random().toString(36).substring(2, 15).toUpperCase();
   
   // Read authentic login response from dump and modify it
