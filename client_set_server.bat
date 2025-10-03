@@ -10,7 +10,7 @@ echo to connect to a custom server.
 echo.
 
 REM Ask for server address
-set /p "SERVER_ADDRESS=Enter server address (e.g. localhost, 192.168.1.100:3000): "
+set /p "SERVER_ADDRESS=Enter server address (e.g. localhost, 192.168.1.100): "
 
 if "!SERVER_ADDRESS!"=="" (
     echo Error: No server address entered!
@@ -203,6 +203,5 @@ echo.
 echo Notes:
 echo - Make sure your server is running
 echo - If you encounter problems, you can restore the .backup file
-echo - For localhost, remove the /MMCOS prefix from Express routes
 echo.
 pause

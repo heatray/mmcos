@@ -99,6 +99,44 @@ app.get('/', (req, res) => {
   res.send('🎮 MMCOS Community Server - Micro Machines World Series Revival');
 });
 
+// 🔧 LOCALHOST COMPATIBILITY MIDDLEWARE
+// Handle both localhost (without /MMCOS) and hosts-file (with /MMCOS) configurations
+app.use((req, res, next) => {
+  // Track client configuration type for debugging
+  let clientType = 'unknown';
+  
+  // Check if request is for a known MMCOS endpoint but without the /MMCOS prefix
+  const mmcosEndpoints = [
+    '/MMCOS-ServerStatus/ServerStatus.xml',
+    '/MMCOS-Account/AccountService.svc/Login',
+    '/MMCOS-Account/AccountService.svc/UpdateAccountTitle', 
+    '/MMCOS-Matchmaking/MatchmakingService.svc/EnterMatchmaking2',
+    '/MMCOS-Matchmaking/MatchmakingService.svc/CancelMatchmaking',
+    '/MMCOS-Matchmaking/MatchmakingService.svc/RegisterActiveGameWithPlayers',
+    '/MMCOS-Matchmaking/MatchmakingService.svc/AddPoints'
+  ];
+  
+  // Check for redirect files without prefix
+  const redirectPattern = /^\/redirect_steam_submission[1-3]\.txt$/;
+  
+  // Detect client configuration type based on request pattern
+  if (req.path.startsWith('/MMCOS/')) {
+    clientType = 'hosts-file';
+  } else if (mmcosEndpoints.includes(req.path) || redirectPattern.test(req.path)) {
+    clientType = 'localhost-config';
+    // Redirect internally to /MMCOS prefixed route
+    console.log(`🔧 Localhost client detected: ${req.method} ${req.path} → /MMCOS${req.path}`);
+    req.url = '/MMCOS' + req.url;
+  }
+  
+  // Log client type for debugging
+  if (clientType !== 'unknown' && !req.path.includes('admin')) {
+    console.log(`� Client type: ${clientType} (${req.method} ${req.originalUrl || req.path})`);
+  }
+  
+  next();
+});
+
 // Admin dashboard endpoint
 app.get('/admin', (req, res) => {
   const stats = gameSession.getServerStats();

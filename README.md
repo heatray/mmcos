@@ -42,9 +42,9 @@ A community-run replacement server for **Micro Machines World Series** multiplay
    ```bash
    client_set_server.bat
    ```
-   - **Advantages:** No system-wide changes, easy to revert
+   - **Advantages:** No system-wide changes, easy to revert, works with any server
    - **How it works:** Modifies the game's configuration to connect to your specified server
-   - **Note:** For localhost, the server removes the `/MMCOS` prefix automatically
+   - **Note:** The server automatically handles both localhost configurations
    
    ### Option B: Edit hosts file manually
    Add these lines to redirect game servers to localhost:
@@ -55,8 +55,6 @@ A community-run replacement server for **Micro Machines World Series** multiplay
    127.0.0.1 prod.egonet.codemasters.com
    127.0.0.1 ecdn.codemasters.com
    ```
-   - **Advantages:** Works for all server environments in the game
-   - **Disadvantages:** System-wide change, requires admin rights, only works for localhost
 
 ## Usage
 
