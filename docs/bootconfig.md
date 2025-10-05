@@ -23,6 +23,7 @@ Default content:
 | MutatorArray        | m_mutatorArray              |         |
 | bool                | m_uiDebugOverlayEnabled     | true    |
 | bool                | m_showDebugModeInLists      | false   |
+| bool                | m_disableEgoNet             | false   |
 | ServerType          | m_serverEnvironment         | SIT     |
 | bool                | m_UseLANMatchmaking         | false   |
 | bool                | m_EnableRealMatchmakingInUI | false   |

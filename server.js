@@ -1,6 +1,168 @@
 const express = require('express');
 const xmlparser = require('express-xml-bodyparser');
 const xml2js = require('xml2js');
+const os = require('os');
+
+// Get the local LAN IP address
+function getLocalIP() {
+  const interfaces = os.networkInterfaces();
+  
+  for (const name of Object.keys(interfaces)) {
+    for (const interface of interfaces[name]) {
+      // Skip internal (i.e. 127.0.0.1) and non-IPv4 addresses
+      if (interface.family === 'IPv4' && !interface.internal) {
+        return interface.address;
+      }
+    }
+  }
+  
+  return 'localhost'; // Fallback
+}
+
+// Check if we should run interactive configuration
+async function startServer() {
+  // Check command line arguments
+  const args = process.argv.slice(2);
+  
+  if (args.includes('--help') || args.includes('-h')) {
+    console.log('🎮 MMCOS Community Server');
+    console.log('==========================');
+    console.log();
+    console.log('Usage:');
+    console.log('  node server.js                 - Interactive configuration');
+    console.log('  node server.js --standard      - Standard community server');
+    console.log('  node server.js --competitive   - Competitive server (no AI)');
+    console.log('  node server.js --casual        - Casual fun server');
+    console.log('  node server.js --training      - AI training server');
+    console.log('  node server.js --battle        - Battle modes server');
+    console.log('  node server.js --elimination   - Elimination server');
+    console.log();
+    process.exit(0);
+  }
+
+  // Check for quick start
+  if (args.includes('--quick')) {
+    // Quick start with sensible defaults
+    const config = {
+      name: "MMCOS Community Server",
+      description: "Quick start with default settings",
+      settings: {
+        maxPlayers: 8,
+        aiEnabled: true,
+        allowSpectators: true,
+        rankedWithAI: true,
+        debugMode: false,
+        seasonSystem: true,
+        forceGameType: null,
+        competitiveMode: false
+      }
+    };
+    
+    console.log('🎮 MMCOS Community Server');
+    console.log('==========================');
+    console.log();
+    console.log('🚀 Quick start with default settings');
+    console.log();
+    
+    // Set environment and continue
+    process.env.SERVER_CONFIG = JSON.stringify(config);
+  } else {
+    // Interactive configuration
+    const { runInteractiveConfig } = require('./interactive-config');
+    await runInteractiveConfig();
+    return; // Interactive config will restart the server
+  }
+}
+
+// Run startup logic if this is the main module
+if (require.main === module) {
+  startServer().then(() => {
+    // Continue with server initialization
+    initializeServer();
+  }).catch(error => {
+    console.error('❌ Startup error:', error.message);
+    process.exit(1);
+  });
+} else {
+  // Being required as module, skip interactive setup
+  initializeServer();
+}
+
+function initializeServer() {
+
+// Multi-Server Configuration Support
+let SERVER_CONFIG;
+
+// Check if server config was passed from interactive setup
+if (process.env.SERVER_CONFIG) {
+  SERVER_CONFIG = JSON.parse(process.env.SERVER_CONFIG);
+  console.log(`🎯 Using interactive configuration: ${SERVER_CONFIG.name}`);
+  } else {
+    // Default configuration - Server responds to game requests
+    SERVER_CONFIG = {
+      name: "MMCOS Community Server",
+      description: "Community server - responds to all game modes",
+      settings: {
+        aiEnabled: true,        // AI available if game requests it
+        rankedWithAI: true,     // Allow ranked matches with AI
+        debugMode: false,
+        seasonSystem: true,
+        maxPlayers: 8,          // Standard maximum
+        forceGameType: null,    // Don't override game's choice
+        allowSpectators: true,
+        competitiveMode: false  // Not a competitive-only server
+      }
+    };
+    console.log(`📁 Using default configuration - server responds to all game requests`);
+  }// Season and ServerStatus functions (extracted from server-configs.js)
+function getCurrentSeason() {
+  const SEASON_CONFIG = {
+    schedule: [
+      { season: 46, start: '2025-01-01', end: '2025-02-15' },
+      { season: 47, start: '2025-03-01', end: '2025-04-15' },
+      { season: 48, start: '2025-05-01', end: '2025-06-15' },
+      { season: 49, start: '2025-07-01', end: '2025-08-15' },
+      { season: 50, start: '2025-09-01', end: '2025-10-16' },
+      { season: 51, start: '2025-11-01', end: '2025-12-16' }
+    ]
+  };
+  
+  const now = new Date();
+  for (const season of SEASON_CONFIG.schedule) {
+    const start = new Date(season.start);
+    const end = new Date(season.end);
+    if (now >= start && now <= end) {
+      return season.season;
+    }
+  }
+  return 46; // Default
+}
+
+function generateServerStatus(config) {
+  const currentSeason = config.settings.seasonSystem ? getCurrentSeason() : 45;
+  
+  return `
+<OnlineServiceStatus>
+  <Message display="false" localize="false">
+    ${config.description}
+  </Message>
+  
+  <ServerStatus accessible="true"/>
+  <Egonet enabled="${config.settings.allowSpectators}"/>
+  
+  <ServerInfo>
+    <Name>${config.name}</Name>
+    <Season>${currentSeason}</Season>
+    <MaxPlayers>${config.settings.maxPlayers}</MaxPlayers>
+    <AIEnabled>${config.settings.aiEnabled}</AIEnabled>
+    <CompetitiveMode>${config.settings.competitiveMode}</CompetitiveMode>
+  </ServerInfo>
+</OnlineServiceStatus>
+`;
+}
+
+console.log(`🚀 Starting ${SERVER_CONFIG.name}`);
+console.log(`📋 Configuration:`, SERVER_CONFIG.settings);
 
 // Global request counter for testing
 let enterMatchmakingCounter = 0;
@@ -316,18 +478,8 @@ app.get('/MMCOS/redirect_steam_submission[1-3]\.txt', (req, res) => {
 })
 
 app.get('/MMCOS/MMCOS-ServerStatus/ServerStatus\.xml', (req, res) => {
-  res.send(`
-<OnlineServiceStatus>
-
-  <Message display="false" localize="false">
-    Server is up!
-  </Message>
-
-  <ServerStatus accessible="true"/>
-  <Egonet enabled="true"/>
-
-</OnlineServiceStatus>
-`)
+  const serverStatus = generateServerStatus(SERVER_CONFIG);
+  res.send(serverStatus);
 })
 
 app.post('/MMCOS/MMCOS-Account/AccountService\\.svc/Login', (req, res) => {
@@ -410,7 +562,7 @@ app.post('/MMCOS/MMCOS-Account/AccountService\\.svc/UpdateAccountTitle', (req, r
 
 // Matchmaking Service Endpoints
 app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\\.svc/EnterMatchmaking2', (req, res) => {
-  console.log('🎯 EnterMatchmaking2 request');
+  console.log(`🎯 EnterMatchmaking2 request on ${SERVER_CONFIG.name}`);
   console.log('🔍 Raw req.body:', JSON.stringify(req.body, null, 2));
   
   // Increment counter for testing
@@ -424,13 +576,28 @@ app.post('/MMCOS/MMCOS-Matchmaking/MatchmakingService\\.svc/EnterMatchmaking2', 
   const gameType = req.body.entermatchmaking2?.GameType?.[0];
   const ruleSet = req.body.entermatchmaking2?.RuleSet?.[0] || 'Race';
   
-  // 🚀 FORCE QUICK PLAY MODE: Always set to true to allow solo play
-  // This overrides client's IgnoreMinimumMatchRequirements setting
-  const clientIgnoreMinMatch = req.body.entermatchmaking2?.IgnoreMinimumMatchRequirements?.[0] === 'true';
-  const ignoreMinMatch = true; // ALWAYS TRUE for community server!
+  // 🎛️ SERVER CONFIGURATION LOGIC
+  const config = SERVER_CONFIG.settings;
   
-  if (!clientIgnoreMinMatch) {
-    console.log(`🎯 FORCING Quick Play Mode (client sent Ranked/Public, we override to Quick Play)`);
+  // Force game type if configured
+  const actualGameType = config.forceGameType || gameType;
+  const actualRuleSet = config.forceGameType ? config.forceGameType.replace('Quick', '') : ruleSet;
+  
+  // AI handling based on server config
+  const clientIgnoreMinMatch = req.body.entermatchmaking2?.IgnoreMinimumMatchRequirements?.[0] === 'true';
+  let ignoreMinMatch = true; // Default for community server
+  
+  // Competitive server logic
+  if (!config.rankedWithAI && !clientIgnoreMinMatch) {
+    console.log(`⚔️ Competitive server: Rejecting ranked match without sufficient players`);
+    // Could implement player waiting queue here
+  }
+  
+  console.log(`🎮 Server Config: AI=${config.aiEnabled}, RankedAI=${config.rankedWithAI}, MaxPlayers=${config.maxPlayers}`);
+  console.log(`🎯 Game Type: ${actualGameType}/${actualRuleSet} (${config.forceGameType ? 'FORCED' : 'CLIENT'})`);
+  
+  if (actualGameType !== gameType) {
+    console.log(`🔄 Game type overridden: ${gameType} → ${actualGameType}`);
   }
 
   // 🔥 CRITICAL PATTERN DETECTION: Battle Mode triggers RegisterActiveGameWithPlayers!
@@ -3213,9 +3380,10 @@ app.post('/MMCOS/MMCOS-Account/AccountService\.svc/UpdateAccountTitle', (req, re
   // Debug endpoint - request received
 })
 
-// Start HTTP server (for testing)
+// Start HTTP server (port 80)
 http.createServer(app).listen(80, () => {
-  console.log('🌐 MMCOS Server listening on HTTP port 80');
+  const lanIP = getLocalIP();
+  console.log(`🌐 MMCOS Server listening on HTTP port 80 (${lanIP})`);
 });
 
 // Start HTTPS server (for production)
@@ -3226,13 +3394,19 @@ try {
   };
   
   https.createServer(options, app).listen(443, () => {
+    const lanIP = getLocalIP();
+    
     console.log('========================================');
     console.log('🔒 MMCOS Community Server ONLINE (HTTPS)');
     console.log('   Micro Machines World Series Revival');
     console.log('========================================');
-    console.log('🌐 HTTP Server: http://localhost:80');
-    console.log('🔐 HTTPS Server: https://localhost:443');
-    console.log('🎮 Admin Dashboard: http://localhost/admin');
+    console.log(`🌐 HTTP Server: http://${lanIP}:80`);
+    console.log(`🔐 HTTPS Server: https://${lanIP}:443`);
+    console.log(`🎮 Admin Dashboard: http://${lanIP}/admin`);
+    console.log('');
+    console.log(`📡 Network Access:`);
+    console.log(`   Local: http://localhost/admin`);
+    console.log(`   LAN: http://${lanIP}/admin`);
     console.log('');
     console.log('🎲 Features:');
     console.log('  • ✅ Automatic game creation');
@@ -3243,17 +3417,19 @@ try {
     console.log('  • ✅ Real-time admin dashboard');
 
     console.log('');
-    console.log('🔧 Setup Required:');
-    console.log('   Edit your hosts file to redirect game servers:');
+    console.log('🔧 Client Setup:');
     console.log('   Windows: C:\\Windows\\System32\\drivers\\etc\\hosts');
     console.log('   Add these lines:');
-    console.log('   127.0.0.1 mmcos.codemasters.com');
-    console.log('   127.0.0.1 prod.egonet.codemasters.com');
-    console.log('   127.0.0.1 ecdn.codemasters.com');
+    console.log(`   ${lanIP} mmcos.codemasters.com`);
+    console.log(`   ${lanIP} prod.egonet.codemasters.com`);
+    console.log(`   ${lanIP} ecdn.codemasters.com`);
     console.log('');
     console.log('========================================');
   });
 } catch (error) {
+  const lanIP = getLocalIP();
   console.warn('⚠️  Could not start HTTPS server:', error.message);
-  console.log('HTTP server is running on port 80');
+  console.log(`HTTP server is running on port 80 (${lanIP})`);
 }
+
+} // End of initializeServer function
