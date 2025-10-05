@@ -2,10 +2,10 @@
   "name": "mmcos-server",
   "version": "1.0.0",
   "description": "Micro Machines World Series Community Server",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "node index.js"
+    "start": "node server.js",
+    "quick": "node server.js --quick"
   },
   "keywords": [
     "micro-machines",
